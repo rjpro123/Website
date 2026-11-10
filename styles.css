@@ -28,7 +28,7 @@ img{display:block;max-width:100%;height:auto}
 ::selection{background:var(--euc);color:#08180E}
 
 /* ---------- Header ---------- */
-.site-header{background:linear-gradient(160deg,#060806 0%,#0A0D0A 55%,#0D110D 100%);color:#fff;padding:26px 0 20px;position:relative;z-index:1}
+.site-header{background:#000000;color:#fff;padding:26px 0 20px;position:relative;z-index:1}
 .brand{display:flex;justify-content:center}
 .brand-logo{width:min(300px,86%);height:auto}
 .tagline{text-align:center;font-family:var(--head);font-weight:600;color:#C9EBD2;font-size:.95rem;margin:10px 0 18px;letter-spacing:.01em}
@@ -121,3 +121,30 @@ select option{background:var(--surface-2);color:var(--ink)}
   .seg{flex:1}
   .footer-mark{width:240px}
 }
+
+/* ---------- Footer nav links ---------- */
+.foot-links{display:flex;gap:26px;justify-content:center;margin:0 0 14px}
+.foot-links a{font-family:var(--head);font-weight:700;font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--euc-bright)}
+
+/* ---------- Gallery page ---------- */
+.wrap-wide{width:min(960px,100%);margin-inline:auto;padding-inline:18px}
+.page-head{text-align:center;padding:30px 0 6px}
+.page-title{font-family:var(--head);font-size:1.6rem;color:#D6F5DC;margin-bottom:6px}
+.page-sub{color:var(--muted);font-size:.92rem;max-width:46ch;margin-inline:auto}
+.gallery-grid{display:grid;grid-template-columns:1fr;gap:14px;padding:22px 0 10px}
+.gitem{margin:0}
+.gframe{aspect-ratio:4/3;background:#161616;border-radius:16px;display:grid;place-items:center;gap:6px;grid-auto-flow:row;align-content:center;transition:.25s;overflow:hidden;position:relative}
+.gframe img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+.gframe:hover{background:#1D1D1D}
+.gicon{font-size:1.8rem;line-height:1}
+.gph{font-size:.78rem;color:var(--faint);font-weight:600}
+.gitem figcaption{padding:10px 4px 0}
+.gitem figcaption strong{display:block;font-family:var(--head);color:var(--ink);font-size:.92rem}
+.gitem figcaption span{font-size:.8rem;color:var(--muted)}
+.gnote{color:var(--muted);font-size:.82rem;text-align:center;max-width:52ch;margin:14px auto 0;padding-bottom:26px}
+.gnote code{color:var(--euc-bright);font-size:.8rem}
+.backrow{display:flex;gap:12px;justify-content:center;padding:6px 0 34px}
+.backrow .btn-primary{width:auto;padding:0 34px}
+@media (min-width:560px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:860px){.gallery-grid{grid-template-columns:repeat(3,1fr);gap:16px}}
