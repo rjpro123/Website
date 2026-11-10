@@ -5,9 +5,8 @@ Kept alongside the code so future edits (incl. Google AI Studio) stay on-spec.
 
 ## Palette
 - Deep Eucalyptus green (primary)
-- Warm Sand / Warm Ochre (accents)
-- Slate Charcoal typography
-- Clean off-white backgrounds
+- Slate Charcoal / near-black backgrounds (dark theme, matches the logo's dark ground)
+- Warm green highlights; no yellow/ochre (removed at owner's request)
 
 ## Header
 - Business header: Souwest Lawn & Garden Service (white wordmark -> sits on charcoal)
