@@ -142,7 +142,7 @@
       summary.appendChild(d);
     });
 
-    mailto.href = "mailto:quotes@souwestlawnandgarden.com.au?subject=" +
+    mailto.href = "mailto:souwestlawnandgarden@gmail.com?subject=" +
       encodeURIComponent("Quote request - " + val("fullName") + " - " + val("suburb")) +
       "&body=" + encodeURIComponent(
         "Name: " + val("fullName") + "\nPhone: " + val("phone") + "\nSuburb: " + val("suburb") +

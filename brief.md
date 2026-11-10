@@ -26,3 +26,6 @@ Kept alongside the code so future edits (incl. Google AI Studio) stay on-spec.
 - assets/logo.png  - wide transparent wordmark (header)
 - assets/logo-mark.png - square mark (footer / social)
 - Files/Logo_00000 (1).png - original upload (black background)
+
+## Delivery
+- Quotes are emailed to souwestlawnandgarden@gmail.com (mailto from the success screen, plus the "Send us an email copy" fallback link)
