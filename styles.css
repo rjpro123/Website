@@ -113,6 +113,7 @@ select option{background:var(--surface-2);color:var(--ink)}
 .footer-mark{width:190px;margin:0 auto 10px;opacity:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.55))}
 .foot-ceo{font-family:var(--head);font-weight:700;font-size:1rem;color:var(--ink);margin:14px 0 4px;letter-spacing:.02em}
 .foot-ceo span{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;color:var(--euc-bright);border:1px solid var(--euc-bright);border-radius:999px;padding:2px 9px;margin-left:6px;vertical-align:2px}
+.foot-ceo span{display:none}
 .foot-line{font-size:.85rem;color:var(--muted);max-width:44ch;margin-inline:auto}
 .foot-sub{font-size:.78rem;margin-top:4px;color:var(--faint)}
 
