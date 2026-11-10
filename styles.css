@@ -33,6 +33,10 @@ img{display:block;max-width:100%;height:auto}
 .brand-logo{width:min(300px,86%);height:auto}
 .tagline{text-align:center;font-family:var(--head);font-weight:600;color:#C9EBD2;font-size:.95rem;margin:10px 0 18px;letter-spacing:.01em}
 .local-bar{display:flex;flex-direction:column;gap:10px}
+.nav-tabs{display:flex;gap:8px;justify-content:center;margin:0 0 16px}
+.tab{padding:9px 26px;border-radius:999px;font-family:var(--head);font-weight:700;font-size:.88rem;color:var(--muted);background:rgba(255,255,255,.05);text-decoration:none;transition:.2s}
+.tab:hover{color:var(--ink);background:rgba(255,255,255,.1)}
+.tab.is-active{background:var(--euc-bright);color:#08180E}
 .badge{display:inline-flex;align-items:center;gap:8px;justify-content:center;background:rgba(255,255,255,.06);color:#E4EBE2;font-size:.85rem;font-weight:600;padding:9px 12px;border-radius:999px;text-align:center}
 .badge-dot{width:8px;height:8px;border-radius:50%;background:#7BC47F;flex:none;box-shadow:0 0 0 3px rgba(123,196,127,.25)}
 .bar-btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:var(--r);font-family:var(--head);font-weight:700;font-size:.95rem;text-decoration:none;border:2px solid transparent;background:rgba(255,255,255,.08);color:#E4EBE2;transition:.2s}
