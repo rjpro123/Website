@@ -12,7 +12,7 @@ Kept alongside the code so future edits (incl. Google AI Studio) stay on-spec.
 - Business header: Souwest Lawn & Garden Service (white wordmark -> sits on charcoal)
 - Tagline: Reliable Lawn & Property Care Across Adelaide & Suburbs
 - Local info bar: Servicing Greater Adelaide & Surrounding Areas
-- Quick contact: Call Direct (tel), Text for Quick Quote (sms)
+- Quick contact: Email for a Quote (no phone/SMS calls to action)
 
 ## Form steps
 1. Contact & Suburb: full name (req), phone (req), email (optional), suburb/postcode (placeholder e.g. Marion, Brighton, Stirling) + helper copy

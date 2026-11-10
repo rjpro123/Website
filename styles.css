@@ -35,10 +35,10 @@ img{display:block;max-width:100%;height:auto}
 .local-bar{display:flex;flex-direction:column;gap:10px}
 .badge{display:inline-flex;align-items:center;gap:8px;justify-content:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#E4EBE2;font-size:.85rem;font-weight:600;padding:9px 12px;border-radius:999px;text-align:center}
 .badge-dot{width:8px;height:8px;border-radius:50%;background:#7BC47F;flex:none;box-shadow:0 0 0 3px rgba(123,196,127,.25)}
-.bar-btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:var(--r);font-family:var(--head);font-weight:700;font-size:.95rem;text-decoration:none;border:2px solid transparent;transition:.2s}
-.bar-btn:first-of-type{background:var(--euc-bright);color:#0C100C;border-color:var(--euc-bright)}
-.bar-btn:last-of-type{background:transparent;color:#E4EBE2;border-color:rgba(255,255,255,.28)}
-.bar-btn:last-of-type:hover{background:rgba(255,255,255,.07)}
+.bar-btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:var(--r);font-family:var(--head);font-weight:700;font-size:.95rem;text-decoration:none;border:2px solid rgba(255,255,255,.28);background:transparent;color:#E4EBE2;transition:.2s}
+.bar-btn:hover{background:rgba(255,255,255,.07)}
+.bar-btn-solid{background:var(--euc-bright);color:#0C100C;border-color:var(--euc-bright)}
+.bar-btn-solid:hover{background:#58A071}
 .bar-btn:active{transform:translateY(1px)}
 
 /* ---------- Module ---------- */
