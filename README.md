@@ -45,6 +45,34 @@ git push -u origin main
 
 3. In GitHub repo settings → **Pages**, set source to `main` / `/ (root)`.
 
+## Editing with Google AI Studio (Gemini)
+
+The site uses **plain HTML/CSS/JavaScript with no build step**, which makes it
+perfectly suited for AI-assisted design and edits via Google AI Studio.
+
+**To edit the site with Gemini in AI Studio:**
+
+1. Open [Google AI Studio](https://aistudio.google.com) and open a chat / canvas session.
+2. Paste one of the prompts below (or just describe changes conversationally):
+
+```
+Redesign the hero section of D:\Website\index.html for a lawn & garden business.
+New headline: "Your Lawn, Our Passion". Keep the green theme, update copy.
+```
+
+```
+Change the primary color scheme of D:\Website/styles.css to blue tones.
+```
+
+```
+Add a new service card to D:\Website/index.html for "Irrigation Repair".
+```
+
+3. Copy the generated code back into the files in `D:\Website`.
+4. Preview by opening `index.html` or running `npx serve .`.
+
+Because there is no framework or bundler, AI edits map 1:1 to simple file edits.
+
 ## TODO / Next Steps
 
 - [ ] Replace placeholder phone number `(555) 310-2245` and email
