@@ -8,6 +8,8 @@ Kept alongside the code so future edits (incl. Google AI Studio) stay on-spec.
 - Slate Charcoal / near-black backgrounds (dark theme, matches the logo's dark ground)
 - Warm green highlights; no yellow/ochre (removed at owner's request)
 
+Current palette: page background dark green #122619, cards #1A3524, inputs #1E3C28, borders #2C5138, primary green #5AA072
+
 ## Header
 - Business header: Souwest Lawn & Garden Service (white wordmark -> sits on charcoal)
 - Tagline: Reliable Lawn & Property Care Across Adelaide & Suburbs
