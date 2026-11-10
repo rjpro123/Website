@@ -28,7 +28,7 @@ img{display:block;max-width:100%;height:auto}
 ::selection{background:var(--euc);color:#0C100C}
 
 /* ---------- Header ---------- */
-.site-header{background:linear-gradient(160deg,#0A0D0A 0%,#111711 55%,#161E16 100%);color:#fff;padding:26px 0 20px;border-bottom:3px solid var(--euc-bright);position:relative;z-index:1}
+.site-header{background:linear-gradient(160deg,#0A0D0A 0%,#111711 55%,#161E16 100%);color:#fff;padding:26px 0 20px;position:relative;z-index:1}
 .brand{display:flex;justify-content:center}
 .brand-logo{width:min(300px,86%);height:auto}
 .tagline{text-align:center;font-family:var(--head);font-weight:600;color:#DCE6DA;font-size:.95rem;margin:10px 0 18px;letter-spacing:.01em}
