@@ -1,18 +1,18 @@
 :root{
-  --bg:#0D2B18;
-  --bg-glow:radial-gradient(120% 60% at 50% -10%, rgba(99,168,122,.22) 0%, rgba(13,43,24,0) 60%);
-  --surface:#14351F;
-  --surface-2:#183C26;
-  --surface-3:#0A2313;
-  --line:#29502F;
-  --line-strong:#3A6844;
-  --euc:#34704A;
-  --euc-bright:#63A87A;
-  --euc-soft:rgba(99,168,122,.20);
-  --euc-glow:rgba(99,168,122,.34);
-  --ink:#EDF1EA;
-  --muted:#A9BFAE;
-  --faint:#82A086;
+  --bg:#17452A;
+  --bg-glow:radial-gradient(120% 60% at 50% -10%, rgba(110,189,135,.20) 0%, rgba(23,69,42,0) 60%);
+  --surface:#1E5233;
+  --surface-2:#235A3B;
+  --surface-3:#143B24;
+  --line:#336B45;
+  --line-strong:#46805A;
+  --euc:#3E7E56;
+  --euc-bright:#6EBD87;
+  --euc-soft:rgba(110,189,135,.20);
+  --euc-glow:rgba(110,189,135,.34);
+  --ink:#F1F5EF;
+  --muted:#B4C9B8;
+  --faint:#93AC97;
   --danger:#E5736A;
   --r:14px; --shadow:0 18px 46px rgba(0,0,0,.5);
   --head:"Plus Jakarta Sans",system-ui,sans-serif;
@@ -28,7 +28,7 @@ img{display:block;max-width:100%;height:auto}
 ::selection{background:var(--euc);color:#08180E}
 
 /* ---------- Header ---------- */
-.site-header{background:linear-gradient(160deg,#0B2414 0%,#10301C 55%,#143D24 100%);color:#fff;padding:26px 0 20px;position:relative;z-index:1}
+.site-header{background:linear-gradient(160deg,#153D26 0%,#1A4B2D 55%,#205836 100%);color:#fff;padding:26px 0 20px;position:relative;z-index:1}
 .brand{display:flex;justify-content:center}
 .brand-logo{width:min(300px,86%);height:auto}
 .tagline{text-align:center;font-family:var(--head);font-weight:600;color:#DCE6DA;font-size:.95rem;margin:10px 0 18px;letter-spacing:.01em}
@@ -38,7 +38,7 @@ img{display:block;max-width:100%;height:auto}
 .bar-btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:var(--r);font-family:var(--head);font-weight:700;font-size:.95rem;text-decoration:none;border:2px solid rgba(255,255,255,.28);background:transparent;color:#E4EBE2;transition:.2s}
 .bar-btn:hover{background:rgba(255,255,255,.07)}
 .bar-btn-solid{background:var(--euc-bright);color:#08180E;border-color:var(--euc-bright)}
-.bar-btn-solid:hover{background:#74B98B}
+.bar-btn-solid:hover{background:#7FCB98}
 .bar-btn:active{transform:translateY(1px)}
 
 /* ---------- Module ---------- */
@@ -86,12 +86,12 @@ select option{background:var(--surface-2);color:var(--ink)}
 .tile-text em{display:block;font-size:.8rem;font-weight:500;font-style:normal;color:var(--muted);margin-top:2px}
 
 .btn-primary{width:100%;min-height:58px;background:var(--euc-bright);color:#08180E;border:none;border-radius:var(--r);font-family:var(--head);font-weight:800;font-size:1rem;cursor:pointer;transition:.2s}
-.btn-primary:hover{background:#74B98B}
+.btn-primary:hover{background:#7FCB98}
 .btn-primary:active{transform:translateY(1px)}
 .btn-ghost{min-height:52px;padding:12px 22px;background:transparent;color:#CFE3D4;border:1.5px solid var(--euc-bright);border-radius:var(--r);font-family:var(--head);font-weight:700;font-size:.95rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
 .btn-ghost:hover{background:var(--euc-soft)}
-.btn-submit{width:100%;min-height:62px;background:linear-gradient(180deg,#7CC292 0%,#63A87A 100%);color:#08180E;border:none;border-radius:var(--r);font-family:var(--head);font-weight:800;font-size:1.05rem;cursor:pointer;box-shadow:0 12px 30px rgba(99,168,122,.45);transition:.2s}
-.btn-submit:hover{background:linear-gradient(180deg,#89CE9E 0%,#6EB487 100%)}
+.btn-submit{width:100%;min-height:62px;background:linear-gradient(180deg,#82CE9B 0%,#6EBD87 100%);color:#08180E;border:none;border-radius:var(--r);font-family:var(--head);font-weight:800;font-size:1.05rem;cursor:pointer;box-shadow:0 12px 30px rgba(110,189,135,.45);transition:.2s}
+.btn-submit:hover{background:linear-gradient(180deg,#90D8A8 0%,#7BC995 100%)}
 .btn-submit:active{transform:translateY(1px)}
 .pane-nav{display:flex;gap:12px;margin-top:20px}
 .pane-nav .btn-primary{flex:1}
