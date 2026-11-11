@@ -252,11 +252,15 @@ body.leaving > header,body.leaving > main{
 .tab:hover,.btn-primary:hover,.btn-submit:hover,.btn-ghost:hover,.bar-btn:hover,.mail-actions button:hover,.mail-actions a:hover{transform:translateY(-2px)}
 .tile:hover,.seg:hover{transform:translateY(-2px)}
 
-/* --- Respect reduced motion --- */
+/* --- Respect reduced motion: keep a simple fade, drop all movement --- */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{
     animation-duration:.01ms !important; animation-iteration-count:1 !important;
     transition-duration:.01ms !important; scroll-behavior:auto !important;
   }
+  /* class selectors beat the * selector above, so the fade survives */
+  .page-veil{transition:opacity .18s linear !important}
+  .page-veil .veil-mark{transition:opacity .18s linear !important;transform:none !important}
+  .page-veil .veil-bar{display:none}
   .reveal-ready .reveal{ opacity:1 !important; transform:none !important; }
 }

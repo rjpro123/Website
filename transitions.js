@@ -6,6 +6,10 @@
   var navigating = false;
   var veil = null;
 
+  if (reduceMQ.addEventListener){
+    reduceMQ.addEventListener("change", function(e){ reduced = e.matches; });
+  }
+
   /* ---------------- Staggered reveal on load ---------------- */
   var REVEAL_SEL = [
     ".brand", ".tagline", ".nav-tabs", ".local-bar",
@@ -34,7 +38,6 @@
       n.style.setProperty("--d", (Math.min(i, 14) * 0.045) + "s");
     });
 
-    // safety net: never leave content invisible
     setTimeout(function(){
       nodes.forEach(function(n){ n.classList.add("is-in"); });
     }, 2000);
@@ -52,7 +55,7 @@
     veil = document.createElement("div");
     veil.className = "page-veil";
     veil.setAttribute("aria-hidden", "true");
-    var img = new Image();
+    var img = document.createElement("img");
     img.className = "veil-mark";
     img.alt = "";
     img.src = "assets/logo.png";
@@ -71,15 +74,14 @@
     if (link.target === "_blank" || link.target === "_parent" || link.hasAttribute("download")) return false;
     if (/^(mailto:|tel:|sms:|javascript:|#)/i.test(href)) return false;
     var url;
-    try { url = new URL(href, location.href); } catch (e) { return false; }
-    if (url.origin !== location.origin) return false;
-    // same page (anchor or same path) -> let the browser handle it
-    if (url.pathname === location.pathname && url.search === location.search) return false;
+    try { url = new URL(href, window.location.href); } catch (e) { return false; }
+    if (url.origin !== window.location.origin) return false;
+    if (url.pathname === window.location.pathname && url.search === window.location.search) return false;
     return true;
   }
 
   function onClick(e){
-    if (reduced || navigating) return;
+    if (navigating) return;
     if (e.defaultPrevented || e.button !== 0) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
@@ -91,22 +93,22 @@
     navigating = true;
 
     var v = ensureVeil();
-    document.body.classList.add("leaving");
-    // force a paint so the veil is actually visible before we navigate
+    if (!reduced) document.body.classList.add("leaving");
+
+    // two frames guarantees the veil is painted before we navigate away
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){ v.classList.add("on"); });
     });
 
     setTimeout(function(){
       window.location.assign(href);
-    }, 420);
+    }, reduced ? 200 : 420);
   }
 
   /* ---------------- Boot ---------------- */
   document.addEventListener("click", onClick);
   reveal();
 
-  // clean up when the page is restored from the back/forward cache
   window.addEventListener("pageshow", function(e){
     if (e.persisted){
       navigating = false;
