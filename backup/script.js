@@ -7,9 +7,9 @@
 
   // Mark the current tab
   var here = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-  var tabs = document.querySelectorAll(".nav-tabs .tab");
+  var tabs = document.querySelectorAll(".navtabs .tab");
   Array.prototype.forEach.call(tabs, function(a){
     var href = (a.getAttribute("href") || "").split("/").pop().split("#")[0].toLowerCase();
-    if (href && href === here) a.classList.add("is-active");
+    if (href && href === here) a.classList.add("isactive");
   });
 })();

@@ -12,10 +12,10 @@
 
   /* ---------------- Staggered reveal on load ---------------- */
   var REVEAL_SEL = [
-    ".brand", ".tagline", ".nav-tabs", ".local-bar",
-    ".page-head", ".hero-home", ".sec", ".module", ".dash-side",
-    ".mail-card", ".mail-form", ".backrow", ".thanks-wrap",
-    ".svc-grid", ".svc-strip", ".gitem", ".site-footer"
+    ".brand", ".tagline", ".navtabs", ".localbar",
+    ".pagehead", ".herohome", ".sec", ".module", ".dash-side",
+    ".mailcard", ".mailform", ".backrow", ".thankswrap",
+    ".svcgrid", ".svcstrip", ".gitem", ".sitefooter"
   ];
 
   function collect(){
@@ -44,15 +44,15 @@
   function ensureVeil(){
     if (veil) return veil;
     veil = document.createElement("div");
-    veil.className = "page-veil";
+    veil.className = "pageveil";
     veil.setAttribute("aria-hidden", "true");
     var img = document.createElement("img");
-    img.className = "veil-mark";
+    img.className = "veilmark";
     img.alt = "";
     img.src = "assets/logo.png";
     img.addEventListener("error", function(){ img.style.display = "none"; });
     var bar = document.createElement("span");
-    bar.className = "veil-bar";
+    bar.className = "veilbar";
     veil.appendChild(img);
     veil.appendChild(bar);
     document.body.appendChild(veil);

@@ -1,5 +1,16 @@
 # Requested module (design brief)
 
+## HARD RULES (owner requirements - always apply)
+1. **NO HYPHENS ANYWHERE** - no hyphens in any text, class name, id, attribute,
+   file name or URL. Use camelCase or all lowercase joins instead
+   (e.g. `pagehead` not `page-head`, `logofooter.png` not `logo-footer.png`).
+   The only exceptions are HTML/ARIA spec names that cannot change
+   (aria-label, http-equiv, apple-mobile-web-app-title, viewport-fit).
+2. **Business scope:** soft landscaping and garden maintenance ONLY.
+3. **Email address:** souwestgardening@gmail.com (single form, no address shown on page).
+4. **Theme:** black background with green text. No yellow/ochre.
+5. **Fonts:** Plus Jakarta Sans (headings) + Inter (body), loaded non-blocking.
+
 ## Business scope (important - keep on-spec)
 Souwest Lawn & Garden Service does **soft landscaping and garden maintenance only**.
 No hard landscaping (no paving, decking, retaining walls, structural work) and no

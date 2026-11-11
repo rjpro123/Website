@@ -9,7 +9,7 @@
   var input = document.getElementById("photos");
   var thumbs = document.getElementById("thumbs");
   var form = document.getElementById("mailForm");
-  var errEl = document.querySelector('[data-err-for="photos"]');
+  var errEl = document.querySelector('[dataerrfor="photos"]');
 
   function showError(msgText){
     if (!errEl) return;
@@ -47,7 +47,7 @@
         cap.textContent = f.name;
         box.appendChild(cap);
 
-        if (f.size > MAX_BYTES) box.classList.add("is-bad");
+        if (f.size > MAX_BYTES) box.classList.add("isbad");
         thumbs.appendChild(box);
       });
 
