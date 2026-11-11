@@ -3,7 +3,8 @@
 
   var reduceMQ = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches:false };
   var reduced = reduceMQ.matches;
-  var nativeVT = typeof document.startViewTransition === "function";
+  var navigating = false;
+  var veil = null;
 
   /* ---------------- Staggered reveal on load ---------------- */
   var REVEAL_SEL = [
@@ -46,10 +47,20 @@
   }
 
   /* ---------------- Overlay veil for page changes ---------------- */
-  function buildVeil(){
-    var veil = document.createElement("div");
+  function ensureVeil(){
+    if (veil) return veil;
+    veil = document.createElement("div");
     veil.className = "page-veil";
-    veil.innerHTML = '<img src="assets/logo.png" class="veil-mark" alt=""><span class="veil-bar"></span>';
+    veil.setAttribute("aria-hidden", "true");
+    var img = new Image();
+    img.className = "veil-mark";
+    img.alt = "";
+    img.src = "assets/logo.png";
+    img.addEventListener("error", function(){ img.style.display = "none"; });
+    var bar = document.createElement("span");
+    bar.className = "veil-bar";
+    veil.appendChild(img);
+    veil.appendChild(bar);
     document.body.appendChild(veil);
     return veil;
   }
@@ -57,36 +68,51 @@
   function isInternalLink(link){
     var href = link.getAttribute("href");
     if (!href) return false;
-    if (link.target === "_blank" || link.hasAttribute("download")) return false;
+    if (link.target === "_blank" || link.target === "_parent" || link.hasAttribute("download")) return false;
     if (/^(mailto:|tel:|sms:|javascript:|#)/i.test(href)) return false;
     var url;
     try { url = new URL(href, location.href); } catch (e) { return false; }
     if (url.origin !== location.origin) return false;
-    if (url.pathname === location.pathname && url.search === location.search) return false; // anchor / same page
+    // same page (anchor or same path) -> let the browser handle it
+    if (url.pathname === location.pathname && url.search === location.search) return false;
     return true;
   }
 
   function onClick(e){
-    if (reduced || nativeVT) return;               // native transitions handle it
+    if (reduced || navigating) return;
     if (e.defaultPrevented || e.button !== 0) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
     var link = e.target && e.target.closest ? e.target.closest("a") : null;
     if (!link || !isInternalLink(link)) return;
 
     var href = link.getAttribute("href");
     e.preventDefault();
+    navigating = true;
 
-    var veil = buildVeil();
-    requestAnimationFrame(function(){ veil.classList.add("on"); });
-    setTimeout(function(){ location.href = href; }, 460);
+    var v = ensureVeil();
+    document.body.classList.add("leaving");
+    // force a paint so the veil is actually visible before we navigate
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ v.classList.add("on"); });
+    });
+
+    setTimeout(function(){
+      window.location.assign(href);
+    }, 420);
   }
 
   /* ---------------- Boot ---------------- */
   document.addEventListener("click", onClick);
   reveal();
 
-  // restore animations when returning via back/forward cache
+  // clean up when the page is restored from the back/forward cache
   window.addEventListener("pageshow", function(e){
-    if (e.persisted) reveal();
+    if (e.persisted){
+      navigating = false;
+      document.body.classList.remove("leaving");
+      if (veil) veil.classList.remove("on");
+      reveal();
+    }
   });
 })();
