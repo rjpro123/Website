@@ -387,4 +387,4 @@ body.has-sticky{padding-bottom:96px}
 .svc h3{font-family:var(--head);font-size:.98rem;color:var(--ink);margin-bottom:5px}
 .svc p{color:var(--muted);font-size:.85rem;line-height:1.5}
 @media (min-width:640px){.svc-strip{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1000px){.svc-strip{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1000px){.svc-strip{grid-template-columns:repeat(4,1fr)}}

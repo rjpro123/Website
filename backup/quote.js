@@ -16,7 +16,8 @@
     weeds:"Weed Control & Spraying",
     cleanup:"Garden Clean-up / Green Waste",
     planting:"Planting & Garden Bed Renewal",
-    presale:"Getting Ready for Sale"
+    presale:"Getting Ready for Sale",
+    turf:"Turf Replacement"
   };
   var SPECIAL_LABELS = {
     summer:"Summer Heat / Drought",
@@ -36,7 +37,8 @@
     weeds:      { lo: 35, hi: 60 },
     cleanup:    { lo: 45, hi: 95 },
     planting:   { lo: 80, hi: 180 },
-    presale:    { lo: 140, hi: 280 }
+    presale:    { lo: 140, hi: 280 },
+    turf:       { lo: 450, hi: 1200 }
   };
   var SPECIALS = {
     summer: { lo: 25, hi: 40 },

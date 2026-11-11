@@ -13,6 +13,7 @@ Services offered:
 - Garden Clean-up / Green Waste Removal
 - Planting & Garden Bed Renewal
 - Getting Ready for Sale (kerbside appeal for a sale or rental)
+- Turf Replacement (new Kikuyu or Couch laid to worn patches and bare areas)
 
 Seasonal / turf options:
 - Summer Heat / Drought Lawn Care (Kikuyu & Couch maintenance)

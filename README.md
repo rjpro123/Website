@@ -4,8 +4,8 @@ Adelaide **soft landscaping & garden maintenance** website - quote page and gall
 Static HTML/CSS/JS, no build step.
 
 Services: lawn mowing & edging, hedging & pruning, weed control & seasonal spraying,
-garden clean-up / green waste removal, planting & garden bed renewal, and
-"getting ready for sale" kerbside-appeal jobs.
+garden clean-up / green waste removal, planting & garden bed renewal,
+"getting ready for sale" kerbside-appeal jobs, and turf replacement.
 
 ## Local Development
 
