@@ -192,10 +192,6 @@ fieldset{border:none;padding:0;margin:0 0 16px}
 legend{font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--ink);padding:0}
 
 /* ---------- Email page ---------- */
-.mail-card{background:var(--surface);border-radius:20px;padding:24px 20px;text-align:center;margin:26px 0 18px}
-.mail-label{font-size:.8rem;color:var(--faint);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
-.mail-addr{display:inline-block;font-family:var(--head);font-weight:700;font-size:clamp(1.02rem,3.4vw,1.35rem);color:var(--euc-bright);word-break:break-all;text-decoration:none;margin-bottom:18px}
-.mail-addr:hover{text-decoration:underline}
 .mail-form{background:var(--surface);border-radius:20px;padding:22px 18px}
 .mail-form h2{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:14px}
 .mail-form textarea{min-height:120px}
@@ -203,9 +199,6 @@ legend{font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px
 /* ---------- Email form (direct send) ---------- */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
 .mail-form .btn-submit{margin-top:4px}
-.mail-alt{display:block;text-align:center;margin-top:14px}
-.mail-alt a{font-family:var(--head);font-weight:700;font-size:.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
-.mail-alt a:hover{color:var(--euc-bright)}
 .thanks-wrap{text-align:center;padding:56px 0 30px}
 .thanks-wrap .success-icon{margin-bottom:18px}
 .thanks-wrap h1{font-family:var(--head);font-size:1.6rem;color:#D6F5DC;margin-bottom:10px}
@@ -296,7 +289,6 @@ input[type=text],input[type=tel],input[type=email],select,textarea{min-height:56
 /* comfortable tap targets */
 .tab{min-height:46px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px}
 .foot-links a{display:inline-block;padding:11px 6px;font-size:.9rem}
-.mail-addr{padding:10px 0}
 .tile,.seg{min-height:58px;padding:14px}
 .btn-primary,.btn-submit,.btn-ghost,.bar-btn{min-height:54px}
 
