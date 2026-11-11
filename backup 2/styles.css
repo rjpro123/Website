@@ -382,3 +382,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .svc h3{font-size:.95rem;margin-bottom:3px;line-height:1.3}
   .svc p{font-size:.82rem;line-height:1.45}
 }
+
+/* Slightly smaller logo on phones */
+@media (max-width:639px){
+  .brand-logo{width:min(280px,79%)}
+  .site-header{padding:22px 0 18px}
+}
