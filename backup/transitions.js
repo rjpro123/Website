@@ -15,7 +15,7 @@
     ".brand", ".tagline", ".nav-tabs", ".local-bar",
     ".page-head", ".hero-home", ".sec", ".module", ".dash-side",
     ".mail-card", ".mail-form", ".backrow", ".thanks-wrap",
-    ".svc-grid", ".gitem", ".site-footer"
+    ".svc-grid", ".svc-strip", ".gitem", ".site-footer"
   ];
 
   function collect(){
