@@ -17,18 +17,20 @@ python -m http.server 8080
 
 | Page | File | Purpose |
 |---|---|---|
-| Home | `index.html` | Services, coverage suburbs, why us, CTA |
-| Quote | `quote.html` | 3-step quote form + live dashboard with indicative pricing |
+| Quote (root) | `index.html` | 3-step quote form + live dashboard with indicative pricing |
 | Gallery | `gallery.html` | Recent job photos (placeholders until you add images) |
+| Quote (old link) | `quote.html` | Redirect stub -> `index.html` (keeps old bookmarks working) |
 
-Navigation lives in the tab bar in the header of every page.
+There is no separate home page - the site opens straight on the quote form at
+`https://rjpro123.github.io/Website/`. Navigation is the two-tab bar
+(Quote / Gallery) in the header of every page.
 
 ## Project Structure
 
 ```
 D:\Website
-├── index.html      # Home page
-├── quote.html      # Quote dashboard (form + live estimate panel)
+├── index.html      # Quote form + live dashboard (the site root)
+├── quote.html      # Redirect stub to index.html
 ├── gallery.html    # Gallery page
 ├── styles.css      # All styles (CSS variables, mobile-first, dark theme)
 ├── script.js       # Form validation, step nav, success message, footer year
@@ -89,7 +91,7 @@ The site is plain HTML/CSS/JS, so AI edits map 1:1 to simple file edits.
 
 ```
 Rewrite the hero section of D:\Website\index.html for an Adelaide lawn and garden
-business. Keep the black and green theme and the three tab navigation.
+business. Keep the black and green theme and the two tab navigation.
 ```
 
 ```
