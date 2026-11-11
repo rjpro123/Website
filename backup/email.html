@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Us | Souwest Lawn &amp; Garden Service | Adelaide</title>
+  <meta name="description" content="Send Souwest Lawn & Garden Service a message for a lawn or garden quote across Adelaide and suburbs. We reply within 24 hours.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap-wide">
+    <div class="brand">
+      <a href="index.html"><img src="assets/logo.png" alt="Souwest Lawn &amp; Garden Service" class="brand-logo"></a>
+    </div>
+    <p class="tagline">Reliable Lawn &amp; Property Care Across Adelaide &amp; Suburbs</p>
+    <nav class="nav-tabs" aria-label="Pages">
+      <a class="tab" href="index.html">Quote</a>
+      <a class="tab is-active" href="email.html">Email</a>
+      <a class="tab" href="gallery.html">Gallery</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap-wide">
+
+  <div class="page-head">
+    <h1 class="page-title">Email Us Directly</h1>
+    <p class="page-sub">Send us a message straight to our inbox &mdash; no phone call needed. We reply within 24 hours.</p>
+  </div>
+
+  <div class="mail-card">
+    <p class="mail-label">Our email address</p>
+    <a class="mail-addr" href="mailto:souwestlawnandgarden@gmail.com">souwestlawnandgarden@gmail.com</a>
+    <div class="mail-actions">
+      <button type="button" id="copyBtn" class="ghost">Copy address</button>
+    </div>
+    <span class="copied" id="copiedMsg"></span>
+  </div>
+
+  <form class="mail-form" id="mailForm"
+        action="https://formsubmit.co/souwestlawnandgarden@gmail.com"
+        method="POST">
+    <input type="hidden" name="_subject" value="New website enquiry - Souwest Lawn &amp; Garden">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="thanks.html">
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <h2>Write your message</h2>
+    <div class="field">
+      <label for="mailName">Your name</label>
+      <input id="mailName" name="Name" type="text" autocomplete="name" placeholder="e.g., Sam Mitchell" required>
+    </div>
+    <div class="field">
+      <label for="mailEmail">Your email</label>
+      <input id="mailEmail" name="Email" type="email" autocomplete="email" placeholder="you@example.com" required>
+    </div>
+    <div class="field">
+      <label for="mailPhone">Phone <span class="optional">(optional)</span></label>
+      <input id="mailPhone" name="Phone" type="tel" autocomplete="tel" placeholder="e.g., 0412 345 678">
+    </div>
+    <div class="field">
+      <label for="mailSubject">Subject</label>
+      <input id="mailSubject" name="Subject" type="text" placeholder="e.g., Lawn mowing quote - Marion">
+    </div>
+    <div class="field">
+      <label for="mailMessage">Message</label>
+      <textarea id="mailMessage" name="Message" rows="5" placeholder="Tell us the suburb, what you need done and your property type." required></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Send Message</button>
+    <p class="mail-alt">Prefer your own email app? <a href="mailto:souwestlawnandgarden@gmail.com">Open email directly</a></p>
+  </form>
+
+  <div class="backrow">
+    <a class="btn-primary" href="index.html">Build a detailed quote instead</a>
+  </div>
+
+  <footer class="site-footer">
+    <img src="assets/logo-footer.png" alt="Souwest Lawn &amp; Garden Service" class="footer-mark">
+    <p class="foot-ceo">Patrick Glynn</p>
+    <p class="foot-line">Souwest Lawn &amp; Garden Service &mdash; Reliable Lawn &amp; Property Care Across Adelaide &amp; Suburbs</p>
+    <p class="foot-line foot-sub">Serving Greater Adelaide &amp; Surrounding Areas</p>
+    <div class="foot-links">
+      <a href="index.html">Quote</a>
+      <a href="email.html">Email</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+    <p class="copy">&copy; <span id="year">2026</span> Souwest Lawn &amp; Garden Service. All rights reserved.</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+<script>
+(function(){
+  "use strict";
+  var copyBtn = document.getElementById("copyBtn");
+  var msg = document.getElementById("copiedMsg");
+  var EMAIL = "souwestlawnandgarden@gmail.com";
+
+  copyBtn.addEventListener("click", function(){
+    function done(){
+      msg.textContent = "Email address copied to your clipboard.";
+      setTimeout(function(){ msg.textContent = ""; }, 4000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(EMAIL).then(done, function(){ window.prompt("Copy the email address:", EMAIL); });
+    } else {
+      window.prompt("Copy the email address:", EMAIL);
+    }
+  });
+})();
+</script>
+</body>
+</html>
