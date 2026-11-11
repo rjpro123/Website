@@ -170,3 +170,35 @@ select option{background:var(--surface-2);color:var(--ink)}
 @media (min-width:900px){
   .dash{grid-template-columns:1.45fr .95fr;gap:20px}
 }
+
+/* ---------- Home page ---------- */
+.hero-home{text-align:center;padding:42px 0 6px}
+.hero-home h1{font-family:var(--head);font-size:clamp(1.9rem,4.6vw,2.8rem);color:#D6F5DC;line-height:1.15;margin-bottom:12px}
+.hero-home h1 em{font-style:normal;color:var(--euc-bright)}
+.hero-home p{color:var(--muted);max-width:52ch;margin:0 auto 22px;font-size:1.02rem}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-actions .btn-primary,.hero-actions .btn-submit{width:auto;padding:0 30px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.sec{padding:44px 0 4px}
+.sec-head{text-align:center;max-width:48ch;margin:0 auto 26px}
+.sec-head h2{font-family:var(--head);font-size:clamp(1.5rem,3.2vw,2rem);color:#D6F5DC;margin-bottom:8px}
+.sec-head p{color:var(--muted);font-size:.95rem}
+.svc-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.svc{background:var(--surface);border-radius:16px;padding:18px 16px}
+.svc-icon{font-size:1.5rem;line-height:1;margin-bottom:10px}
+.svc h3{font-family:var(--head);font-size:1.02rem;color:var(--ink);margin-bottom:6px}
+.svc p{color:var(--muted);font-size:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:660px;margin:0 auto}
+.chip{background:var(--surface-2);color:var(--muted);border-radius:999px;padding:8px 16px;font-size:.85rem;font-weight:600}
+.why-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.why{background:var(--surface);border-radius:16px;padding:18px 16px}
+.why h3{font-family:var(--head);font-size:1rem;color:var(--euc-bright);margin-bottom:6px}
+.why p{color:var(--muted);font-size:.9rem}
+.cta-band{margin:44px 0 8px;background:var(--surface);border-radius:20px;padding:30px 22px;text-align:center}
+.cta-band h2{font-family:var(--head);font-size:clamp(1.4rem,3vw,1.9rem);color:#D6F5DC;margin-bottom:8px}
+.cta-band p{color:var(--muted);margin-bottom:18px}
+.cta-band .btn-submit{width:auto;padding:0 34px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.copy{font-size:.78rem;color:var(--faint);text-align:center;margin:16px 0 0}
+
+/* ---------- Accessible form groups ---------- */
+fieldset{border:none;padding:0;margin:0 0 16px}
+legend{font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--ink);padding:0}

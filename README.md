@@ -1,82 +1,113 @@
-# Southwest Lawn & Garden Service
+# Souwest Lawn & Garden Service
 
-Professional lawn mowing, fertilization, garden design and landscaping website.
+Adelaide lawn & garden care website - landing page, quote dashboard and gallery.
+Static HTML/CSS/JS, no build step.
 
 ## Local Development
 
-No build step required — plain HTML, CSS and JavaScript.
-
-1. Open `index.html` in a browser, **or**
-2. Run a local server:
+Open `index.html` in a browser, or run a local server from `D:\Website`:
 
 ```bash
-# from D:\Website
 npx serve .
 # or
 python -m http.server 8080
 ```
 
+## Pages
+
+| Page | File | Purpose |
+|---|---|---|
+| Home | `index.html` | Services, coverage suburbs, why us, CTA |
+| Quote | `quote.html` | 3-step quote form + live dashboard with indicative pricing |
+| Gallery | `gallery.html` | Recent job photos (placeholders until you add images) |
+
+Navigation lives in the tab bar in the header of every page.
+
 ## Project Structure
 
 ```
 D:\Website
-├── index.html   # Site markup
-├── styles.css   # All styles (plain CSS, CSS variables, responsive)
-├── script.js    # Interactions (nav, header, form)
+├── index.html      # Home page
+├── quote.html      # Quote dashboard (form + live estimate panel)
+├── gallery.html    # Gallery page
+├── styles.css      # All styles (CSS variables, mobile-first, dark theme)
+├── script.js       # Form validation, step nav, success message, footer year
+├── quote.js        # Live quote summary + indicative price estimate
+├── assets/
+│   ├── logo.png        # Wide wordmark (header)
+│   ├── logo-footer.png # Tight crop (footer)
+│   └── logo-mark.png   # Square mark
+├── gallery/        # Drop job photos here (jpg/png)
+├── brief.md        # Design brief - keeps AI Studio edits on-spec
 ├── README.md
 └── .gitignore
 ```
 
+## Quotes & Email
+
+All quotes send to **souwestlawnandgarden@gmail.com**.
+Submission opens the visitor's email client with the quote pre-filled
+(`mailto:`), so no backend is required. To collect submissions server-side
+instead, point the form at a service such as FormSubmit or a Google Form.
+
 ## Publishing to GitHub
 
-The site is ready to publish to GitHub Pages.
-
-1. Create a repo on GitHub (e.g. `southwest-lawn-garden`)
-2. From `D:\Website`:
+Repo: `https://github.com/rjpro123/Website` (branch `main`)
 
 ```bash
-git init
 git add .
-git commit -m "Initial site: Southwest Lawn & Garden Service"
-git branch -M main
-git remote add origin https://github.com/<your-username>/southwest-lawn-garden.git
-git push -u origin main
+git commit -m "Your message"
+git push origin main
 ```
 
-3. In GitHub repo settings → **Pages**, set source to `main` / `/ (root)`.
+GitHub Pages is enabled via repo settings -> **Pages** -> branch `main`, folder `/ (root)`.
+
+## Adding Photos to the Gallery
+
+1. Drop the image into `D:\Website\gallery\`
+2. In `gallery.html`, replace the placeholder block:
+
+```html
+<div class="gframe" role="img" aria-label="Front lawn reset - Marion">
+  <span class="gicon">&#127807;</span>
+  <span class="gph">Coming soon</span>
+</div>
+```
+
+with:
+
+```html
+<div class="gframe"><img src="gallery/marion-lawn.jpg" alt="Front lawn reset in Marion"></div>
+```
 
 ## Editing with Google AI Studio (Gemini)
 
-The site uses **plain HTML/CSS/JavaScript with no build step**, which makes it
-perfectly suited for AI-assisted design and edits via Google AI Studio.
+The site is plain HTML/CSS/JS, so AI edits map 1:1 to simple file edits.
 
-**To edit the site with Gemini in AI Studio:**
-
-1. Open [Google AI Studio](https://aistudio.google.com) and open a chat / canvas session.
-2. Paste one of the prompts below (or just describe changes conversationally):
+1. Open [Google AI Studio](https://aistudio.google.com)
+2. Paste a prompt, e.g.
 
 ```
-Redesign the hero section of D:\Website\index.html for a lawn & garden business.
-New headline: "Your Lawn, Our Passion". Keep the green theme, update copy.
+Rewrite the hero section of D:\Website\index.html for an Adelaide lawn and garden
+business. Keep the black and green theme and the three tab navigation.
 ```
 
 ```
-Change the primary color scheme of D:\Website/styles.css to blue tones.
+Change the indicative pricing in D:\Website\quote.js - base rates should be
+$60 for a small courtyard, $95 standard lot, $180 acreage.
 ```
 
 ```
-Add a new service card to D:\Website/index.html for "Irrigation Repair".
+Add a "Before & After" slider to the gallery placeholders in D:\Website\gallery.html
 ```
 
-3. Copy the generated code back into the files in `D:\Website`.
-4. Preview by opening `index.html` or running `npx serve .`.
-
-Because there is no framework or bundler, AI edits map 1:1 to simple file edits.
+3. Copy the generated code back into the files in `D:\Website`
+4. Check `brief.md` so the AI keeps the palette, brand and page structure intact
 
 ## TODO / Next Steps
 
-- [ ] Replace placeholder phone number `(555) 310-2245` and email
-- [ ] Update hero copy / stats with real business details
-- [ ] Add real before/after photos
-- [ ] Connect form to a real backend or CRM
-- [ ] Add booking integration
+- [ ] Add real job photos to `gallery/`
+- [ ] Set real pricing in `quote.js` (currently indicative placeholder rates)
+- [ ] Consider a form backend so quotes arrive without the visitor's mail client
+- [ ] Add a business email address and/or phone number to the header
+- [ ] Add opening hours, ABN and service area map
