@@ -1,5 +1,25 @@
 # Requested module (design brief)
 
+## Business scope (important - keep on-spec)
+Souwest Lawn & Garden Service does **soft landscaping and garden maintenance only**.
+No hard landscaping (no paving, decking, retaining walls, structural work) and no
+irrigation installation - irrigation was removed from the service list and replaced
+with planting / garden bed renewal.
+
+Services offered:
+- Lawn Mowing & Edging
+- Hedging & Pruning
+- Weed Control & Seasonal Spraying
+- Garden Clean-up / Green Waste Removal
+- Planting & Garden Bed Renewal
+
+Seasonal / turf options:
+- Summer Heat / Drought Lawn Care (Kikuyu & Couch maintenance)
+- Winter Weed & Patch Care
+- Fire Season / Overgrowth Clearance
+
+Brand line: "Soft Landscaping & Garden Maintenance Across Adelaide & Suburbs"
+
 Mobile-first single-page quote request module for Souwest Lawn & Garden Service, Adelaide SA.
 Kept alongside the code so future edits (incl. Google AI Studio) stay on-spec.
 
@@ -12,13 +32,13 @@ Current palette: black background #070907, cards #0D100D, inputs #111511, green 
 
 ## Header
 - Business header: Souwest Lawn & Garden Service (white wordmark -> sits on charcoal)
-- Tagline: Reliable Lawn & Property Care Across Adelaide & Suburbs
+- Tagline: Soft Landscaping & Garden Maintenance Across Adelaide & Suburbs
 - Local info bar: Servicing Greater Adelaide & Surrounding Areas
 - Quick contact: Email for a Quote (no phone/SMS calls to action)
 
 ## Form steps
 1. Contact & Suburb: full name (req), phone (req), email (optional), suburb/postcode (placeholder e.g. Marion, Brighton, Stirling) + helper copy
-2. Property & Service Scope: property type (Residential / Commercial-Strata / Rental-End of Lease); service tiles (Lawn Mowing & Edging, Hedging & Pruning, Weed Control & Seasonal Spraying, Garden Clean-up / Green Waste Removal, Irrigation & Lawn Care Setup); season/turf checkboxes (Summer Heat / Drought Kikuyu & Couch, Winter Weed & Patch Care, Fire Season / Overgrowth Clearance)
+2. Property & Service Scope: property type (Residential / Commercial-Strata / Rental-End of Lease); service tiles (Lawn Mowing & Edging, Hedging & Pruning, Weed Control & Seasonal Spraying, Garden Clean-up / Green Waste Removal, Planting & Garden Bed Renewal); season/turf checkboxes (Summer Heat / Drought Kikuyu & Couch, Winter Weed & Patch Care, Fire Season / Overgrowth Clearance)
 3. Job Details & Timing: yard size (Small Courtyard / Standard Suburban Lot / Large Acreage / Commercial); timing (ASAP-Urgent, Within 7 Days, Regular Scheduled Care); notes/access textarea
 - Submit: Get My Free Adelaide Quote
 - Real-time client-side validation; success: "Thanks mate! We'll review your property details and reach out within 24 hours."
