@@ -388,3 +388,19 @@ body.has-sticky{padding-bottom:96px}
 .svc p{color:var(--muted);font-size:.85rem;line-height:1.5}
 @media (min-width:640px){.svc-strip{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1000px){.svc-strip{grid-template-columns:repeat(4,1fr)}}
+
+/* ---------- Mobile running total (quote mode only) ---------- */
+.dash-total{display:none}
+@media (max-width:899px){
+  .dash-form{position:relative}
+  .dash-total{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    position:sticky;top:0;z-index:5;
+    margin:0 0 10px;padding:12px 16px;border-radius:14px;
+    background:rgba(20,53,31,.96);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    box-shadow:0 10px 24px rgba(0,0,0,.45);
+  }
+  .dash-total span{font-family:var(--head);font-weight:700;font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+  .dash-total strong{font-family:var(--head);font-size:1.05rem;color:var(--euc-bright);white-space:nowrap}
+}

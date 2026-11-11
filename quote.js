@@ -5,6 +5,7 @@
 
   var dashEmail = document.getElementById("dashEmail");
   var priceEl = document.getElementById("qprice");
+  var totalEl = document.getElementById("dashTotalPrice");
   var EMAIL = "souwestlawnandgarden@gmail.com";
 
   var PROP = { residential:"Residential Home", commercial:"Commercial / Strata", rental:"Rental / End of Lease" };
@@ -81,8 +82,14 @@
     var add = TIMING_ADD[timing] || 0;
     lo += add; hi += add;
 
-    if (!hasSize) { priceEl.textContent = "Select a yard size"; return; }
-    priceEl.textContent = "$" + lo + " - $" + hi;
+    if (!hasSize) {
+      priceEl.textContent = "Select a yard size";
+      if (totalEl) totalEl.textContent = "Select a yard size";
+      return;
+    }
+    var range = "$" + lo + " - $" + hi;
+    priceEl.textContent = range;
+    if (totalEl) totalEl.textContent = range;
   }
 
   function buildMail(){
