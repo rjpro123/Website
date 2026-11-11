@@ -5,23 +5,6 @@
   var MAX_FILES = 5;
   var MAX_BYTES = 8 * 1024 * 1024;
 
-  /* ---------------- Copy email address ---------------- */
-  var copyBtn = document.getElementById("copyBtn");
-  var msg = document.getElementById("copiedMsg");
-  if (copyBtn && msg){
-    copyBtn.addEventListener("click", function(){
-      function done(){
-        msg.textContent = "Email address copied to your clipboard.";
-        setTimeout(function(){ msg.textContent = ""; }, 4000);
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(EMAIL).then(done, function(){ window.prompt("Copy the email address:", EMAIL); });
-      } else {
-        window.prompt("Copy the email address:", EMAIL);
-      }
-    });
-  }
-
   /* ---------------- Photo upload previews ---------------- */
   var input = document.getElementById("photos");
   var thumbs = document.getElementById("thumbs");
