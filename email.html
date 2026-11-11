@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Email Us | Souwest Lawn &amp; Garden Service | Adelaide</title>
-  <meta name="description" content="Email Souwest Lawn & Garden Service directly for a lawn or garden quote across Adelaide and suburbs. We reply within 24 hours.">
+  <meta name="description" content="Send Souwest Lawn & Garden Service a message for a lawn or garden quote across Adelaide and suburbs. We reply within 24 hours.">
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,35 +32,50 @@
 
   <div class="page-head">
     <h1 class="page-title">Email Us Directly</h1>
-    <p class="page-sub">Prefer to skip the quote form? Send us a message straight to our inbox and we&rsquo;ll reply within 24 hours.</p>
+    <p class="page-sub">Send us a message straight to our inbox &mdash; no phone call needed. We reply within 24 hours.</p>
   </div>
 
   <div class="mail-card">
     <p class="mail-label">Our email address</p>
     <a class="mail-addr" href="mailto:souwestlawnandgarden@gmail.com">souwestlawnandgarden@gmail.com</a>
     <div class="mail-actions">
-      <a href="mailto:souwestlawnandgarden@gmail.com">Open in your email app</a>
       <button type="button" id="copyBtn" class="ghost">Copy address</button>
     </div>
     <span class="copied" id="copiedMsg"></span>
   </div>
 
-  <form class="mail-form" id="mailForm">
+  <form class="mail-form" id="mailForm"
+        action="https://formsubmit.co/souwestlawnandgarden@gmail.com"
+        method="POST">
+    <input type="hidden" name="_subject" value="New website enquiry - Souwest Lawn &amp; Garden">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="thanks.html">
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
     <h2>Write your message</h2>
     <div class="field">
-      <label for="mailName">Your name <span class="optional">(optional)</span></label>
-      <input id="mailName" name="mailName" type="text" placeholder="e.g., Sam Mitchell">
+      <label for="mailName">Your name</label>
+      <input id="mailName" name="Name" type="text" autocomplete="name" placeholder="e.g., Sam Mitchell" required>
     </div>
     <div class="field">
-      <label for="mailSubject">Subject <span class="optional">(optional)</span></label>
-      <input id="mailSubject" name="mailSubject" type="text" placeholder="e.g., Lawn mowing quote - Marion">
+      <label for="mailEmail">Your email</label>
+      <input id="mailEmail" name="Email" type="email" autocomplete="email" placeholder="you@example.com" required>
+    </div>
+    <div class="field">
+      <label for="mailPhone">Phone <span class="optional">(optional)</span></label>
+      <input id="mailPhone" name="Phone" type="tel" autocomplete="tel" placeholder="e.g., 0412 345 678">
+    </div>
+    <div class="field">
+      <label for="mailSubject">Subject</label>
+      <input id="mailSubject" name="Subject" type="text" placeholder="e.g., Lawn mowing quote - Marion">
     </div>
     <div class="field">
       <label for="mailMessage">Message</label>
-      <textarea id="mailMessage" name="mailMessage" rows="5" placeholder="Tell us the suburb, what you need done and your property type."></textarea>
+      <textarea id="mailMessage" name="Message" rows="5" placeholder="Tell us the suburb, what you need done and your property type." required></textarea>
     </div>
-    <button type="submit" class="btn-submit">Open in your email app</button>
-    <p class="form-note">Your email app opens with this message filled in &mdash; just hit send.</p>
+    <button type="submit" class="btn-submit">Send Message</button>
+    <p class="mail-alt">Prefer your own email app? <a href="mailto:souwestlawnandgarden@gmail.com">Open email directly</a></p>
   </form>
 
   <div class="backrow">
@@ -86,9 +101,9 @@
 <script>
 (function(){
   "use strict";
-  var EMAIL = "souwestlawnandgarden@gmail.com";
   var copyBtn = document.getElementById("copyBtn");
   var msg = document.getElementById("copiedMsg");
+  var EMAIL = "souwestlawnandgarden@gmail.com";
 
   copyBtn.addEventListener("click", function(){
     function done(){
@@ -100,16 +115,6 @@
     } else {
       window.prompt("Copy the email address:", EMAIL);
     }
-  });
-
-  document.getElementById("mailForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    var name = document.getElementById("mailName").value.trim();
-    var subject = document.getElementById("mailSubject").value.trim();
-    var message = document.getElementById("mailMessage").value.trim();
-    var body = (name ? "Name: " + name + "\n\n" : "") + message;
-    var s = subject || "Quote request" + (name ? " - " + name : "");
-    window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(s) + "&body=" + encodeURIComponent(body);
   });
 })();
 </script>

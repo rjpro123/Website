@@ -193,3 +193,14 @@ legend{font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px
 .mail-form h2{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:14px}
 .mail-form textarea{min-height:120px}
 .copied{font-size:.8rem;color:var(--euc-bright);font-weight:600;margin-top:10px;min-height:1em;display:block}
+
+/* ---------- Email form (direct send) ---------- */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.mail-form .btn-submit{margin-top:4px}
+.mail-alt{display:block;text-align:center;margin-top:14px}
+.mail-alt a{font-family:var(--head);font-weight:700;font-size:.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+.mail-alt a:hover{color:var(--euc-bright)}
+.thanks-wrap{text-align:center;padding:56px 0 30px}
+.thanks-wrap .success-icon{margin-bottom:18px}
+.thanks-wrap h1{font-family:var(--head);font-size:1.6rem;color:#D6F5DC;margin-bottom:10px}
+.thanks-wrap p{color:var(--muted);max-width:44ch;margin:0 auto 22px}
