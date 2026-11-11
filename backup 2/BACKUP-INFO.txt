@@ -1,0 +1,34 @@
+BACKUP 2 OF: D:\Website (Souwest Lawn & Garden Service website)
+TAKEN:      2026-11-11 18:09
+GIT COMMIT: 483344b
+REMOTE:     https://github.com/rjpro123/Website (branch: main)
+
+A full copy of the website files as they stood on 2026-11-11 18:09.
+This is the second snapshot - "backup" holds the earlier one.
+
+CONTENTS:
+  index.html      Quote page - Detailed Quote + Quick Email modes
+  quote.html      Redirect stub to index.html
+  email.html      Redirect stub to index.html#email
+  thanks.html     Thank-you page after sending
+  gallery.html    Gallery page
+  styles.css      All styles (black + green theme)
+  script.js       Form validation, step nav, success, footer year
+  quote.js        Live quote summary + indicative pricing
+  email.js        Copy-address helper
+  modes.js        Detailed Quote / Quick Email switcher
+  transitions.js  Page transitions + reveal animations
+  assets/         Logo variants
+  gallery/        Job photos folder
+  Files/          Original logo upload
+  brief.md        Design brief
+  README.md       Setup + editing guide
+
+NOTES:
+  - The .git folder is not included (git cannot track a nested repo).
+    A full copy including git history is saved as:
+        D:\Website-Full-Backup-2026-11-11.zip
+  - The other backup folders are excluded from this copy to avoid nesting.
+
+TO RESTORE SITE FILES:
+  robocopy "D:\Website\backup 2\*" "D:\Website" /E
