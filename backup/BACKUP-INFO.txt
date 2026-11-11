@@ -1,0 +1,9 @@
+BACKUP OF: D:\Website (Souwest Lawn & Garden Service website)
+TAKEN:     2026-11-11 21:18
+GIT COMMIT: 95b9bd1
+
+Full snapshot of the site at the commit above (older snapshot folder).
+"backup 2" holds the same current content.
+
+TO RESTORE SITE FILES:
+  robocopy "D:\Website\backup\*" "D:\Website" /E
