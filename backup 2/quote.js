@@ -17,7 +17,8 @@
     cleanup:"Garden Clean-up / Green Waste",
     planting:"Planting & Garden Bed Renewal",
     presale:"Getting Ready for Sale",
-    turf:"Turf Replacement"
+    turf:"Turf Replacement",
+    mulch:"Mulching & Soil Conditioning"
   };
   var SPECIAL_LABELS = {
     summer:"Summer Heat / Drought",
@@ -38,7 +39,8 @@
     cleanup:    { lo: 45, hi: 95 },
     planting:   { lo: 80, hi: 180 },
     presale:    { lo: 140, hi: 280 },
-    turf:       { lo: 450, hi: 1200 }
+    turf:       { lo: 450, hi: 1200 },
+    mulch:      { lo: 90,  hi: 220 }
   };
   var SPECIALS = {
     summer: { lo: 25, hi: 40 },

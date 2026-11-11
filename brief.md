@@ -14,6 +14,7 @@ Services offered:
 - Planting & Garden Bed Renewal
 - Getting Ready for Sale (kerbside appeal for a sale or rental)
 - Turf Replacement (new Kikuyu or Couch laid to worn patches and bare areas)
+- Mulching & Soil Conditioning (fresh mulch over garden beds)
 
 Seasonal / turf options:
 - Summer Heat / Drought Lawn Care (Kikuyu & Couch maintenance)
