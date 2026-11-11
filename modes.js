@@ -19,13 +19,15 @@
     emailBtn.setAttribute("aria-selected", String(isEmail));
   }
 
+  // Quick Email is the default landing mode; #quote opens the detailed form
   function modeFromHash(){
-    return (window.location.hash || "").toLowerCase().indexOf("email") !== -1 ? "email" : "quote";
+    var h = (window.location.hash || "").toLowerCase();
+    return h.indexOf("quote") !== -1 ? "quote" : "email";
   }
 
   quoteBtn.addEventListener("click", function(){
     show("quote");
-    history.replaceState(null, "", window.location.pathname);
+    history.replaceState(null, "", window.location.pathname + "#quote");
   });
   emailBtn.addEventListener("click", function(){
     show("email");

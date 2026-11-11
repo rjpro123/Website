@@ -77,11 +77,11 @@
   </section>
 
   <div class="mode-switch" role="tablist" aria-label="Quote options">
-    <button type="button" class="mode-btn is-active" id="modeQuoteBtn" role="tab" aria-selected="true" aria-controls="modeQuote">Detailed Quote</button>
-    <button type="button" class="mode-btn" id="modeEmailBtn" role="tab" aria-selected="false" aria-controls="modeEmail">Quick Email</button>
+    <button type="button" class="mode-btn is-active" id="modeEmailBtn" role="tab" aria-selected="true" aria-controls="modeEmail">Quick Email</button>
+    <button type="button" class="mode-btn" id="modeQuoteBtn" role="tab" aria-selected="false" aria-controls="modeQuote">Detailed Quote</button>
   </div>
 
-  <section class="mode-panel is-active" id="modeQuote" role="tabpanel" aria-labelledby="modeQuoteBtn">
+  <section class="mode-panel" id="modeQuote" role="tabpanel" aria-labelledby="modeQuoteBtn" hidden>
   <div class="dash">
 
     <div class="dash-form">
@@ -228,7 +228,7 @@
   </div>
   </section>
 
-  <section class="mode-panel" id="modeEmail" role="tabpanel" aria-labelledby="modeEmailBtn" hidden>
+  <section class="mode-panel is-active" id="modeEmail" role="tabpanel" aria-labelledby="modeEmailBtn">
 
     <div class="mail-card">
       <p class="mail-label">Our email address</p>
