@@ -30,7 +30,7 @@
     document.body.classList.add("reveal-ready");
     nodes.forEach(function(n, i){
       n.classList.add("reveal");
-      n.style.setProperty("--d", (Math.min(i, 14) * 0.055) + "s");
+      n.style.setProperty("--d", (Math.min(i, 14) * 0.045) + "s");
     });
 
     // safety net: never leave content invisible
