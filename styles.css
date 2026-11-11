@@ -29,8 +29,9 @@ img{display:block;max-width:100%;height:auto}
 
 /* ---------- Header ---------- */
 .site-header{background:#000000;color:#fff;padding:26px 0 20px;position:relative;z-index:1}
-.brand{display:flex;justify-content:center}
-.brand-logo{width:min(300px,86%);height:auto}
+.brand{display:flex;justify-content:center;align-items:center;text-align:center;width:100%}
+.brand a{display:block;line-height:0}
+.brand-logo{display:block;width:min(340px,88%);height:auto;margin:0 auto}
 .tagline{text-align:center;font-family:var(--head);font-weight:600;color:#C9EBD2;font-size:.95rem;margin:10px 0 18px;letter-spacing:.01em}
 .local-bar{display:flex;flex-direction:column;gap:10px}
 .nav-tabs{display:flex;gap:8px;justify-content:center;margin:0 0 16px}
