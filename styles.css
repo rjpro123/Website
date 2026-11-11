@@ -179,3 +179,17 @@ select option{background:var(--surface-2);color:var(--ink)}
 /* ---------- Accessible form groups ---------- */
 fieldset{border:none;padding:0;margin:0 0 16px}
 legend{font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--ink);padding:0}
+
+/* ---------- Email page ---------- */
+.mail-card{background:var(--surface);border-radius:20px;padding:24px 20px;text-align:center;margin:26px 0 18px}
+.mail-label{font-size:.8rem;color:var(--faint);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.mail-addr{display:inline-block;font-family:var(--head);font-weight:700;font-size:clamp(1.02rem,3.4vw,1.35rem);color:var(--euc-bright);word-break:break-all;text-decoration:none;margin-bottom:18px}
+.mail-addr:hover{text-decoration:underline}
+.mail-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.mail-actions a,.mail-actions button{min-height:52px;padding:0 26px;border-radius:var(--r);font-family:var(--head);font-weight:700;font-size:.95rem;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;border:none;background:var(--euc-bright);color:#08180E;transition:.2s}
+.mail-actions .ghost{background:var(--surface-2);color:var(--ink)}
+.mail-actions a:hover,.mail-actions button:hover{filter:brightness(1.12)}
+.mail-form{background:var(--surface);border-radius:20px;padding:22px 18px}
+.mail-form h2{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:14px}
+.mail-form textarea{min-height:120px}
+.copied{font-size:.8rem;color:var(--euc-bright);font-weight:600;margin-top:10px;min-height:1em;display:block}
