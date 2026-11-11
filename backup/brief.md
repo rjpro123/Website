@@ -12,6 +12,7 @@ Services offered:
 - Weed Control & Seasonal Spraying
 - Garden Clean-up / Green Waste Removal
 - Planting & Garden Bed Renewal
+- Getting Ready for Sale (kerbside appeal for a sale or rental)
 
 Seasonal / turf options:
 - Summer Heat / Drought Lawn Care (Kikuyu & Couch maintenance)

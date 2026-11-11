@@ -15,7 +15,8 @@
     hedging:"Hedging & Pruning",
     weeds:"Weed Control & Spraying",
     cleanup:"Garden Clean-up / Green Waste",
-    planting:"Planting & Garden Bed Renewal"
+    planting:"Planting & Garden Bed Renewal",
+    presale:"Getting Ready for Sale"
   };
   var SPECIAL_LABELS = {
     summer:"Summer Heat / Drought",
@@ -34,7 +35,8 @@
     hedging:    { lo: 40, hi: 85 },
     weeds:      { lo: 35, hi: 60 },
     cleanup:    { lo: 45, hi: 95 },
-    planting:   { lo: 80, hi: 180 }
+    planting:   { lo: 80, hi: 180 },
+    presale:    { lo: 140, hi: 280 }
   };
   var SPECIALS = {
     summer: { lo: 25, hi: 40 },
