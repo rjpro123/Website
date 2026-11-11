@@ -3,7 +3,7 @@
 
   var EMAIL = "souwestgardening@gmail.com";
   var MAX_FILES = 5;
-  var MAX_BYTES = 8 * 1024 * 1024;
+  var MAX_BYTES = 10 * 1024 * 1024;   // FormSubmit limit is 10MB in TOTAL
 
   /* ---------------- Photo upload previews ---------------- */
   var input = document.getElementById("photos");
@@ -20,8 +20,11 @@
   function filesOk(){
     var files = Array.prototype.slice.call((input && input.files) || []);
     if (files.length > MAX_FILES) return "Please attach up to " + MAX_FILES + " photos.";
-    var tooBig = files.filter(function(f){ return f.size > MAX_BYTES; });
-    if (tooBig.length) return "One or more photos are over 8MB. Please email them instead.";
+    var total = files.reduce(function(sum, f){ return sum + f.size; }, 0);
+    if (total > MAX_BYTES) {
+      return "Those photos add up to " + (Math.round(total / 1048576)) +
+             "MB. Please keep the total under 10MB or email them separately.";
+    }
     return "";
   }
 

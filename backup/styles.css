@@ -362,3 +362,40 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   transition:color .2s ease, border-color .2s ease;
 }
 .page-sub em a:hover{color:#8FD9A6;border-bottom-color:#8FD9A6}
+
+/* ---------- Service cards: compact rows on small screens ---------- */
+.svc-head{
+  font-family:var(--head);font-size:1.05rem;color:#D6F5DC;
+  text-align:center;margin:0 0 14px;
+}
+@media (max-width:639px){
+  .svc-strip{gap:8px;margin:34px 0 8px}
+  .svc{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:13px 14px;border-radius:14px;
+  }
+  .svc-icon{
+    font-size:1.15rem;margin-bottom:0;width:28px;flex:none;
+    text-align:center;line-height:1.5;
+  }
+  .svc-text{flex:1;min-width:0}
+  .svc h3{font-size:.95rem;margin-bottom:3px;line-height:1.3}
+  .svc p{font-size:.82rem;line-height:1.45}
+}
+
+/* Slightly smaller logo on phones */
+@media (max-width:639px){
+  .brand-logo{width:min(250px,70%)}
+  .site-header{padding:22px 0 18px}
+}
+
+/* ---------- Services page ---------- */
+.svc-page{margin-top:26px}
+@media (min-width:640px){
+  .svc-page{grid-template-columns:repeat(2,1fr);gap:12px}
+  .svc-page .svc{display:block}
+  .svc-page .svc-icon{margin-bottom:10px}
+}
+@media (min-width:1000px){
+  .svc-page{grid-template-columns:repeat(3,1fr);gap:14px}
+}

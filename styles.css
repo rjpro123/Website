@@ -388,3 +388,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .brand-logo{width:min(250px,70%)}
   .site-header{padding:22px 0 18px}
 }
+
+/* ---------- Services page ---------- */
+.svc-page{margin-top:26px}
+@media (min-width:640px){
+  .svc-page{grid-template-columns:repeat(2,1fr);gap:12px}
+  .svc-page .svc{display:block}
+  .svc-page .svc-icon{margin-bottom:10px}
+}
+@media (min-width:1000px){
+  .svc-page{grid-template-columns:repeat(3,1fr);gap:14px}
+}
