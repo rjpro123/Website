@@ -290,3 +290,71 @@ body.leaving > header,body.leaving > main{
   .page-veil .veil-bar{display:none}
   .reveal-ready .reveal{ opacity:1 !important; transform:none !important; }
 }
+
+/* ==========================================================
+   MOBILE OPTIMISATION
+   ========================================================== */
+html{ -webkit-tap-highlight-color:transparent; }
+body{
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  touch-action:manipulation;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.wrap,.wrap-wide{
+  padding-left:max(18px,env(safe-area-inset-left));
+  padding-right:max(18px,env(safe-area-inset-right));
+}
+
+/* iOS zooms the page when a focused field is smaller than 16px */
+input,select,textarea{font-size:16px}
+input[type=text],input[type=tel],input[type=email],select,textarea{min-height:56px}
+
+/* comfortable tap targets */
+.tab{min-height:46px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px}
+.foot-links a{display:inline-block;padding:11px 6px;font-size:.9rem}
+.mail-addr{padding:10px 0}
+.tile,.seg{min-height:58px;padding:14px}
+.qrow{padding:10px 0}
+.btn-primary,.btn-submit,.btn-ghost,.bar-btn{min-height:54px}
+
+/* keyboard focus ring */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--euc-bright);outline-offset:3px;border-radius:8px;
+}
+
+/* no sticky hover states on touch screens */
+@media (hover:none){
+  .tab:hover,.btn-primary:hover,.btn-submit:hover,.btn-ghost:hover,.bar-btn:hover,.tile:hover,.seg:hover{transform:none}
+}
+
+/* price row must never overflow a narrow phone */
+.qtotal{flex-wrap:wrap;row-gap:4px}
+.qtotal strong{white-space:normal}
+
+/* single-column actions on small phones */
+@media (max-width:420px){
+  .mail-actions a,.mail-actions button{width:100%}
+  .hero-actions .btn-primary,.hero-actions .btn-submit{width:100%}
+  .backrow .btn-primary{width:100%}
+  .pane-nav{flex-direction:column-reverse}
+  .pane-nav .btn-primary,.pane-nav .btn-ghost{width:100%}
+  .dash{gap:14px}
+}
+
+/* sticky mobile CTA */
+.sticky-cta{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(0,0,0,.94);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-top:1px solid rgba(120,200,150,.22);
+}
+.sticky-cta span{
+  display:block;max-width:520px;margin:0 auto;padding:16px 20px;border-radius:16px;
+  background:linear-gradient(180deg,#82CE9B 0%,#6EBD87 100%);color:#08180E;
+  font-family:var(--head);font-weight:800;font-size:1rem;text-align:center;
+  box-shadow:0 10px 26px rgba(110,189,135,.4);
+}
+@media (max-width:700px){ .sticky-cta{display:block} }
+body.has-sticky{padding-bottom:96px}
