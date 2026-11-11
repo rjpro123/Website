@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Souwest Lawn &amp; Garden Service | Soft Landscaping &amp; Garden Maintenance Adelaide</title>
-  <meta name="description" content="Free quote for soft landscaping and garden maintenance across Adelaide - mowing, hedging, pruning, spraying and garden clean-ups. Tell us what your yard needs and see the estimate update live.">
+  <meta name="description" content="Free quote for soft landscaping and garden maintenance across Adelaide. Mowing, hedging, pruning, spraying and garden cleanups. Tell us what your yard needs and see the estimate update live.">
   <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Souwest Lawn &amp; Garden">
@@ -13,8 +13,11 @@
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <!-- Fonts load without blocking render -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -34,10 +37,9 @@
 <main class="wrap-wide">
 
   <div class="page-head">
-    <h1 class="page-title">Get Your Free Quote</h1>
-    <p class="page-sub">Soft landscaping and garden maintenance across Adelaide &mdash; mowing, hedging, pruning, spraying, clean-ups and new turf. Build a detailed quote or email us straight away.</p>
+    <h1 class="page-title">Get Your Adelaide Quote</h1>
+    <p class="page-sub">Soft landscaping and garden maintenance across Adelaide. Mowing, hedging, pruning, spraying, cleanups and new turf.<em>Send us the details and photos, and we will come back with a quote within 24 hours.</em></p>
   </div>
-
 
   <section class="svc-strip" aria-label="Our services">
     <article class="svc">
@@ -57,8 +59,8 @@
     </article>
     <article class="svc">
       <div class="svc-icon">&#129578;</div>
-      <h3>Garden Clean-up</h3>
-      <p>Weeding, green waste removal and full tidy-ups when you need them.</p>
+      <h3>Garden Cleanup</h3>
+      <p>Weeding, green waste removal and full tidyups when you need them.</p>
     </article>
     <article class="svc">
       <div class="svc-icon">&#127793;</div>
@@ -68,172 +70,35 @@
     <article class="svc">
       <div class="svc-icon">&#127968;</div>
       <h3>Getting Ready for Sale</h3>
-      <p>Kerbside appeal for a sale or rental &mdash; mow, edge, prune and clear the yard.</p>
+      <p>Kerbside appeal for a sale or rental. Mow, edge, prune and clear the yard.</p>
     </article>
     <article class="svc">
       <div class="svc-icon">&#127824;</div>
       <h3>Turf Replacement</h3>
       <p>New Kikuyu or Couch laid to worn patches and bare areas, levelled off.</p>
     </article>
+    <article class="svc">
+      <div class="svc-icon">&#127756;</div>
+      <h3>Mulching &amp; Soil Conditioning</h3>
+      <p>A fresh layer of mulch to hold moisture, suppress weeds and feed the soil.</p>
+    </article>
   </section>
 
-  <div class="mode-switch" role="tablist" aria-label="Quote options">
-    <button type="button" class="mode-btn is-active" id="modeEmailBtn" role="tab" aria-selected="true" aria-controls="modeEmail">Quick Email</button>
-    <button type="button" class="mode-btn" id="modeQuoteBtn" role="tab" aria-selected="false" aria-controls="modeQuote">Detailed Quote</button>
-  </div>
+  <section class="mail-wrap">
 
-  <section class="mode-panel" id="modeQuote" role="tabpanel" aria-labelledby="modeQuoteBtn" hidden>
-  <div class="dash">
-
-    <div class="dash-form">
-      <div class="module">
-        <div class="steps" aria-hidden="true">
-          <div class="step is-active" data-dot="1"><span class="step-num">1</span><span class="step-label">Contact</span></div>
-          <div class="step" data-dot="2"><span class="step-num">2</span><span class="step-label">Property</span></div>
-          <div class="step" data-dot="3"><span class="step-num">3</span><span class="step-label">Details</span></div>
-        </div>
-
-        <form id="quoteForm" novalidate aria-label="Quote request form">
-
-          <section class="pane is-active" data-pane="1">
-            <h2 class="pane-title">Contact &amp; Suburb</h2>
-            <div class="field">
-              <label for="fullName">Full Name</label>
-              <input id="fullName" name="fullName" type="text" autocomplete="name" required placeholder="e.g., Sam Mitchell">
-              <p class="err" data-err-for="fullName"></p>
-            </div>
-            <div class="field">
-              <label for="phone">Phone Number</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="e.g., 0412 345 678">
-              <p class="err" data-err-for="phone"></p>
-            </div>
-            <div class="field">
-              <label for="email">Email Address <span class="optional">(optional)</span></label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
-              <p class="err" data-err-for="email"></p>
-            </div>
-            <div class="field">
-              <label for="suburb">Suburb / Postcode</label>
-              <input id="suburb" name="suburb" type="text" required placeholder="e.g., Marion, Brighton, Stirling">
-              <p class="help">We service local Adelaide homes, rentals, and commercial properties.</p>
-              <p class="err" data-err-for="suburb"></p>
-            </div>
-            <button type="button" class="btn-primary btn-next" data-next="2">Continue</button>
-          </section>
-
-          <section class="pane" data-pane="2">
-            <h2 class="pane-title">Property &amp; Service Scope</h2>
-            <fieldset class="field">
-              <legend>Property Type</legend>
-              <div class="segmented">
-                <label class="seg"><input type="radio" name="propType" value="residential"><span>Residential Home</span></label>
-                <label class="seg"><input type="radio" name="propType" value="commercial"><span>Commercial / Strata</span></label>
-                <label class="seg"><input type="radio" name="propType" value="rental"><span>Rental / End of Lease</span></label>
-              </div>
-              <p class="err" data-err-for="propType"></p>
-            </fieldset>
-            <fieldset class="field">
-              <legend>Services Needed</legend>
-              <div class="tiles">
-                <label class="tile"><input type="checkbox" name="services" value="mowing"><span class="tile-icon">&#127807;</span><span class="tile-text">Lawn Mowing &amp; Edging</span></label>
-                <label class="tile"><input type="checkbox" name="services" value="hedging"><span class="tile-icon">&#128127;</span><span class="tile-text">Hedging &amp; Pruning</span></label>
-                <label class="tile"><input type="checkbox" name="services" value="weeds"><span class="tile-icon">&#128167;</span><span class="tile-text">Weed Control &amp; Seasonal Spraying</span></label>
-                <label class="tile"><input type="checkbox" name="services" value="cleanup"><span class="tile-icon">&#129578;</span><span class="tile-text">Garden Clean-up / Green Waste Removal</span></label>
-                <label class="tile"><input type="checkbox" name="services" value="planting"><span class="tile-icon">&#127793;</span><span class="tile-text">Planting &amp; Garden Bed Renewal</span></label>
-                <label class="tile"><input type="checkbox" name="services" value="presale"><span class="tile-icon">&#127968;</span><span class="tile-text">Getting Ready for Sale</span></label>
-                <label class="tile"><input type="checkbox" name="services" value="turf"><span class="tile-icon">&#127824;</span><span class="tile-text">Turf Replacement</span></label>
-              </div>
-              <p class="err" data-err-for="services"></p>
-            </fieldset>
-            <fieldset class="field">
-              <legend>Season / Turf Specializations</legend>
-              <div class="tiles">
-                <label class="tile"><input type="checkbox" name="special" value="summer"><span class="tile-icon">&#9728;</span><span class="tile-text">Summer Heat / Drought Lawn Care <em>(Kikuyu &amp; Couch maintenance)</em></span></label>
-                <label class="tile"><input type="checkbox" name="special" value="winter"><span class="tile-icon">&#127783;</span><span class="tile-text">Winter Weed &amp; Patch Care</span></label>
-                <label class="tile"><input type="checkbox" name="special" value="fire"><span class="tile-icon">&#128293;</span><span class="tile-text">Fire Season / Overgrowth Clearance</span></label>
-              </div>
-              <p class="err" data-err-for="special"></p>
-            </fieldset>
-            <div class="pane-nav">
-              <button type="button" class="btn-ghost btn-back" data-back="1">Back</button>
-              <button type="button" class="btn-primary btn-next" data-next="3">Continue</button>
-            </div>
-          </section>
-
-          <section class="pane" data-pane="3">
-            <h2 class="pane-title">Job Details &amp; Timing</h2>
-            <fieldset class="field">
-              <legend>Estimated Yard Size</legend>
-              <div class="tiles">
-                <label class="tile"><input type="radio" name="yardSize" value="small"><span class="tile-text">Small Courtyard</span></label>
-                <label class="tile"><input type="radio" name="yardSize" value="standard"><span class="tile-text">Standard Suburban Lot</span></label>
-                <label class="tile"><input type="radio" name="yardSize" value="acreage"><span class="tile-text">Large Acreage / Commercial</span></label>
-              </div>
-              <p class="err" data-err-for="yardSize"></p>
-            </fieldset>
-            <div class="field">
-              <label for="timing">Preferred Timing</label>
-              <select id="timing" name="timing" required>
-                <option value="" selected disabled>Select timing</option>
-                <option value="asap">ASAP / Urgent</option>
-                <option value="week">Within 7 Days</option>
-                <option value="regular">Regular Scheduled Care</option>
-              </select>
-              <p class="err" data-err-for="timing"></p>
-            </div>
-            <div class="field">
-              <label for="notes">Notes / Access Instructions <span class="optional">(optional)</span></label>
-              <textarea id="notes" name="notes" rows="4" placeholder="e.g., side gate access, dogs on site, tap location"></textarea>
-            </div>
-            <div class="pane-nav">
-              <button type="button" class="btn-ghost btn-back" data-back="2">Back</button>
-              <button type="submit" class="btn-submit">Get My Free Adelaide Quote</button>
-            </div>
-          </section>
-
-          <div class="success" id="success" hidden>
-            <div class="success-icon">&#10003;</div>
-            <h2>Thanks mate!</h2>
-            <p>We&rsquo;ll review your property details and reach out within 24 hours.</p>
-            <div class="success-card" id="successSummary"></div>
-            <a id="successMail" class="btn-ghost" href="mailto:souwestlawnandgarden@gmail.com">Send us an email copy</a>
-          </div>
-
-        </form>
+    <div class="mail-card">
+      <p class="mail-label">Our email address</p>
+      <a class="mail-addr" href="mailto:souwestgardening@gmail.com">souwestgardening@gmail.com</a>
+      <div class="mail-actions">
+        <button type="button" id="copyBtn" class="ghost">Copy address</button>
       </div>
+      <span class="copied" id="copiedMsg"></span>
     </div>
 
-    <aside class="dash-side">
-      <div class="panel">
-        <h2 class="panel-title">Your Quote</h2>
-        <div class="qrows" id="qrows">
-          <div class="qrow"><span>Property</span><strong data-q="propType">Not set</strong></div>
-          <div class="qrow"><span>Yard size</span><strong data-q="yardSize">Not set</strong></div>
-          <div class="qrow"><span>Services</span><strong data-q="services">None selected</strong></div>
-          <div class="qrow"><span>Seasonal care</span><strong data-q="special">None selected</strong></div>
-          <div class="qrow"><span>Timing</span><strong data-q="timing">Not set</strong></div>
-          <div class="qrow"><span>Suburb</span><strong data-q="suburb">Not set</strong></div>
-        </div>
-        <div class="qtotal">
-          <span>Indicative range</span>
-          <strong id="qprice">$0 - $0</strong>
-        </div>
-        <a class="btn-submit" id="dashEmail" href="mailto:souwestlawnandgarden@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2.5 7 9.5 6.5L21.5 7"/></svg>
-          Email this quote
-        </a>
-        <p class="qnote">Opens your email app with the quote pre-filled and sends it to souwestlawnandgarden@gmail.com. Final price confirmed on a free site visit.</p>
-      </div>
-    </aside>
-
-  </div>
-  </section>
-
-  <section class="mode-panel is-active" id="modeEmail" role="tabpanel" aria-labelledby="modeEmailBtn">
-
     <form class="mail-form" id="mailForm"
-          action="https://formsubmit.co/souwestlawnandgarden@gmail.com"
-          method="POST">
+          action="https://formsubmit.co/souwestgardening@gmail.com"
+          method="POST"
+          enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="New website enquiry - Souwest Lawn &amp; Garden">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -261,26 +126,31 @@
         <label for="mailMessage">Message</label>
         <textarea id="mailMessage" name="Message" rows="5" placeholder="Tell us the suburb, what you need done and your property type." required></textarea>
       </div>
-      <button type="submit" class="btn-submit">Send Message</button>
-      <p class="mail-alt">Prefer your own email app? <a href="mailto:souwestlawnandgarden@gmail.com">Open email directly</a></p>
-    </form>
 
-    <div class="mail-card">
-      <p class="mail-label">Our email address</p>
-      <a class="mail-addr" href="mailto:souwestlawnandgarden@gmail.com">souwestlawnandgarden@gmail.com</a>
-      <div class="mail-actions">
-        <button type="button" id="copyBtn" class="ghost">Copy address</button>
+      <div class="field">
+        <label for="photos">Photos of your yard <span class="optional">(optional)</span></label>
+        <div class="upload">
+          <input type="file" id="photos" name="photos" accept="image/*" multiple>
+          <label class="upload-btn" for="photos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            Add photos
+          </label>
+          <p class="upload-hint">Up to 5 photos of your lawn, garden or driveway. A picture helps us quote it accurately.</p>
+        </div>
+        <div class="thumbs" id="thumbs"></div>
+        <p class="err" data-err-for="photos"></p>
       </div>
-      <span class="copied" id="copiedMsg"></span>
-    </div>
 
+      <button type="submit" class="btn-submit">Send Message</button>
+      <p class="mail-alt">Prefer your own email app? <a href="mailto:souwestgardening@gmail.com">Open email directly</a></p>
+    </form>
 
   </section>
 
   <footer class="site-footer">
     <img src="assets/logo-footer.png" alt="Souwest Lawn &amp; Garden Service" class="footer-mark">
     <p class="foot-ceo">Patrick Glynn</p>
-    <p class="foot-line">Souwest Lawn &amp; Garden Service &mdash; Soft Landscaping &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
+    <p class="foot-line">Souwest Lawn &amp; Garden Service. Soft Landscaping &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
     <p class="foot-line foot-sub">Serving Greater Adelaide &amp; Surrounding Areas</p>
     <div class="foot-links">
       <a href="index.html">Quote</a>
@@ -291,10 +161,8 @@
 
 </main>
 
-<script src="script.js?v=4"></script>
-<script src="quote.js?v=4"></script>
-<script src="email.js?v=4"></script>
-<script src="modes.js?v=4"></script>
-<script src="transitions.js?v=4"></script>
+<script src="script.js?v=8"></script>
+<script src="email.js?v=8"></script>
+<script src="transitions.js?v=8"></script>
 </body>
 </html>

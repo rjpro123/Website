@@ -22,10 +22,10 @@ python -m http.server 8080
 
 | Page | File | Purpose |
 |---|---|---|
-| Quote (root) | `index.html` | Two modes: **Detailed Quote** (3-step form + live estimate) and **Quick Email** (straight message that sends to the inbox) |
+| Quote (root) | `index.html` | The quote form: contact details, message and photo upload, sent straight to the inbox |
 | Gallery | `gallery.html` | Recent job photos (placeholders until you add images) |
 | Quote (old link) | `quote.html` | Redirect stub -> `index.html` (keeps old bookmarks working) |
-| Email (old link) | `email.html` | Redirect stub -> `index.html#email` (opens Quick Email mode) |
+| Email (old link) | `email.html` | Redirect stub -> `index.html` |
 
 There is no separate home page - the site opens straight on the quote form at
 `https://rjpro123.github.io/Website/`. Navigation is the two-tab bar
@@ -35,16 +35,14 @@ There is no separate home page - the site opens straight on the quote form at
 
 ```
 D:\Website
-├── index.html      # Quote page - Detailed Quote + Quick Email modes
+├── index.html      # Quote page (form + photo upload)
 ├── quote.html      # Redirect stub to index.html
-├── email.html      # Redirect stub to index.html#email
+├── email.html      # Redirect stub to index.html
 ├── thanks.html     # Thank-you page after sending
 ├── gallery.html    # Gallery page
 ├── styles.css      # All styles (CSS variables, mobile-first, dark theme)
-├── script.js       # Form validation, step nav, success message, footer year
-├── quote.js        # Live quote summary + indicative price estimate
-├── email.js        # Copy-address helper
-├── modes.js        # Detailed Quote / Quick Email switcher
+├── script.js       # Footer year + active tab marker
+├── email.js        # Copy-address helper + photo upload previews
 ├── assets/
 │   ├── logo.png        # Wide wordmark (header)
 │   ├── logo-footer.png # Tight crop (footer)
@@ -57,7 +55,7 @@ D:\Website
 
 ## Quotes & Email
 
-All quotes send to **souwestlawnandgarden@gmail.com**.
+All quotes send to **souwestgardening@gmail.com**.
 Submission opens the visitor's email client with the quote pre-filled
 (`mailto:`), so no backend is required. To collect submissions server-side
 instead, point the form at a service such as FormSubmit or a Google Form.

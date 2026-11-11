@@ -39,7 +39,10 @@ Current palette: black background #070907, cards #0D100D, inputs #111511, green 
 - Local info bar: Servicing Greater Adelaide & Surrounding Areas
 - Quick contact: Email for a Quote (no phone/SMS calls to action)
 
-## Form steps
+## Form (single page, no multi-step)
+Contact name, email, phone, subject, message and photo upload (up to 5 images), sent via FormSubmit.
+
+## Original form steps (removed - the site now uses one simple form)
 1. Contact & Suburb: full name (req), phone (req), email (optional), suburb/postcode (placeholder e.g. Marion, Brighton, Stirling) + helper copy
 2. Property & Service Scope: property type (Residential / Commercial-Strata / Rental-End of Lease); service tiles (Lawn Mowing & Edging, Hedging & Pruning, Weed Control & Seasonal Spraying, Garden Clean-up / Green Waste Removal, Planting & Garden Bed Renewal); season/turf checkboxes (Summer Heat / Drought Kikuyu & Couch, Winter Weed & Patch Care, Fire Season / Overgrowth Clearance)
 3. Job Details & Timing: yard size (Small Courtyard / Standard Suburban Lot / Large Acreage / Commercial); timing (ASAP-Urgent, Within 7 Days, Regular Scheduled Care); notes/access textarea
@@ -52,4 +55,4 @@ Current palette: black background #070907, cards #0D100D, inputs #111511, green 
 - Files/Logo_00000 (1).png - original upload (black background)
 
 ## Delivery
-- Quotes are emailed to souwestlawnandgarden@gmail.com (mailto from the success screen, plus the "Send us an email copy" fallback link)
+- Quotes are emailed to souwestgardening@gmail.com (FormSubmit form post with photo attachments, plus the "Open email directly" fallback link)

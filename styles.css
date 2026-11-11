@@ -174,28 +174,12 @@ select option{background:var(--surface-2);color:var(--ink)}
 .gitem figcaption span{font-size:.8rem;color:var(--muted)}
 .gnote{color:var(--muted);font-size:.82rem;text-align:center;max-width:52ch;margin:14px auto 0;padding-bottom:26px}
 .gnote code{color:var(--euc-bright);font-size:.8rem}
-.backrow{display:flex;gap:12px;justify-content:center;padding:6px 0 34px}
-.backrow .btn-primary{width:auto;padding:0 34px}
 @media (min-width:560px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:860px){.gallery-grid{grid-template-columns:repeat(3,1fr);gap:16px}}
 
-/* ---------- Quote dashboard ---------- */
-.dash{display:grid;grid-template-columns:1fr;gap:18px;padding:22px 0 6px;align-items:start}
-.dash-form .module{margin:0}
-.dash-side{position:sticky;top:18px}
-.panel{background:var(--surface);border-radius:20px;padding:20px 18px}
-.panel-title{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:12px}
-.qrows{display:grid;gap:2px}
-.qrow{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;font-size:.88rem}
-.qrow span{color:var(--muted);flex:none}
-.qrow strong{text-align:right;font-weight:600;color:var(--ink)}
-.qtotal{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding-top:14px;font-family:var(--head);font-weight:700;font-size:.95rem}
-.qtotal strong{color:var(--euc-bright);font-size:1.2rem;white-space:nowrap}
-.qnote{font-size:.78rem;color:var(--faint);margin-top:12px;text-align:center;line-height:1.5}
-.dash .btn-submit{margin-top:16px;border-radius:16px;letter-spacing:.01em}
+/* ---------- Quote request form ---------- */
 @media (min-width:900px){
-  .dash{grid-template-columns:1.45fr .95fr;gap:20px}
-}
+  }
 
 /* ---------- Shared ---------- */
 .copy{font-size:.78rem;color:var(--faint);text-align:center;margin:16px 0 0}
@@ -319,7 +303,6 @@ input[type=text],input[type=tel],input[type=email],select,textarea{min-height:56
 .foot-links a{display:inline-block;padding:11px 6px;font-size:.9rem}
 .mail-addr{padding:10px 0}
 .tile,.seg{min-height:58px;padding:14px}
-.qrow{padding:10px 0}
 .btn-primary,.btn-submit,.btn-ghost,.bar-btn{min-height:54px}
 
 /* keyboard focus ring */
@@ -333,54 +316,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 /* price row must never overflow a narrow phone */
-.qtotal{flex-wrap:wrap;row-gap:4px}
-.qtotal strong{white-space:normal}
 
 /* single-column actions on small phones */
 @media (max-width:420px){
   .mail-actions a,.mail-actions button{width:100%}
   .hero-actions .btn-primary,.hero-actions .btn-submit{width:100%}
-  .backrow .btn-primary{width:100%}
-  .pane-nav{flex-direction:column-reverse}
+    .pane-nav{flex-direction:column-reverse}
   .pane-nav .btn-primary,.pane-nav .btn-ghost{width:100%}
-  .dash{gap:14px}
-}
+  }
 
 /* sticky mobile CTA */
-.sticky-cta{
-  display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;
-  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-  background:#000;
-}
-.sticky-cta span{
-  display:block;max-width:520px;margin:0 auto;padding:16px 20px;border-radius:16px;
-  background:linear-gradient(180deg,#82CE9B 0%,#6EBD87 100%);color:#08180E;
-  font-family:var(--head);font-weight:800;font-size:1rem;text-align:center;
-  box-shadow:0 10px 26px rgba(110,189,135,.4);
-}
-@media (max-width:700px){ .sticky-cta{display:block} }
-body.has-sticky{padding-bottom:96px}
 
 /* ---------- Quote / Quick Email mode switch ---------- */
-.mode-switch{
-  display:flex;gap:6px;max-width:440px;margin:22px auto 24px;
-  background:var(--surface-2);border-radius:999px;padding:5px;
-}
-.mode-btn{
-  flex:1;min-height:46px;border:none;border-radius:999px;background:transparent;
-  color:var(--muted);font-family:var(--head);font-weight:700;font-size:.92rem;
-  cursor:pointer;transition:background .25s ease,color .25s ease,transform .2s ease;
-}
-.mode-btn:hover{color:var(--ink)}
-.mode-btn.is-active{background:var(--euc-bright);color:#08180E;box-shadow:0 8px 18px rgba(90,160,114,.32)}
-.mode-panel{display:none}
-.mode-panel.is-active{display:block;animation:modeIn .32s cubic-bezier(.2,.8,.2,1) both}
 @keyframes modeIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
 @media (max-width:420px){
-  .mode-switch{max-width:100%}
-  .mode-btn{font-size:.85rem;min-height:44px}
-}
-.mode-panel[hidden]{display:none !important}
+    }
 
 /* ---------- Service strip (soft landscaping & garden maintenance) ---------- */
 .svc-strip{display:grid;grid-template-columns:1fr;gap:10px;margin:26px 0 2px}
@@ -391,22 +341,38 @@ body.has-sticky{padding-bottom:96px}
 @media (min-width:640px){.svc-strip{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1000px){.svc-strip{grid-template-columns:repeat(4,1fr)}}
 
-/* ---------- Mobile running total (quote mode only) ---------- */
-.dash-total{display:none}
-@media (max-width:899px){
-  .dash-form{position:relative}
-  .dash-total{
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
-    position:sticky;top:0;z-index:5;
-    margin:0 0 10px;padding:12px 16px;border-radius:14px;
-    background:#14351F;
-    box-shadow:0 10px 24px rgba(0,0,0,.45);
-  }
-  .dash-total span{font-family:var(--head);font-weight:700;font-size:.78rem;color:var(--muted);letter-spacing:.02em}
-  .dash-total strong{font-family:var(--head);font-size:1.05rem;color:var(--euc-bright);white-space:nowrap}
-}
-
 /* Failsafe: if animations are unsupported the reveal must not hide content */
 @supports not (animation-name: revealIn){
   .reveal{opacity:1 !important;transform:none !important}
 }
+
+/* ---------- Photo upload (quick email form) ---------- */
+.mail-wrap{max-width:min(620px,100%);margin-inline:auto}
+.upload{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.upload input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.upload-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;min-height:58px;padding:16px 24px;border-radius:16px;cursor:pointer;
+  background:var(--surface-2);border:2px dashed var(--line-strong);
+  font-family:var(--head);font-weight:700;font-size:.98rem;color:var(--ink);
+  transition:.2s;
+}
+.upload-btn:hover{border-color:var(--euc-bright);color:var(--euc-bright)}
+.upload-btn svg{width:22px;height:22px;flex:none}
+.upload-hint{font-size:.82rem;color:var(--faint);line-height:1.5}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.thumbs:empty{display:none}
+.thumb{position:relative;width:72px;height:72px;border-radius:12px;overflow:hidden;background:var(--surface-2);flex:none}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb span{
+  position:absolute;left:0;right:0;bottom:0;padding:3px 4px;
+  background:rgba(0,0,0,.72);color:#D6F5DC;font-size:.6rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.thumb.is-bad{outline:2px solid var(--danger);outline-offset:1px}
+.page-sub em a{
+  color:var(--euc-bright);text-decoration:none;
+  border-bottom:1px solid rgba(99,192,132,.45);
+  transition:color .2s ease, border-color .2s ease;
+}
+.page-sub em a:hover{color:#8FD9A6;border-bottom-color:#8FD9A6}

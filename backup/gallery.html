@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Gallery | Souwest Lawn &amp; Garden Service | Adelaide</title>
-  <meta name="description" content="Recent lawn mowing, hedging, clean-up and turf care work by Souwest Lawn & Garden Service across Adelaide and suburbs.">
+  <meta name="description" content="Recent lawn mowing, hedging, cleanup and turf care work by Souwest Lawn & Garden Service across Adelaide and suburbs.">
   <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Souwest Lawn &amp; Garden">
@@ -13,10 +13,13 @@
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <!-- Fonts load without blocking render (fixes blank/black screen on slow networks) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
-<body class="has-sticky">
+<body>
 
 <header class="site-header">
   <div class="wrap-wide">
@@ -35,7 +38,7 @@
 
   <div class="page-head">
     <h1 class="page-title">Our Work</h1>
-    <p class="page-sub">A look at the lawns, gardens and beds we've maintained around Adelaide. New jobs added as they come through.</p>
+    <p class="page-sub">A look at the lawns, gardens and beds we've maintained around Adelaide. New jobs added as they come through.<em><a href="index.html">Not sure who to call? Get a quote.</a></em></p>
   </div>
 
   <div class="gallery-grid">
@@ -71,7 +74,7 @@
         <span class="gicon">&#129578;</span>
         <span class="gph">Coming soon</span>
       </div>
-      <figcaption><strong>Seasonal clean-up</strong><span>Glenelg, SA</span></figcaption>
+      <figcaption><strong>Seasonal cleanup</strong><span>Glenelg, SA</span></figcaption>
     </figure>
 
     <figure class="gitem">
@@ -92,16 +95,12 @@
 
   </div>
 
-  <p class="gnote">More jobs added as we finish them - get in touch and we'll show you similar work near you.</p>
-
-  <div class="backrow">
-    <a class="btn-primary" href="index.html">Get My Free Adelaide Quote</a>
-  </div>
+  <p class="gnote">More jobs added as we finish them. Get in touch and we'll show you similar work near you.</p>
 
   <footer class="site-footer">
     <img src="assets/logo-footer.png" alt="Souwest Lawn &amp; Garden Service" class="footer-mark">
     <p class="foot-ceo">Patrick Glynn</p>
-    <p class="foot-line">Souwest Lawn &amp; Garden Service &mdash; Soft Landscaping &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
+    <p class="foot-line">Souwest Lawn &amp; Garden Service. Soft Landscaping &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
     <p class="foot-line foot-sub">Serving Greater Adelaide &amp; Surrounding Areas</p>
     <div class="foot-links">
       <a href="index.html">Quote</a>
@@ -112,9 +111,7 @@
 
 </main>
 
-<script src="script.js?v=3"></script>
-<a class="sticky-cta" href="index.html"><span>Get My Free Adelaide Quote</span></a>
-
-<script src="transitions.js?v=3"></script>
+<script src="script.js?v=8"></script>
+<script src="transitions.js?v=8"></script>
 </body>
 </html>

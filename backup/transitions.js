@@ -32,20 +32,11 @@
     var nodes = collect();
     if (!nodes.length) return;
 
-    document.body.classList.add("reveal-ready");
+    // The reveal itself is a CSS animation (.reveal { animation: revealIn ... }),
+    // so the content always becomes visible even if this script stops here.
     nodes.forEach(function(n, i){
       n.classList.add("reveal");
       n.style.setProperty("--d", (Math.min(i, 14) * 0.045) + "s");
-    });
-
-    setTimeout(function(){
-      nodes.forEach(function(n){ n.classList.add("is-in"); });
-    }, 2000);
-
-    requestAnimationFrame(function(){
-      requestAnimationFrame(function(){
-        nodes.forEach(function(n){ n.classList.add("is-in"); });
-      });
     });
   }
 
