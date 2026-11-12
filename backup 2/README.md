@@ -5,8 +5,9 @@ Static HTML/CSS/JS, no build step.
 
 Services: lawn mowing & edging, hedging & pruning, weed control & seasonal spraying,
 garden clean-up / green waste removal, planting & garden bed renewal,
-"getting ready for sale" kerbside-appeal jobs, turf replacement, and mulching
-& soil conditioning.
+"getting ready for sale" kerbside-appeal jobs, turf replacement, mulching
+& soil conditioning, tree cutting down and pruning, stump grinding, and lawn
+aeration and overseeding.
 
 ## Local Development
 

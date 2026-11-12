@@ -26,6 +26,10 @@ Services offered:
 - Getting Ready for Sale (kerbside appeal for a sale or rental)
 - Turf Replacement (new Kikuyu or Couch laid to worn patches and bare areas)
 - Mulching & Soil Conditioning (fresh mulch over garden beds)
+- Tree Cutting Down & Removal (small and medium trees taken down and removed)
+- Tree Pruning & Branch Trimming (crown shaping, dead branch removal)
+- Stump Grinding & Root Removal
+- Lawn Aeration & Overseeding
 
 Seasonal / turf options:
 - Summer Heat / Drought Lawn Care (Kikuyu & Couch maintenance)
