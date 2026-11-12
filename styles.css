@@ -426,10 +426,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   color:#fff;font-size:1.7rem;display:grid;place-items:center;transition:.2s;
 }
 .lbnav:hover{background:var(--euc-bright);color:#08180E;border-color:transparent}
+.lbsingle .lbnav{display:none}
 .lbprev{left:14px}
 .lbnext{right:14px}
 .lbthumbs{
-  position:relative;z-index:2;display:flex;gap:8px;overflow-x:auto;
+  position:relative;z-index:2;display:flex;gap:8px;overflow-x:auto;justify-content:center;
   padding:12px 18px calc(12px + env(safe-area-inset-bottom));
   scrollbar-width:thin;
 }

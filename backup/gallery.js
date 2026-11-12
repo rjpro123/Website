@@ -42,6 +42,7 @@
     lbCap.appendChild(s);
 
     lbCount.textContent = (index + 1) + " of " + photos.length;
+    lb.classList.toggle("lbsingle", photos.length < 2);
 
     Array.prototype.forEach.call(lbThumbs.children, function(ch, i){
       ch.classList.toggle("isactive", i === index);
