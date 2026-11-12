@@ -395,7 +395,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .gclick .gframe img{transition:transform .35s ease}
 .gclick:hover .gframe img{transform:scale(1.04)}
 
-.lightbox{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.97);display:flex;flex-direction:column}
+.lightbox{position:fixed;inset:0;z-index:200;background:#000;display:flex;flex-direction:column}
 .lightbox[hidden]{display:none}
 .lbbackdrop{position:absolute;inset:0;cursor:zoom-out}
 .lbtop{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
