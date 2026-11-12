@@ -112,9 +112,21 @@
   lb.querySelector(".lbnext").addEventListener("click", next);
   lb.querySelector(".lbprev").addEventListener("click", prev);
 
-  // click the image to zoom
-  lbImg.addEventListener("click", function(){
-    lbImg.classList.toggle("iszoomed");
+  // click the image to zoom into that exact spot
+  lbImg.addEventListener("click", function(e){
+    if (lbImg.classList.contains("iszoomed")){
+      lbImg.classList.remove("iszoomed");
+      lbImg.style.transformOrigin = "center center";
+      return;
+    }
+    var rect = lbImg.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    var x = (e.clientX - rect.left) / rect.width;
+    var y = (e.clientY - rect.top) / rect.height;
+    lbImg.style.transformOrigin =
+      (Math.max(0, Math.min(1, x)) * 100).toFixed(2) + "% " +
+      (Math.max(0, Math.min(1, y)) * 100).toFixed(2) + "%";
+    lbImg.classList.add("iszoomed");
   });
 
   // keyboard
