@@ -6,7 +6,9 @@
    (e.g. `pagehead` not `page-head`, `logofooter.png` not `logo-footer.png`).
    The only exceptions are HTML/ARIA spec names that cannot change
    (aria-label, http-equiv, apple-mobile-web-app-title, viewport-fit).
-2. **Business scope:** soft landscaping and garden maintenance ONLY.
+2. **Business scope:** soft landscaping and garden maintenance ONLY (lawns, gardens,
+   beds, trees). No hard landscaping, no structural work.
+6. **Tone:** plain and local. Write like a gardener, not a brochure. No jargon, no em dashes.
 3. **Email address:** souwestgardening@gmail.com (single form, no address shown on page).
 4. **Theme:** black background with green text. No yellow/ochre.
 5. **Fonts:** Plus Jakarta Sans (headings) + Inter (body), loaded non-blocking.
@@ -36,7 +38,7 @@ Seasonal / turf options:
 - Winter Weed & Patch Care
 - Fire Season / Overgrowth Clearance
 
-Brand line: "Soft Landscaping & Garden Maintenance Across Adelaide & Suburbs"
+Brand line: "Lawn & Garden Maintenance Across Adelaide & Suburbs"
 
 Mobile-first single-page quote request module for Souwest Lawn & Garden Service, Adelaide SA.
 Kept alongside the code so future edits (incl. Google AI Studio) stay on-spec.

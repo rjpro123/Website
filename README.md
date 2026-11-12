@@ -1,6 +1,6 @@
 # Souwest Lawn & Garden Service
 
-Adelaide **soft landscaping & garden maintenance** website - quote page and gallery.
+Adelaide lawn and garden maintenance website - quote page, what we do and gallery.
 Static HTML/CSS/JS, no build step.
 
 Services: lawn mowing & edging, hedging & pruning, weed control & seasonal spraying,
