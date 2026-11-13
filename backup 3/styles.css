@@ -527,3 +527,30 @@ body.lblock{overflow:hidden}
   .lbfigure{padding:0 8px 6px}
   .lbthumb{width:66px;height:48px}
 }
+
+/* ---------- Staff page ---------- */
+.staffgrid{display:grid;grid-template-columns:1fr;gap:14px;margin:26px 0 4px}
+.staffcard{background:var(--surface);border-radius:18px;padding:24px 20px;text-align:center}
+.staffphoto{
+  width:104px;height:104px;margin:0 auto 16px;border-radius:50%;overflow:hidden;
+  background:var(--surface-2);display:grid;place-items:center;
+  box-shadow:0 0 0 3px rgba(99,192,132,.35);
+}
+.staffphoto img{width:100%;height:100%;object-fit:cover}
+.staffinitials{
+  font-family:var(--head);font-weight:800;font-size:1.9rem;color:var(--euc-bright);
+  letter-spacing:.04em;
+}
+.staffcard h3{font-family:var(--head);font-size:1.15rem;color:var(--ink);margin-bottom:4px}
+.staffrole{
+  font-family:var(--head);font-weight:700;font-size:.76rem;color:var(--euc-bright);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;
+}
+.staffbio{color:var(--muted);font-size:.92rem;line-height:1.6;max-width:34ch;margin-inline:auto}
+@media (min-width:640px){.staffgrid{grid-template-columns:repeat(2,1fr);gap:16px}}
+
+/* ---------- Call to action band ---------- */
+.ctaband{margin:44px 0 8px;background:var(--surface);border-radius:20px;padding:30px 22px;text-align:center}
+.ctaband h2{font-family:var(--head);font-size:clamp(1.4rem,3vw,1.9rem);color:#D6F5DC;margin-bottom:8px}
+.ctaband p{color:var(--muted);margin-bottom:18px}
+.ctaband .btnsubmit{width:auto;padding:0 34px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
