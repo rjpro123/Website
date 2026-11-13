@@ -219,10 +219,12 @@
   // TILE HELPERS
   // ============================================================
   function tileAt(tx, ty){
+    tx = Math.floor(tx); ty = Math.floor(ty);
     if (ty < 0) return EMPTY;
     if (tx < 0 || tx >= COLS) return GROUND;
     if (ty >= ROWS) return EMPTY;
-    return grid[ty][tx];
+    if (!grid[ty]) return EMPTY;
+    return grid[ty][tx] || EMPTY;
   }
   function solid(tx, ty){
     var t = tileAt(tx, ty);
@@ -351,8 +353,8 @@
       }
     } else if (p.vy < 0){
       if (solid(left, top) || solid(right, top)){
-        var tx = Math.floor(p.x + p.w / 2) / TILE;
-        var ty = Math.floor(p.y) / TILE;
+        var tx = Math.floor((p.x + p.w / 2) / TILE);
+        var ty = Math.floor(p.y / TILE);
         bump(tx, ty);
         p.y = (ty + 1) * TILE; p.vy = 0;
       }
@@ -361,6 +363,7 @@
 
   // hitting a block from below
   function bump(tx, ty){
+    if (tx < 0 || tx >= COLS || ty < 0 || ty >= ROWS) return;
     var t = tileAt(tx, ty);
     if (t === QBLOCK){
       grid[ty][tx] = USED;
@@ -561,8 +564,13 @@
   };
 
   function loop(){
-    update();
-    draw();
+    try {
+      update();
+      draw();
+    } catch (err){
+      // never let one bad frame kill the game
+      if (window.console) console.log("game frame error", err);
+    }
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
