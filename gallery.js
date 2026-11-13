@@ -43,10 +43,26 @@
     };
   }
 
+  // Measure the UNTRANSFORMED image box.
+  // offsetWidth/offsetHeight ignore transforms, and the image is centred in
+  // the stage, so we can work out its position without touching the
+  // transform (which would fire the transition and give a mid-animation
+  // reading - that was what made the zoom jump around).
   function measure(){
-    lbImg.style.transform = "none";
-    var r = lbImg.getBoundingClientRect();
-    base = { left: r.left, top: r.top, w: r.width, h: r.height };
+    var w = lbImg.offsetWidth, h = lbImg.offsetHeight;
+    var sr = stage.getBoundingClientRect();
+    var cs = getComputedStyle(stage);
+    var padL = parseFloat(cs.paddingLeft) || 0;
+    var padR = parseFloat(cs.paddingRight) || 0;
+    var padT = parseFloat(cs.paddingTop) || 0;
+    var padB = parseFloat(cs.paddingBottom) || 0;
+    var cw = sr.width - padL - padR;
+    var ch = sr.height - padT - padB;
+    base = {
+      left: sr.left + padL + (cw - w) / 2,
+      top: sr.top + padT + (ch - h) / 2,
+      w: w, h: h
+    };
   }
 
   function clamp(){
@@ -149,6 +165,13 @@
 
   function next(){ index = (index + 1) % photos.length; render(); }
   function prev(){ index = (index - 1 + photos.length) % photos.length; render(); }
+
+  window.addEventListener("resize", function(){
+    if (lb.hidden) return;
+    measure();
+    clamp();
+    paint();
+  });
 
   // openable tiles
   photos.forEach(function(it, i){
