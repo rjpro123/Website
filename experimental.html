@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Experimental | Souwest Lawn &amp; Garden Service | Adelaide</title>
+  <meta name="description" content="Testing page for Souwest Lawn &amp; Garden Service. Job lists and the staff sign in page in the works.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Souwest Lawn &amp; Garden">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts load without blocking render -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=44">
+</head>
+<body>
+
+<header class="siteheader">
+  <div class="wrapwide">
+    <div class="brand">
+      <a href="index.html"><img src="assets/logo.png" alt="Souwest Lawn &amp; Garden Service" class="brandlogo"></a>
+    </div>
+    <p class="tagline">Lawn &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
+    <nav class="navtabs" aria-label="Pages">
+      <a class="tab" href="index.html">Quote</a>
+      <a class="tab" href="services.html">What We Do</a>
+      <a class="tab" href="gallery.html">Gallery</a>
+      <a class="tab" href="staff.html">Staff</a>
+      <a class="tab isactive" href="experimental.html">Experimental</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrapwide">
+
+  <div class="pagehead">
+    <h1 class="pagetitle">Experimental</h1>
+    <p class="pagesub">Testing only. This is where the job list and the crew sign in are being built.<em>Nothing here is live and nothing is saved.</em></p>
+  </div>
+
+  <section class="signin">
+    <h2>Staff sign in</h2>
+    <p>Where the crew will sign in, see their jobs and tick them off. Not wired up yet.</p>
+    <form id="signinform">
+      <div class="field">
+        <label for="signinemail">Email</label>
+        <input id="signinemail" name="signinemail" type="email" autocomplete="username" placeholder="you@souwestlawnandgarden.com">
+      </div>
+      <div class="field">
+        <label for="signinpass">Password</label>
+        <input id="signinpass" name="signinpass" type="password" autocomplete="current-password" placeholder="Password">
+      </div>
+      <button type="submit" class="btnsubmit">Sign in</button>
+      <p class="signinnote" id="signinmsg">Testing only. No account is checked and nothing is sent.</p>
+    </form>
+  </section>
+
+  <section class="jobwrap">
+    <h2 class="jobsheading">This week&rsquo;s jobs</h2>
+    <div class="joblist" id="joblist">
+      <div class="jobrow">
+        <span class="jobref">1042</span>
+        <span class="jobmain">
+          <span class="jobtitle">Lawn mowing and edging</span>
+          <span class="jobmeta">Marion &middot; Tue 18 Nov &middot; standard lot</span>
+        </span>
+        <span class="jobstatus scheduled">Scheduled</span>
+      </div>
+      <div class="jobrow">
+        <span class="jobref">1041</span>
+        <span class="jobmain">
+          <span class="jobtitle">Garden cleanup and green waste</span>
+          <span class="jobmeta">Brighton &middot; Mon 17 Nov &middot; rental</span>
+        </span>
+        <span class="jobstatus done">Done</span>
+      </div>
+      <div class="jobrow">
+        <span class="jobref">1040</span>
+        <span class="jobmain">
+          <span class="jobtitle">Hedging and pruning</span>
+          <span class="jobmeta">Stirling &middot; Mon 17 Nov &middot; large shrub hedge</span>
+        </span>
+        <span class="jobstatus progress">In progress</span>
+      </div>
+      <div class="jobrow">
+        <span class="jobref">1039</span>
+        <span class="jobmain">
+          <span class="jobtitle">Weed spraying</span>
+          <span class="jobmeta">Glenelg &middot; Fri 14 Nov &middot; lawn and beds</span>
+        </span>
+        <span class="jobstatus scheduled">Scheduled</span>
+      </div>
+      <div class="jobrow">
+        <span class="jobref">1038</span>
+        <span class="jobmain">
+          <span class="jobtitle">Turf replacement</span>
+          <span class="jobmeta">Unley &middot; Thu 13 Nov &middot; couch patches</span>
+        </span>
+        <span class="jobstatus quote">Quote sent</span>
+      </div>
+      <div class="jobrow">
+        <span class="jobref">1037</span>
+        <span class="jobmain">
+          <span class="jobtitle">Mulching and soil conditioning</span>
+          <span class="jobmeta">Norwood &middot; Wed 12 Nov &middot; front beds</span>
+        </span>
+        <span class="jobstatus done">Done</span>
+      </div>
+      <div class="jobrow">
+        <span class="jobref">1036</span>
+        <span class="jobmain">
+          <span class="jobtitle">Getting ready for sale</span>
+          <span class="jobmeta">Hindmarsh &middot; Tue 11 Nov &middot; full tidy up</span>
+        </span>
+        <span class="jobstatus scheduled">Scheduled</span>
+      </div>
+      <div class="jobrow">
+        <span class="jobref">1035</span>
+        <span class="jobmain">
+          <span class="jobtitle">Tree cutting down and removal</span>
+          <span class="jobmeta">Tea Tree Gully &middot; Mon 10 Nov &middot; plus stump grinding</span>
+        </span>
+        <span class="jobstatus done">Done</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="ctaband">
+    <h2>Back to the real site</h2>
+    <p>Nothing to see here yet. The quote form is where it is all happening.</p>
+    <a class="btnsubmit" href="index.html">Get a quote</a>
+  </div>
+
+  <footer class="sitefooter">
+    <img src="assets/logofooter.png" alt="Souwest Lawn &amp; Garden Service" class="footermark">
+    <p class="footceo">Patrick Glynn</p>
+    <p class="footline">Souwest Lawn &amp; Garden Service. Lawn &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
+    <div class="footlinks">
+      <a href="index.html">Quote</a>
+      <a href="services.html">What We Do</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="staff.html">Staff</a>
+      <a href="experimental.html">Experimental</a>
+    </div>
+    <p class="copy">&copy; <span id="year">2026</span> Souwest Lawn &amp; Garden Service. All rights reserved.</p>
+  </footer>
+
+</main>
+
+<script src="script.js?v=44"></script>
+<script src="transitions.js?v=44"></script>
+<script>
+(function(){
+  "use strict";
+  var form = document.getElementById("signinform");
+  var msg = document.getElementById("signinmsg");
+  if (!form || !msg) return;
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    msg.textContent = "Testing only - no account is checked and nothing is sent. This will sign in properly once staff accounts are set up.";
+  });
+})();
+</script>
+</body>
+</html>

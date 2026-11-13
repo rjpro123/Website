@@ -566,3 +566,33 @@ body.lblock{overflow:hidden}
 @media (max-width:370px){
   .tab{font-size:.74rem;padding:0 9px}
 }
+
+/* ---------- Experimental page (testing) ---------- */
+.signin{background:var(--surface);border-radius:18px;padding:22px 18px;margin:26px 0 6px}
+.signin h2{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:6px}
+.signin p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.signin .field{margin-bottom:12px}
+.signin .btnsubmit{width:100%}
+.signinnote{font-size:.8rem;color:var(--faint);text-align:center;margin-top:12px;line-height:1.5}
+.jobwrap{margin:26px 0 4px}
+.jobsheading{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:14px}
+.joblist{display:grid;gap:8px}
+.jobrow{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;
+  background:var(--surface);border-radius:13px;padding:12px 14px;
+}
+.jobref{
+  font-family:var(--head);font-weight:800;font-size:.78rem;color:var(--muted);
+  background:var(--surface-2);border-radius:8px;padding:5px 9px;flex:none;
+}
+.jobmain{flex:1;min-width:0;display:block}
+.jobtitle{display:block;font-family:var(--head);font-weight:700;font-size:.95rem;color:var(--ink)}
+.jobmeta{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
+.jobstatus{
+  flex:none;margin-left:auto;font-size:.66rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;padding:6px 11px;border-radius:999px;white-space:nowrap;
+}
+.jobstatus.done{background:rgba(99,192,132,.18);color:var(--euc-bright)}
+.jobstatus.progress{background:rgba(255,255,255,.08);color:#d7d7d7}
+.jobstatus.scheduled{background:rgba(99,192,132,.10);color:#9fd6b0}
+.jobstatus.quote{background:rgba(255,255,255,.05);color:#9c9c9c}
