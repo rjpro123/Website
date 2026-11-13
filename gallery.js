@@ -28,7 +28,8 @@
   var tx = 0, ty = 0;   // pan offset in pixels
   var base = null;      // unscaled image box
   var dragging = false, sx = 0, sy = 0, moved = false;
-  var anchor = null;   // last pointer position over the photo
+  var anchor = null;      // where the pointer last hovered over the photo
+  var openAnchor = null;  // pointer position when the viewer was opened
 
   function read(it){
     var img = it.querySelector(".gframe img");
@@ -146,6 +147,7 @@
 
   function open(i){
     index = i;
+    if (!anchor && openAnchor) anchor = { x: openAnchor.x, y: openAnchor.y };
     render();
     lb.hidden = false;
     document.body.classList.add("lblock");
@@ -180,7 +182,10 @@
     it.setAttribute("tabindex", "0");
     it.setAttribute("role", "button");
     it.setAttribute("aria-label", "Open photo: " + read(it).title);
-    it.addEventListener("click", function(){ open(i); });
+    it.addEventListener("click", function(e){
+      openAnchor = { x: e.clientX, y: e.clientY };
+      open(i);
+    });
     it.addEventListener("keydown", function(e){
       if (e.key === "Enter" || e.key === " "){ e.preventDefault(); open(i); }
     });
@@ -275,9 +280,12 @@
     stage.classList.add("isdragging");
     lbImg.style.transition = "none";
   });
-  lbImg.addEventListener("pointermove", function(e){
+  function trackHover(e){
     anchor = { x: e.clientX, y: e.clientY };
-  });
+  }
+  lbImg.addEventListener("pointermove", trackHover);
+  lbImg.addEventListener("pointerenter", trackHover);
+  lbImg.addEventListener("mousemove", trackHover);
 
   stage.addEventListener("pointermove", function(e){
     if (!dragging) return;
