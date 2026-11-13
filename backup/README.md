@@ -122,3 +122,7 @@ Add a "Before & After" slider to the gallery placeholders in D:\Website\gallery.
 - [ ] Consider a form backend so quotes arrive without the visitor's mail client
 - [ ] Add a business email address and/or phone number to the header
 - [ ] Add opening hours, ABN and service area map
+
+This is the only backup folder kept in the repo.
+Earlier snapshots: git tags backup1 .. backup4
+Restore one with:  git restore --source backup2 .
