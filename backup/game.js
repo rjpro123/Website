@@ -90,16 +90,23 @@
       step = step || 1;
       for (var i = 0; i < n; i++) coins.push({ x: (x + i * step) * TILE + 4, y: y * TILE + 4, w: 8, h: 12, got: false, spin: 0 });
     }
-    coinRow(18,  G - 6, 4);
-    coinRow(40,  G - 9, 4);
-    coinRow(50,  G - 8, 5);
-    coinRow(67,  G - 7, 3);
-    coinRow(97,  G - 9, 4);
-    coinRow(114, G - 9, 4);
-    coinRow(145, G - 8, 4);
-    coinRow(167, G - 10, 5);
-    coinRow(180, G - 9, 4);
-    coinRow(212, G - 9, 4);
+    // low coins you pick up just by running
+    coinRow(20,  G - 1, 3);
+    coinRow(52,  G - 1, 3);
+    coinRow(76,  G - 1, 3);
+    coinRow(126, G - 1, 3);
+    coinRow(166, G - 1, 3);
+    // higher arcs that need a jump
+    coinRow(18,  G - 3, 4);
+    coinRow(40,  G - 4, 4);
+    coinRow(50,  G - 3, 5);
+    coinRow(67,  G - 2, 3);
+    coinRow(97,  G - 4, 4);
+    coinRow(114, G - 3, 4);
+    coinRow(145, G - 3, 4);
+    coinRow(167, G - 4, 5);
+    coinRow(180, G - 3, 4);
+    coinRow(212, G - 4, 4);
 
     // goombas
     var spots = [34, 53, 80, 97, 122, 143, 160, 178, 196, 205];
