@@ -17,7 +17,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=33">
+  <link rel="stylesheet" href="styles.css?v=34">
 </head>
 <body>
 
@@ -127,14 +127,19 @@
     <img id="lbimage" src="" alt="">
     <div class="lbloader" id="lbloader" hidden><span class="lbring"></span></div>
     <p class="lbhint" id="lbhint">Click the photo to zoom &middot; drag to move around</p>
+    <div class="lbzoomctl">
+      <button type="button" class="lbmbtn" id="lbzoomin" aria-label="Zoom in">&#43;</button>
+      <button type="button" class="lbmbtn" id="lbzoomout" aria-label="Zoom out">&minus;</button>
+      <button type="button" class="lbmbtn lbmfit" id="lbzoomreset" aria-label="Fit photo to screen">1:1</button>
+    </div>
   </div>
   <button type="button" class="lbnav lbnext" aria-label="Next photo">&#8250;</button>
   <p class="lbcap" id="lbcaption"></p>
   <div class="lbthumbs" id="lbthumbs"></div>
 </div>
 
-<script src="script.js?v=33"></script>
-<script src="gallery.js?v=33"></script>
-<script src="transitions.js?v=33"></script>
+<script src="script.js?v=34"></script>
+<script src="gallery.js?v=34"></script>
+<script src="transitions.js?v=34"></script>
 </body>
 </html>

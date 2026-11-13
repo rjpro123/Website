@@ -462,6 +462,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .lbring{width:44px;height:44px;border-radius:50%;border:3px solid rgba(255,255,255,.14);border-top-color:var(--euc-bright);animation:lbring .8s linear infinite}
 @keyframes lbring{to{transform:rotate(360deg)}}
 
+/* zoom controls */
+.lbzoomctl{
+  position:absolute;right:22px;bottom:22px;z-index:4;
+  display:flex;flex-direction:column;gap:8px;
+}
+.lbmbtn{
+  width:44px;height:44px;border-radius:12px;cursor:pointer;
+  background:rgba(18,18,18,.82);border:1px solid rgba(255,255,255,.13);
+  color:#fff;font-family:var(--head);font-weight:700;font-size:1.2rem;line-height:1;
+  display:grid;place-items:center;transition:.2s;
+  box-shadow:0 10px 26px rgba(0,0,0,.5);
+}
+.lbmbtn:hover{background:var(--euc-bright);color:#08180E;border-color:transparent}
+.lbmbtn:disabled{opacity:.35;cursor:default}
+.lbmbtn:disabled:hover{background:rgba(18,18,18,.82);color:#fff;border-color:rgba(255,255,255,.13)}
+.lbmfit{font-size:.7rem;letter-spacing:.02em}
+.lbstage.iszoomed .lbzoomctl{opacity:1}
+.lbzoomctl{transition:opacity .25s ease}
+
 /* caption */
 .lbcap{position:relative;z-index:3;margin:0;padding:2px 20px 12px;text-align:center}
 .lbcap::before{content:"";display:block;width:34px;height:2px;background:var(--euc-bright);margin:0 auto 10px;border-radius:2px}

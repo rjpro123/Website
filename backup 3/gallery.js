@@ -13,6 +13,9 @@
   var lbZoom = document.getElementById("lbzoom");
   var lbHint = document.getElementById("lbhint");
   var lbLoader = document.getElementById("lbloader");
+  var btnIn = document.getElementById("lbzoomin");
+  var btnOut = document.getElementById("lbzoomout");
+  var btnReset = document.getElementById("lbzoomreset");
   var hintTimer = null;
 
   var items = Array.prototype.slice.call(grid.querySelectorAll(".gitem"));
@@ -74,6 +77,8 @@
       lbZoom.hidden = !zoomed;
       lbZoom.textContent = factor.toFixed(1) + "x";
     }
+    if (btnIn) btnIn.disabled = factor >= MAXZOOM;
+    if (btnOut) btnOut.disabled = factor <= 1.02;
     if (lbHint){
       if (zoomed){
         lbHint.textContent = "Drag to move around &middot; click to zoom out";
@@ -177,6 +182,34 @@
   });
   lb.querySelector(".lbnext").addEventListener("click", next);
   lb.querySelector(".lbprev").addEventListener("click", prev);
+
+  // zoom control buttons
+  function stageCentre(){
+    var r = stage.getBoundingClientRect();
+    return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+  }
+  if (btnIn){
+    btnIn.addEventListener("click", function(){
+      var c = stageCentre();
+      setZoom(factor * 1.45, c.x, c.y);
+    });
+  }
+  if (btnOut){
+    btnOut.addEventListener("click", function(){
+      var c = stageCentre();
+      setZoom(factor / 1.45, c.x, c.y);
+    });
+  }
+  if (btnReset){
+    btnReset.addEventListener("click", function(){ zoomOut(); });
+  }
+
+  // double click toggles zoom in and out at that point
+  stage.addEventListener("dblclick", function(e){
+    e.preventDefault();
+    if (factor > 1.02){ zoomOut(); }
+    else { setZoom(2.2, e.clientX, e.clientY); }
+  });
 
   // click to zoom into that spot, click again to zoom out
   stage.addEventListener("click", function(e){
