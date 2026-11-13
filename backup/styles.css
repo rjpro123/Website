@@ -557,9 +557,15 @@ body.lblock{overflow:hidden}
 
 /* ---------- Nav tabs on small screens ---------- */
 @media (max-width:640px){
-  .navtabs{gap:6px;flex-wrap:wrap}
+  .navtabs{
+    gap:6px;flex-wrap:nowrap;justify-content:flex-start;
+    overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
+    margin:0 -4px;padding:2px 4px 6px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .navtabs::-webkit-scrollbar{display:none}
   .tab{
-    min-height:44px;padding:0 12px;font-size:.8rem;
+    flex:none;min-height:44px;padding:0 12px;font-size:.8rem;
     white-space:nowrap;line-height:1;
   }
 }
