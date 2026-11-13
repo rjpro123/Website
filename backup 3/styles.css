@@ -458,6 +458,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .lbhint.isfade{opacity:0}
 .lbloader{position:absolute;inset:0;z-index:3;display:grid;place-items:center;background:rgba(5,5,5,.45)}
+.lbloader[hidden]{display:none}
 .lbring{width:44px;height:44px;border-radius:50%;border:3px solid rgba(255,255,255,.14);border-top-color:var(--euc-bright);animation:lbring .8s linear infinite}
 @keyframes lbring{to{transform:rotate(360deg)}}
 
