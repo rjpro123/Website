@@ -1,0 +1,473 @@
+:root{
+  --bg:#000000;
+  --bg-glow:none;
+  --surface:#0A0A0A;
+  --surface-2:#101010;
+  --surface-3:#0A0A0A;
+  --line:#000000;
+  --line-strong:#000000;
+  --euc:#3E7E56;
+  --euc-bright:#63C084;
+  --euc-soft:rgba(99,192,132,.16);
+  --euc-glow:rgba(99,192,132,.30);
+  --ink:#B9E8C4;
+  --muted:#8CC79A;
+  --faint:#6AA67A;
+  --danger:#E5736A;
+  --r:14px; --shadow:none;
+  --head:"Plus Jakarta Sans",system-ui,sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;background:var(--bg-glow);pointer-events:none;z-index:0}
+
+button,input,select,textarea{font:inherit;color:inherit}
+img{display:block;max-width:100%;height:auto}
+::selection{background:var(--euc);color:#08180E}
+
+/* ---------- Header ---------- */
+.siteheader{background:#000000;color:#fff;padding:26px 0 20px;position:relative;z-index:1}
+.brand{display:flex;justify-content:center;align-items:center;text-align:center;width:100%}
+.brand a{display:block;line-height:0}
+.brandlogo{display:block;width:min(340px,88%);height:auto;margin:0 auto}
+.tagline{text-align:center;font-family:var(--head);font-weight:600;color:#C9EBD2;font-size:.95rem;margin:10px 0 18px;letter-spacing:.01em}
+
+.navtabs{display:flex;gap:8px;justify-content:center;margin:0 0 16px}
+.tab{padding:9px 26px;border-radius:999px;font-family:var(--head);font-weight:700;font-size:.88rem;color:var(--muted);background:rgba(255,255,255,.05);text-decoration:none;transition:.2s}
+.tab:hover{color:var(--ink);background:rgba(255,255,255,.1)}
+.tab.isactive{background:var(--euc-bright);color:#08180E}
+
+
+
+
+
+
+
+
+
+
+
+.step.isactive{color:var(--euc-bright);font-weight:700}
+.step.isdone{color:var(--euc-bright)}
+
+.step.isactive .stepnum{background:var(--euc-bright);color:#08180E}
+.step.isdone .stepnum{background:var(--euc-soft);color:var(--euc-bright)}
+
+
+.pane.isactive{display:block}
+
+.field{margin-bottom:16px}
+.field>label{display:block;font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--ink)}
+.optional{font-weight:500;color:var(--faint);font-family:var(--body)}
+input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;min-height:54px;padding:14px;border:1.5px solid var(--line);border-radius:var(--r);background:var(--surface-2);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+textarea{min-height:110px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#67735F}
+input:focus,select:focus,textarea:focus{outline:none;border-color:transparent;box-shadow:0 0 0 3px var(--euc-glow)}
+select{appearance:none;background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2363C084' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:20px;padding-right:42px}
+select option{background:var(--surface-2);color:var(--ink)}
+
+.err{display:none;font-size:.82rem;font-weight:600;color:var(--danger);margin-top:6px}
+.err.show{display:block}
+.haserror input,.haserror select,.haserror textarea{border-color:transparent;box-shadow:0 0 0 3px rgba(229,115,106,.22)}
+
+
+
+.seg input{appearance:none;width:20px;height:20px;border:2px solid transparent;border-radius:50%;flex:none;margin:0;background:#1C1C1C;transition:.2s}
+.seg input:checked{border-color:transparent;background:radial-gradient(circle,var(--euc-bright) 0 42%,#1C1C1C 45%)}
+.seg:has(input:checked){background:var(--euc-soft)}
+
+
+
+.tile input{appearance:none;width:22px;height:22px;border:2px solid transparent;border-radius:6px;flex:none;margin:0;position:relative;transition:.2s;background:#1C1C1C}
+.tile input:checked{background:var(--euc-bright)}
+.tile input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #08180E;border-width:0 2.5px 2.5px 0;transform:rotate(43deg)}
+.tile:has(input:checked){background:var(--euc-soft)}
+
+
+
+
+.btnprimary{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;max-width:100%;min-height:58px;padding:15px 24px;
+  background:var(--euc-bright);color:#08180E;border:none;border-radius:16px;
+  font-family:var(--head);font-weight:800;font-size:1rem;line-height:1.2;
+  text-align:center;text-decoration:none;white-space:normal;overflow-wrap:break-word;
+  cursor:pointer;transition:transform .2s cubic-bezier(.2,.8,.2,1), background .2s ease, box-shadow .2s ease;
+}
+.btnprimary:hover{background:#7FCB98;box-shadow:0 14px 28px rgba(76,145,102,.4)}
+.btnprimary:active{transform:translateY(1px)}
+
+
+.btnsubmit{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;max-width:100%;min-height:62px;padding:16px 24px;
+  background:linear-gradient(180deg,#82CE9B 0%,#6EBD87 100%);
+  color:#08180E;border:none;border-radius:16px;
+  font-family:var(--head);font-weight:800;font-size:1.02rem;line-height:1.2;
+  text-align:center;text-decoration:none;white-space:normal;overflow-wrap:break-word;
+  cursor:pointer;position:relative;overflow:hidden;
+  box-shadow:0 12px 30px rgba(110,189,135,.45), inset 0 1px 0 rgba(255,255,255,.25);
+  transition:transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease, filter .2s ease;
+}
+.btnsubmit:hover{background:linear-gradient(180deg,#90D8A8 0%,#7BC995 100%);box-shadow:0 16px 38px rgba(110,189,135,.55), inset 0 1px 0 rgba(255,255,255,.3)}
+.btnsubmit:active{transform:translateY(1px)}
+.btnsubmit svg{width:20px;height:20px;flex:none}
+.btnsubmit::after{
+  content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:skewX(-18deg);transition:left .6s ease;
+}
+.btnsubmit:hover::after{left:130%}
+
+.panenav .btnprimary{flex:1}
+
+
+
+.successicon{width:64px;height:64px;margin:0 auto 16px;border-radius:50%;background:var(--euc-soft);color:var(--euc-bright);display:grid;place-items:center;font-size:1.8rem;font-weight:700}
+.success h2{font-family:var(--head);font-size:1.5rem;color:#D6F5DC;margin-bottom:8px}
+.success p{color:var(--muted);margin-bottom:18px}
+
+
+
+.successcard dt{color:var(--muted);font-weight:600;flex:none}
+.successcard dd{text-align:right;font-weight:600;color:var(--ink)}
+.success a.btnghost{margin-inline:auto}
+
+/* ---------- Footer ---------- */
+.sitefooter{text-align:center;padding:26px 0 34px;margin-top:10px}
+.footermark{width:190px;margin:0 auto 10px;opacity:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.55))}
+.footceo{font-family:var(--head);font-weight:700;font-size:1rem;color:var(--ink);margin:14px 0 4px;letter-spacing:.02em}
+.footline{font-size:.85rem;color:var(--muted);max-width:44ch;margin-inline:auto}
+.footsub{font-size:.78rem;margin-top:4px;color:var(--faint)}
+
+@media (min-width:560px){
+  
+  
+  
+  .footermark{width:240px}
+}
+
+/* ---------- Footer nav links ---------- */
+.footlinks{display:flex;gap:26px;justify-content:center;margin:0 0 14px}
+.footlinks a{font-family:var(--head);font-weight:700;font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footlinks a:hover{color:var(--euc-bright)}
+
+/* ---------- Gallery page ---------- */
+.wrapwide{width:min(960px,100%);margin-inline:auto;padding-inline:18px}
+.pagehead{text-align:center;max-width:min(620px,100%);margin-inline:auto;padding:30px 0 6px}
+.pagetitle{font-family:var(--head);font-size:clamp(1.5rem,4.2vw,2.05rem);color:#D6F5DC;margin-bottom:10px;line-height:1.2}
+.pagesub{color:var(--muted);font-size:.95rem;max-width:52ch;margin-inline:auto;line-height:1.6}
+.pagesub em{display:block;margin-top:6px;font-style:normal;color:var(--ink);font-weight:600}
+.gallerygrid{display:grid;grid-template-columns:1fr;gap:14px;padding:22px 0 10px}
+.gitem{margin:0}
+.gframe{aspect-ratio:4/3;background:#161616;border-radius:16px;display:grid;place-items:center;gap:6px;grid-auto-flow:row;align-content:center;transition:.25s;overflow:hidden;position:relative}
+.gframe img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+.gframe:hover{background:#1D1D1D}
+.gicon{font-size:1.8rem;line-height:1}
+.gph{font-size:.78rem;color:var(--faint);font-weight:600}
+.gitem figcaption{padding:10px 4px 0}
+.gitem figcaption strong{display:block;font-family:var(--head);color:var(--ink);font-size:.92rem}
+.gitem figcaption span{font-size:.8rem;color:var(--muted)}
+.gnote{color:var(--muted);font-size:.82rem;text-align:center;max-width:52ch;margin:14px auto 0;padding-bottom:26px}
+.gnote code{color:var(--euc-bright);font-size:.8rem}
+@media (min-width:560px){.gallerygrid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:860px){.gallerygrid{grid-template-columns:repeat(3,1fr);gap:16px}}
+
+/* ---------- Quote request form ---------- */
+@media (min-width:900px){
+  }
+
+/* ---------- Shared ---------- */
+.copy{font-size:.78rem;color:var(--faint);text-align:center;margin:16px 0 0}
+.heroactions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.heroactions .btnprimary,.heroactions .btnsubmit{width:auto;padding:0 30px;display:inline-flex;align-items:center;justify-content:center}
+
+
+/* ---------- Accessible form groups ---------- */
+fieldset{border:none;padding:0;margin:0 0 16px}
+legend{font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--ink);padding:0}
+
+/* ---------- Email page ---------- */
+.mailform{background:var(--surface);border-radius:20px;padding:22px 18px}
+.mailform h2{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:14px}
+.mailform textarea{min-height:120px}
+
+/* ---------- Email form (direct send) ---------- */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.mailform .btnsubmit{margin-top:4px}
+.thankswrap{text-align:center;padding:56px 0 30px}
+.thankswrap .successicon{margin-bottom:18px}
+.thankswrap h1{font-family:var(--head);font-size:1.6rem;color:#D6F5DC;margin-bottom:10px}
+.thankswrap p{color:var(--muted);max-width:44ch;margin:0 auto 22px}
+
+/* ==========================================================
+   PAGE TRANSITIONS + REVEAL ANIMATIONS
+   ========================================================== */
+
+/* Page transitions use the JS overlay (transitions.js) for identical
+   behaviour in every browser - native cross-document view transitions
+   are not supported consistently across Chrome/Edge/Safari/Firefox. */
+
+/* --- JS overlay veil (fallback browsers) --- */
+/* NOTE: no backdrop-filter here - it crashes the renderer on some
+   mobile GPUs and renders a solid black screen. */
+.pageveil{
+  position:fixed; inset:0; z-index:9999; background:#000;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .32s ease, visibility .32s;
+}
+.pageveil.on{ opacity:1; visibility:visible; pointer-events:auto; }
+.pageveil .veilmark{
+  width:min(250px,62vw); height:auto;
+  opacity:0; transform:translateY(16px) scale(.94);
+  transition:opacity .34s ease .06s, transform .5s cubic-bezier(.2,.8,.2,1) .06s;
+}
+.pageveil.on .veilmark{ opacity:1; transform:none; }
+.pageveil .veilbar{
+  height:3px; width:0; margin-top:20px; border-radius:3px;
+  background:linear-gradient(90deg,var(--euc-bright),var(--euc));
+  transition:width .55s cubic-bezier(.2,.8,.2,1) .1s;
+}
+.pageveil.on .veilbar{ width:min(250px,62vw); }
+/* page content recedes behind the veil (transform only - blur is too costly) */
+body.leaving > header,body.leaving > main{
+  transform:scale(.985);
+  transition:transform .38s ease;
+}
+
+/* --- Staggered content reveal on load ---
+   Pure CSS animation: the content reveals itself even if JS never
+   finishes,so it can never get stuck invisible (black screen). */
+.reveal{
+  opacity:0; transform:translateY(18px);
+  animation:revealIn .6s cubic-bezier(.2,.8,.2,1) var(--d,0s) forwards;
+}
+@keyframes revealIn{to{ opacity:1; transform:none; } }
+
+/* --- Button / tile micro-interactions --- */
+.tab,.btnprimary,.btnsubmit{transition:transform .2s cubic-bezier(.2,.8,.2,1), background .2s, color .2s, opacity .2s}
+.tab:hover,.btnprimary:hover,.btnsubmit:hover{transform:translateY(-2px)}
+
+
+/* --- Respect reduced motion: keep a simple fade,drop all movement --- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important; scroll-behavior:auto !important;
+  }
+  /* class selectors beat the * selector above, so the fade survives */
+  .pageveil{transition:opacity .18s linear !important}
+  .pageveil .veilmark{transition:opacity .18s linear !important;transform:none !important}
+  .pageveil .veilbar{display:none}
+  .reveal{ opacity:1 !important; transform:none !important; animation:none !important; }
+}
+
+/* ==========================================================
+   MOBILE OPTIMISATION
+   ========================================================== */
+html{ -webkit-tap-highlight-color:transparent; }
+body{
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  touch-action:manipulation;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.wrapwide{
+  padding-left:max(18px,env(safe-area-inset-left));
+  padding-right:max(18px,env(safe-area-inset-right));
+}
+
+/* iOS zooms the page when a focused field is smaller than 16px */
+input,select,textarea{font-size:16px}
+input[type=text],input[type=tel],input[type=email],select,textarea{min-height:56px}
+
+/* comfortable tap targets */
+.tab{min-height:46px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px}
+.footlinks a{display:inline-block;padding:11px 6px;font-size:.9rem}
+
+.btnprimary,.btnsubmit{min-height:54px}
+
+/* keyboard focus ring */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--euc-bright);outline-offset:3px;border-radius:8px;
+}
+
+/* no sticky hover states on touch screens */
+@media (hover:none){
+  .tab:hover,.btnprimary:hover,.btnsubmit:hover,.btnghost:hover,.barbtn:hover,.tile:hover,.seg:hover{transform:none}
+}
+
+/* price row must never overflow a narrow phone */
+
+/* single-column actions on small phones */
+@media (max-width:420px){
+    .heroactions .btnprimary,.heroactions .btnsubmit{width:100%}
+    .panenav{flex-direction:column-reverse}
+  .panenav .btnprimary,.panenav .btnghost{width:100%}
+  }
+
+/* sticky mobile CTA */
+
+/* ---------- Quote / Quick Email mode switch ---------- */
+@keyframes modeIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+
+
+/* ---------- Service strip (soft landscaping & garden maintenance) ---------- */
+.svcstrip{display:grid;grid-template-columns:1fr;gap:10px;margin:46px 0 8px}
+.svc{background:var(--surface);border-radius:14px;padding:16px 14px}
+.svcicon{font-size:1.35rem;line-height:1;margin-bottom:8px}
+.svc h3{font-family:var(--head);font-size:.98rem;color:var(--ink);margin-bottom:5px}
+.svc p{color:var(--muted);font-size:.85rem;line-height:1.5}
+@media (min-width:640px){.svcstrip{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.svcstrip{grid-template-columns:repeat(4,1fr)}}
+
+/* Failsafe: if animations are unsupported the reveal must not hide content */
+@supports not (animation-name: revealIn){
+  .reveal{opacity:1 !important;transform:none !important}
+}
+
+/* ---------- Photo upload (quick email form) ---------- */
+.mailwrap{max-width:min(620px,100%);margin-inline:auto}
+.upload{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.upload input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.uploadbtn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;min-height:58px;padding:16px 24px;border-radius:16px;cursor:pointer;
+  background:var(--surface-2);border:2px dashed var(--line-strong);
+  font-family:var(--head);font-weight:700;font-size:.98rem;color:var(--ink);
+  transition:.2s;
+}
+.uploadbtn:hover{border-color:var(--euc-bright);color:var(--euc-bright)}
+.uploadbtn svg{width:22px;height:22px;flex:none}
+.uploadhint{font-size:.82rem;color:var(--faint);line-height:1.5}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.thumbs:empty{display:none}
+.thumb{position:relative;width:72px;height:72px;border-radius:12px;overflow:hidden;background:var(--surface-2);flex:none}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb span{
+  position:absolute;left:0;right:0;bottom:0;padding:3px 4px;
+  background:rgba(0,0,0,.72);color:#D6F5DC;font-size:.6rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.thumb.isbad{outline:2px solid var(--danger);outline-offset:1px}
+.pagesub em a{
+  color:var(--euc-bright);text-decoration:none;
+  border-bottom:1px solid rgba(99,192,132,.45);
+  transition:color .2s ease, border-color .2s ease;
+}
+.pagesub em a:hover{color:#8FD9A6;border-bottom-color:#8FD9A6}
+
+
+@media (max-width:639px){.svcstrip{gap:8px;margin:34px 0 8px}
+  .svc{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:13px 14px;border-radius:14px;
+  }
+  .svcicon{
+    font-size:1.15rem;margin-bottom:0;width:28px;flex:none;
+    text-align:center;line-height:1.5;
+  }
+  .svctext{flex:1;min-width:0}
+  .svc h3{font-size:.95rem;margin-bottom:3px;line-height:1.3}
+  .svc p{font-size:.82rem;line-height:1.45}
+}
+
+/* Slightly smaller logo on phones */
+@media (max-width:639px){
+  .brandlogo{width:min(250px,70%)}
+  .siteheader{padding:22px 0 18px}
+}
+
+/* ---------- Services page ---------- */
+.svcpage{margin-top:26px}
+@media (min-width:640px){.svcpage{grid-template-columns:repeat(2,1fr);gap:12px}
+  .svcpage .svc{display:block}
+  .svcpage .svcicon{margin-bottom:10px}
+}
+@media (min-width:1000px){.svcpage{grid-template-columns:repeat(3,1fr);gap:14px}
+}
+
+/* ---------- Photo viewer (lightbox) ---------- */
+.gclick{cursor:pointer}
+.gclick .gframe img{transition:transform .35s ease}
+.gclick:hover .gframe img{transform:scale(1.04)}
+
+.lightbox{position:fixed;inset:0;z-index:200;background:#000;display:flex;flex-direction:column}
+.lightbox[hidden]{display:none}
+.lbbackdrop{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,#0d0d0d 0%,#000 70%)}
+
+.lbtop{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+.lbcount{font-family:var(--head);font-weight:700;font-size:.85rem;color:var(--muted);letter-spacing:.06em}
+.lbclose{
+  width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
+  background:#141414;color:var(--ink);font-size:1.6rem;line-height:1;
+  display:grid;place-items:center;transition:.2s;
+}
+.lbclose:hover{background:var(--euc-bright);color:#08180E}
+
+.lbstage{
+  position:relative;z-index:2;flex:1;min-height:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  cursor:zoom-in;touch-action:none;
+}
+.lbstage.iszoomed{cursor:grab}
+.lbstage.isdragging{cursor:grabbing}
+.lbstage img{
+  max-width:calc(100% - 24px);max-height:100%;object-fit:contain;
+  border-radius:6px;transform-origin:0 0;
+  box-shadow:0 24px 70px rgba(0,0,0,.75);
+  transition:transform .42s cubic-bezier(.22,.9,.26,1);
+  will-change:transform;
+  user-select:none;-webkit-user-drag:none;
+}
+
+.lbnav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:4;
+  width:54px;height:54px;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  color:#fff;font-size:1.8rem;display:grid;place-items:center;transition:.2s;
+}
+.lbnav:hover{background:var(--euc-bright);color:#08180E;border-color:transparent}
+.lbsingle .lbnav{display:none}
+.lbprev{left:18px}
+.lbnext{right:18px}
+
+.lbcap{
+  position:relative;z-index:3;margin:0;padding:10px 20px 4px;text-align:center;font-size:.92rem;
+}
+.lbcap strong{display:block;font-family:var(--head);color:var(--ink);font-size:1rem}
+.lbcap span{color:var(--muted);font-size:.84rem}
+
+.lbthumbs{
+  position:relative;z-index:3;display:flex;gap:10px;overflow-x:auto;justify-content:center;
+  padding:12px 20px calc(14px + env(safe-area-inset-bottom));
+  scrollbar-width:thin;
+}
+.lbthumb{
+  width:96px;height:68px;flex:none;padding:0;cursor:pointer;
+  border-radius:8px;overflow:hidden;background:#141414;
+  border:2px solid transparent;transition:.2s;
+}
+.lbthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.lbthumb:hover{border-color:#3a3a3a}
+.lbthumb.isactive{border-color:var(--euc-bright)}
+
+body.lblock{overflow:hidden}
+@media (max-width:640px){
+  .lbnav{width:44px;height:44px;font-size:1.4rem}
+  .lbprev{left:8px}
+  .lbnext{right:8px}
+  .lbstage img{max-width:calc(100% - 12px)}
+  .lbthumb{width:72px;height:52px}
+  .lbtop{padding:12px 14px}
+}
+@media (max-width:640px){
+  .lbnav{width:44px;height:44px;font-size:1.4rem}
+  .lbprev{left:8px}
+  .lbnext{right:8px}
+  .lbfigure{padding:0 8px 6px}
+  .lbthumb{width:66px;height:48px}
+}
