@@ -96,7 +96,7 @@
     lbImg.classList.remove("iszoomed");
     lb.classList.remove("iszoomed");
     lbImg.style.transform = "none";
-    if (lbZoom) lbZoom.hidden = true;
+    if (lbZoom){ lbZoom.hidden = true; lbZoom.textContent = "1x"; }
   }
 
   function render(){
@@ -184,6 +184,13 @@
   lb.querySelector(".lbprev").addEventListener("click", prev);
 
   // zoom control buttons
+  var zoomctl = document.querySelector(".lbzoomctl");
+  if (zoomctl){
+    zoomctl.addEventListener("click", function(e){ e.stopPropagation(); });
+    zoomctl.addEventListener("pointerdown", function(e){ e.stopPropagation(); });
+    zoomctl.addEventListener("pointerup", function(e){ e.stopPropagation(); });
+    zoomctl.addEventListener("dblclick", function(e){ e.stopPropagation(); });
+  }
   function stageCentre(){
     var r = stage.getBoundingClientRect();
     return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
