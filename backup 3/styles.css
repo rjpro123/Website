@@ -554,3 +554,15 @@ body.lblock{overflow:hidden}
 .ctaband h2{font-family:var(--head);font-size:clamp(1.4rem,3vw,1.9rem);color:#D6F5DC;margin-bottom:8px}
 .ctaband p{color:var(--muted);margin-bottom:18px}
 .ctaband .btnsubmit{width:auto;padding:0 34px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+
+/* ---------- Nav tabs on small screens ---------- */
+@media (max-width:640px){
+  .navtabs{gap:6px;flex-wrap:wrap}
+  .tab{
+    min-height:44px;padding:0 12px;font-size:.8rem;
+    white-space:nowrap;line-height:1;
+  }
+}
+@media (max-width:370px){
+  .tab{font-size:.74rem;padding:0 9px}
+}
