@@ -560,7 +560,7 @@ body.lblock{overflow:hidden}
   .navtabs{
     gap:6px;flex-wrap:nowrap;justify-content:flex-start;
     overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
-    margin:0 -4px;padding:2px 4px 6px;
+    margin:0;padding:2px 0 6px;
     -webkit-overflow-scrolling:touch;
   }
   .navtabs::-webkit-scrollbar{display:none}
