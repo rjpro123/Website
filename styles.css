@@ -564,6 +564,13 @@ body.lblock{overflow:hidden}
     -webkit-overflow-scrolling:touch;
   }
   .navtabs::-webkit-scrollbar{display:none}
+  .footlinks{
+    gap:6px;flex-wrap:nowrap;justify-content:flex-start;
+    overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
+    padding-bottom:2px;
+  }
+  .footlinks::-webkit-scrollbar{display:none}
+  .footlinks a{flex:none;white-space:nowrap;padding:11px 8px}
   .tab{
     flex:none;min-height:44px;padding:0 12px;font-size:.8rem;
     white-space:nowrap;line-height:1;
