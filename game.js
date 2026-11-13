@@ -146,6 +146,9 @@
     ArrowUp: "jump", KeyW: "jump", Space: "jump"
   };
 
+  // stop the page scrolling when a thumb is on the game
+  canvas.addEventListener("touchmove", function(e){ e.preventDefault(); }, { passive: false });
+
   document.addEventListener("keydown", function(e){
     var k = KEYMAP[e.code];
     if (!k) return;
@@ -169,17 +172,19 @@
   Array.prototype.forEach.call(document.querySelectorAll(".gpad"), function(btn){
     function press(e){
       e.preventDefault();
-      btn.setPointerCapture(e.pointerId);
-      pointers[e.pointerId] = btn.getAttribute("data-key");
-      if (btn.getAttribute("data-key") === "jump") jumpHeld = true;
+      try { btn.setPointerCapture(e.pointerId); } catch (err) {}
+      var key = btn.getAttribute("data-key");
+      pointers[e.pointerId] = key;
+      keys[key] = true;
+      if (key === "jump") jumpHeld = true;
       if (state === "ready") startGame();
     }
     function release(e){
-      var k = pointers[e.pointerId];
+      var key = pointers[e.pointerId];
+      if (!key) return;
       delete pointers[e.pointerId];
-      if (k === "jump") jumpHeld = false;
-      if (k === "left") keys.left = false;
-      if (k === "right") keys.right = false;
+      keys[key] = false;
+      if (key === "jump") jumpHeld = false;
     }
     btn.addEventListener("pointerdown", press);
     btn.addEventListener("pointerup", release);
