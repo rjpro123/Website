@@ -18,7 +18,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=54">
+  <link rel="stylesheet" href="styles.css?v=55">
 </head>
 <body>
 
@@ -53,6 +53,15 @@
       <div class="tystat"><span>Jobs done</span><b id="tjobs">0</b></div>
       <div class="tystat"><span>Day</span><b id="tday">1</b></div>
       <button type="button" class="gamebtn" id="treset">RESET</button>
+    </div>
+
+    <div class="tyscene">
+      <canvas id="tyscene" width="480" height="220" aria-label="Your landscaping yard"></canvas>
+      <div class="tyscenehud">
+        <span class="tygoaltext">Depot goal</span>
+        <span class="tygoalbar"><i id="tygoalfill"></i></span>
+        <b id="tygoalnum">$0 of $5,000</b>
+      </div>
     </div>
 
     <div class="tygrid">
@@ -105,8 +114,8 @@
 
 </main>
 
-<script src="script.js?v=54"></script>
-<script src="transitions.js?v=54"></script>
-<script src="game.js?v=54"></script>
+<script src="script.js?v=55"></script>
+<script src="transitions.js?v=55"></script>
+<script src="game.js?v=55"></script>
 </body>
 </html>

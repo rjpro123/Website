@@ -703,3 +703,47 @@ body.lblock{overflow:hidden}
 @media (min-width:820px){
   .tygrid{grid-template-columns:1.15fr .85fr}
 }
+
+/* ---------- Tycoon scene + visual GUI ---------- */
+.tyscene{position:relative;border-radius:16px;overflow:hidden;background:#0d1a10;margin-top:14px;border:1px solid var(--line)}
+.tyscene canvas{width:100%;height:auto;display:block;image-rendering:pixelated}
+.tyscenehud{
+  position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;
+  padding:10px 14px;background:linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,0));
+}
+.tygoaltext{font-family:var(--head);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#cfe3d2;white-space:nowrap}
+.tygoalbar{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;min-width:60px}
+.tygoalbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--euc-bright),#8FD9A6);transition:width .4s ease}
+.tygoalnum{font-family:var(--head);font-weight:800;font-size:.78rem;color:#8FD9A6;white-space:nowrap}
+
+/* job cards with icon tiles */
+.tyjob{background:var(--surface-2);border-radius:13px;padding:11px 12px;align-items:center}
+.tyjobicon{
+  width:38px;height:38px;flex:none;border-radius:10px;display:grid;place-items:center;
+  font-size:1.25rem;line-height:1;background:rgba(99,192,132,.12);
+  border:1px solid rgba(99,192,132,.2);
+}
+.tyjob.locked .tyjobicon{background:var(--surface);border-color:var(--line)}
+.tyjobtext b{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tyjobtext b small{
+  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 7px;
+}
+
+/* shop with icons */
+.tyshopitem{padding:12px}
+.tyshopicon{
+  width:38px;height:38px;flex:none;border-radius:10px;display:grid;place-items:center;
+  font-size:1.25rem;line-height:1;background:rgba(99,192,132,.10);border:1px solid rgba(99,192,132,.18);
+}
+.tyshopitem.owned .tyshopicon{background:var(--surface);border-color:var(--line);filter:grayscale(.4)}
+.tyshopitem.owned .tyshopname b{color:var(--muted)}
+
+/* crew avatars */
+.tycrewcard{display:flex;align-items:center;gap:10px;background:var(--surface-2);border-radius:12px;padding:9px 13px}
+.tycrewface{
+  width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(99,192,132,.16);border:1px solid rgba(99,192,132,.28);
+  font-family:var(--head);font-weight:800;font-size:.8rem;color:var(--euc-bright);
+}
+.tycrewcard.empty{color:var(--muted);font-size:.86rem;background:transparent;border-style:dashed}

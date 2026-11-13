@@ -21,15 +21,15 @@
 
   // ---------- shop ----------
   var SHOP = [
-    { id: "mower",   name: "Ride on mower",   cost: 0,    desc: "Cuts the grass properly.",  owned: true },
-    { id: "trimmer", name: "Hedge trimmer",  cost: 140,  desc: "Unlocks hedge trimming." },
-    { id: "sprayer", name: "Spray unit",     cost: 300,  desc: "Unlocks weed spraying." },
-    { id: "chipper", name: "Wood chipper",   cost: 480,  desc: "Unlocks cleanups and green waste." },
-    { id: "mulcher", name: "Mulch trailer",  cost: 720,  desc: "Unlocks mulching." },
-    { id: "turfkit", name: "Turf and soil kit", cost: 1300, desc: "Unlocks turf work and sales." },
-    { id: "treegear",name: "Tree gear",      cost: 2000, desc: "Unlocks tree removal." },
-    { id: "trailer", name: "Ute and trailer",cost: 600,  desc: "Every job pays 30% more." },
-    { id: "crew",    name: "Hire a crew member", cost: 450, desc: "Works on jobs while you are away.", repeatable: true }
+    { id: "mower",   name: "Ride on mower",   cost: 0,    desc: "Cuts the grass properly.",  owned: true, icon: "&#128663;" },
+    { id: "trimmer", name: "Hedge trimmer",  cost: 140,  desc: "Unlocks hedge trimming.", icon: "&#9986;" },
+    { id: "sprayer", name: "Spray unit",     cost: 300,  desc: "Unlocks weed spraying.", icon: "&#128167;" },
+    { id: "chipper", name: "Wood chipper",   cost: 480,  desc: "Unlocks cleanups and green waste.", icon: "&#129698;" },
+    { id: "mulcher", name: "Mulch trailer",  cost: 720,  desc: "Unlocks mulching.", icon: "&#127756;" },
+    { id: "turfkit", name: "Turf and soil kit", cost: 1300, desc: "Unlocks turf work and sales.", icon: "&#127793;" },
+    { id: "treegear",name: "Tree gear",      cost: 2000, desc: "Unlocks tree removal.", icon: "&#129715;" },
+    { id: "trailer", name: "Ute and trailer",cost: 600,  desc: "Every job pays 30% more.", icon: "&#128663;" },
+    { id: "crew",    name: "Hire a crew member", cost: 450, desc: "Works on jobs while you are away.", repeatable: true, icon: "&#128101;" }
   ];
 
   var GOAL = 5000;
@@ -123,6 +123,7 @@
   function finishJob(w){
     var amount = pay(w.def.pay, w.def);
     floatCash(amount);
+    popCoin(120 + Math.random() * 220, 150);
     save();
     render();
   }
@@ -232,6 +233,7 @@
       var afford = state.cash >= it.cost;
       var count = it.repeatable && state.crew ? " (x" + state.crew + ")" : "";
       sh += '<div class="tyshopitem' + (owned ? " owned" : "") + '">' +
+        '<span class="tyshopicon">' + (it.icon || "&#128188;") + '</span>' +
         '<span class="tyshopname"><b>' + it.name + count + '</b><em>' + it.desc + '</em></span>' +
         (owned ? '<span class="tyowned">OWNED</span>' :
           '<button type="button" class="tybuybtn" data-id="' + it.id + '"' + (afford ? "" : " disabled") + '>' + money(it.cost) + '</button>') +
@@ -242,13 +244,20 @@
     // crew
     var crewHtml = "";
     for (var c = 0; c < state.crew; c++){
-      crewHtml += '<span class="tycrewcard"><b>' + (c === 0 ? "Hutch Man" : "Crew " + (c + 1)) + '</b><em>On the tools</em></span>';
+      var nm = c === 0 ? "Hutch Man" : "Crew " + (c + 1);
+      crewHtml += '<span class="tycrewcard"><span class="tycrewface">' + (c === 0 ? "H" : (c + 1)) + '</span>' +
+        '<span><b>' + nm + '</b><em>On the tools</em></span></span>';
     }
     if (!crewHtml) crewHtml = '<span class="tycrewcard empty">No crew yet. Hire one from the shop.</span>';
     el.crew.innerHTML = crewHtml;
     el.crewSub.textContent = state.crew > 0
       ? state.crew + " crew member" + (state.crew > 1 ? "s" : "") + " earning while you are away. They also take jobs off your hands."
       : "Hire a crew member and they will pick up work on their own.";
+
+    var goalFill = document.getElementById("tygoalfill");
+    var goalNum = document.getElementById("tygoalnum");
+    if (goalFill) goalFill.style.width = Math.min(100, Math.round(state.earned / GOAL * 100)) + "%";
+    if (goalNum) goalNum.textContent = money(state.earned) + " of " + money(GOAL);
 
     el.win.hidden = state.earned < GOAL;
     if (state.earned >= GOAL){
@@ -297,6 +306,7 @@
     if (state.jobsDone > state.day * 3) { state.day = Math.floor(state.jobsDone / 3) + 1; }
 
     updateBars();
+    drawScene();
     if (Math.random() < 0.01) save();
   }
 
@@ -307,6 +317,153 @@
       if (bars[idx]) bars[idx].style.width = Math.round((1 - working[w].left / working[w].total) * 100) + "%";
       idx++;
     }
+  }
+
+
+  // ============================================================
+  // PIXEL SCENE - the yard grows as the business grows
+  // ============================================================
+  var sceneCv = document.getElementById("tyscene");
+  var sctx = sceneCv ? sceneCv.getContext("2d") : null;
+  if (sctx) sctx.imageSmoothingEnabled = false;
+  var SW = 480, SH = 220;
+  var pops = [];
+
+  function px(c, x, y, w, h, col){ c.fillStyle = col; c.fillRect(x, y, w, h); }
+
+  function drawScene(){
+    if (!sctx) return;
+    var c = sctx;
+    var t = Date.now() / 1000;
+
+    // sky and sun
+    px(c, 0, 0, SW, SH, "#6ba7f0");
+    px(c, 0, 100, SW, 60, "#8cc4f7");
+    px(c, 406, 22, 26, 26, "#ffd45e");
+    px(c, 410, 18, 18, 34, "#ffd45e");
+    px(c, 418, 26, 2, 18, "#ffd45e");
+    var cl1 = Math.round(Math.sin(t * 0.2) * 18);
+    var cl2 = Math.round(Math.sin(t * 0.15 + 2) * 24);
+    px(c, 40 + cl1, 26, 34, 8, "#ffffff");
+    px(c, 52 + cl1, 20, 18, 8, "#ffffff");
+    px(c, 250 + cl2, 40, 30, 8, "#ffffff");
+    px(c, 262 + cl2, 34, 16, 8, "#ffffff");
+
+    // lawn
+    px(c, 0, 160, SW, SH - 160, "#4a9b3c");
+    px(c, 0, 160, SW, 4, "#6fc455");
+    px(c, 0, 196, SW, 4, "#3a7d30");
+
+    // house
+    px(c, 26, 96, 96, 64, "#d9c39a");
+    px(c, 18, 84, 112, 14, "#a3452f");
+    px(c, 26, 70, 96, 16, "#c2543a");
+    px(c, 62, 122, 22, 38, "#6b4423");
+    px(c, 74, 140, 3, 3, "#ffd45e");
+    px(c, 40, 108, 20, 18, "#8fd3f0");
+    px(c, 88, 108, 20, 18, "#8fd3f0");
+    px(c, 40, 108, 20, 2, "#2e6f8f");
+    px(c, 88, 108, 20, 2, "#2e6f8f");
+
+    // garden bed
+    px(c, 140, 176, 70, 20, "#6b4423");
+    px(c, 142, 172, 66, 6, "#7fc85c");
+    for (var f = 0; f < 5; f++) px(c, 148 + f * 12, 166, 5, 8, "#e2626b");
+
+    // tree
+    px(c, 232, 120, 8, 42, "#6b4423");
+    px(c, 214, 92, 44, 34, "#2f7a33");
+    px(c, 222, 84, 28, 12, "#3f9440");
+    px(c, 220, 98, 10, 10, "#57ad4c");
+
+    // hedge
+    for (var hg = 0; hg < 7; hg++) px(c, 330 + hg * 16, 138, 16, 24, "#2f7a33");
+
+    // depot shed and ute appear with the trailer upgrade
+    if (state.owned.trailer){
+      px(c, 380, 116, 64, 46, "#8a8f86");
+      px(c, 374, 106, 76, 12, "#5f655e");
+      px(c, 396, 134, 22, 28, "#3d423d");
+      px(c, 440, 140, 36, 18, "#c2543a");
+      px(c, 444, 158, 8, 8, "#2b2b2b");
+      px(c, 466, 158, 8, 8, "#2b2b2b");
+    }
+
+    // gear standing on the lawn
+    var tools = [
+      { id: "mower",    x: 168, kind: "mower" },
+      { id: "trimmer",  x: 196, kind: "trimmer" },
+      { id: "sprayer",  x: 224, kind: "sprayer" },
+      { id: "chipper",  x: 252, kind: "chipper" },
+      { id: "mulcher",  x: 280, kind: "mulcher" },
+      { id: "turfkit",  x: 308, kind: "turf" },
+      { id: "treegear", x: 336, kind: "tree" }
+    ];
+    for (var tl = 0; tl < tools.length; tl++){
+      if (!state.owned[tools[tl].id]) continue;
+      var X = tools[tl].x, Y = 186;
+      if (tools[tl].kind === "mower"){
+        px(c, X, Y, 18, 10, "#d82800");
+        px(c, X + 4, Y - 8, 6, 8, "#d82800");
+        px(c, X, Y + 10, 6, 4, "#2b2b2b");
+        px(c, X + 12, Y + 10, 6, 4, "#2b2b2b");
+      } else if (tools[tl].kind === "trimmer"){
+        px(c, X + 6, Y - 14, 3, 16, "#c8952e");
+        px(c, X, Y - 18, 16, 5, "#2f7a33");
+      } else if (tools[tl].kind === "sprayer"){
+        px(c, X + 4, Y - 12, 10, 14, "#4a9bd0");
+        px(c, X + 7, Y - 18, 4, 8, "#2f6f9f");
+      } else if (tools[tl].kind === "chipper"){
+        px(c, X, Y - 12, 16, 14, "#c2543a");
+        px(c, X + 4, Y - 18, 8, 7, "#8a8f86");
+      } else if (tools[tl].kind === "mulcher"){
+        px(c, X, Y - 10, 18, 12, "#6b4423");
+        px(c, X + 2, Y - 14, 14, 5, "#7fc85c");
+      } else if (tools[tl].kind === "turf"){
+        px(c, X, Y - 8, 16, 10, "#4a9b3c");
+        px(c, X + 2, Y - 12, 12, 5, "#6fc455");
+      } else if (tools[tl].kind === "tree"){
+        px(c, X + 6, Y - 8, 4, 10, "#6b4423");
+        px(c, X, Y - 20, 16, 14, "#2f7a33");
+      }
+    }
+
+    // crew on the tools
+    for (var cr = 0; cr < state.crew; cr++){
+      var bx = 300 + cr * 22 + Math.round(Math.sin(t * 1.6 + cr) * 14);
+      var by = 168 + (cr % 2) * 8;
+      px(c, bx, by - 12, 10, 8, "#d82800");
+      px(c, bx + 1, by - 20, 8, 8, "#fca044");
+      px(c, bx + 2, by - 4, 3, 6, "#0058f8");
+      px(c, bx + 6, by - 4, 3, 6, "#0058f8");
+    }
+
+    // mower drives while a mowing job is running
+    for (var w2 = 0; w2 < working.length; w2++){
+      var job = working[w2].def;
+      if (job.id !== "mow" && job.id !== "edge") continue;
+      var mx = 150 + Math.round(((Date.now() / 14) % 120));
+      px(c, mx - 26, 176, 24, 4, "#6fc455");
+      px(c, mx, 178, 20, 11, "#d82800");
+      px(c, mx + 5, 168, 7, 10, "#d82800");
+      px(c, mx, 189, 7, 5, "#2b2b2b");
+      px(c, mx + 14, 189, 7, 5, "#2b2b2b");
+    }
+
+    // coins popping
+    for (var pp = pops.length - 1; pp >= 0; pp--){
+      var po = pops[pp];
+      po.life -= 1;
+      po.y -= 0.7;
+      if (po.life <= 0){ pops.splice(pp, 1); continue; }
+      px(c, Math.round(po.x), Math.round(po.y), 8, 10, "#ffd45e");
+      px(c, Math.round(po.x) + 2, Math.round(po.y) + 2, 4, 6, "#e39d17");
+    }
+  }
+
+  function popCoin(x, y){
+    pops.push({ x: x, y: y, life: 40 });
+    if (pops.length > 20) pops.shift();
   }
 
   // ---------- boot ----------
