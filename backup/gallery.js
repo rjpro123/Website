@@ -97,6 +97,8 @@
     lb.classList.remove("iszoomed");
     lbImg.style.transform = "none";
     if (lbZoom){ lbZoom.hidden = true; lbZoom.textContent = "1x"; }
+    if (btnIn) btnIn.disabled = false;
+    if (btnOut) btnOut.disabled = true;
   }
 
   function render(){
