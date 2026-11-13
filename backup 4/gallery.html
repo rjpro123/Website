@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Gallery | Souwest Lawn &amp; Garden Service | Adelaide</title>
+  <meta name="description" content="Recent lawn mowing, hedging, cleanup and turf care work by Souwest Lawn & Garden Service across Adelaide and suburbs.">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Souwest Lawn &amp; Garden">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts load without blocking render (fixes blank/black screen on slow networks) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=43">
+</head>
+<body>
+
+<header class="siteheader">
+  <div class="wrapwide">
+    <div class="brand">
+      <a href="index.html"><img src="assets/logo.png" alt="Souwest Lawn &amp; Garden Service" class="brandlogo"></a>
+    </div>
+    <p class="tagline">Lawn &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
+    <nav class="navtabs" aria-label="Pages">
+      <a class="tab" href="index.html">Quote</a>
+      <a class="tab" href="services.html">What We Do</a>
+      <a class="tab isactive" href="gallery.html">Gallery</a>
+      <a class="tab" href="staff.html">Staff</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrapwide">
+
+  <div class="pagehead">
+    <h1 class="pagetitle">Our Work</h1>
+    <p class="pagesub">Some of the lawns, gardens and beds we have worked on around Adelaide. More as we get them done.<em><a href="index.html">Not sure who to call? Get a quote.</a></em></p>
+  </div>
+
+  <div class="gallerygrid">
+
+    <!-- DEV: to publish a photo, drop the file in D:\Website\gallery\ and replace the
+         placeholder div below with: <div class="gframe"><img src="gallery/file.jpg" alt="..."></div> -->
+    <figure class="gitem">
+      <div class="gframe">
+        <img src="gallery/hutchman.jpg" alt="Hutch Man the cat resting on the office rug" width="1400" height="1050" loading="lazy">
+      </div>
+      <figcaption><strong>Hutch Man</strong><span>Keeping an eye on the jobs</span></figcaption>
+    </figure>
+
+    <figure class="gitem">
+      <div class="gframe" role="img" aria-label="Garden bed refresh, Brighton">
+        <span class="gicon">&#127804;</span>
+        <span class="gph">Coming soon</span>
+      </div>
+      <figcaption><strong>Garden bed refresh</strong><span>Brighton, SA</span></figcaption>
+    </figure>
+
+    <figure class="gitem">
+      <div class="gframe" role="img" aria-label="Hedge and prune, Stirling">
+        <span class="gicon">&#128127;</span>
+        <span class="gph">Coming soon</span>
+      </div>
+      <figcaption><strong>Hedge &amp; prune</strong><span>Stirling, SA</span></figcaption>
+    </figure>
+
+    <figure class="gitem">
+      <div class="gframe" role="img" aria-label="Seasonal cleanup, Glenelg">
+        <span class="gicon">&#129578;</span>
+        <span class="gph">Coming soon</span>
+      </div>
+      <figcaption><strong>Seasonal cleanup</strong><span>Glenelg, SA</span></figcaption>
+    </figure>
+
+    <figure class="gitem">
+      <div class="gframe" role="img" aria-label="Kikuyu and couch lawn care, Unley">
+        <span class="gicon">&#9728;</span>
+        <span class="gph">Coming soon</span>
+      </div>
+      <figcaption><strong>Kikuyu &amp; Couch care</strong><span>Unley, SA</span></figcaption>
+    </figure>
+
+    <figure class="gitem">
+      <div class="gframe" role="img" aria-label="Strata common areas, Norwood">
+        <span class="gicon">&#127968;</span>
+        <span class="gph">Coming soon</span>
+      </div>
+      <figcaption><strong>Strata common areas</strong><span>Norwood, SA</span></figcaption>
+    </figure>
+
+  </div>
+
+
+  <footer class="sitefooter">
+    <img src="assets/logofooter.png" alt="Souwest Lawn &amp; Garden Service" class="footermark">
+    <p class="footceo">Patrick Glynn</p>
+    <p class="footline">Souwest Lawn &amp; Garden Service. Lawn &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
+    <p class="footline footsub">Adelaide and the surrounding suburbs</p>
+    <div class="footlinks">
+      <a href="index.html">Quote</a>
+      <a href="services.html">What We Do</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="staff.html">Staff</a>
+    </div>
+    <p class="copy">&copy; <span id="year">2026</span> Souwest Lawn &amp; Garden Service. All rights reserved.</p>
+  </footer>
+
+</main>
+
+
+<!-- ---------- Photo viewer ---------- -->
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <div class="lbbackdrop" data-lbclose></div>
+  <div class="lbtop">
+    <div class="lbleft">
+      <span class="lbcount" id="lbcount">1 of 1</span>
+      <span class="lbzoom" id="lbzoom" hidden>2.2x</span>
+    </div>
+    <button type="button" class="lbclose" data-lbclose aria-label="Close photo viewer">&times;</button>
+  </div>
+  <button type="button" class="lbnav lbprev" aria-label="Previous photo">&#8249;</button>
+  <div class="lbstage" id="lbstage">
+    <img id="lbimage" src="" alt="">
+    <div class="lbloader" id="lbloader" hidden><span class="lbring"></span></div>
+    <p class="lbhint" id="lbhint">Click the photo to zoom &middot; drag to move around</p>
+    <div class="lbzoomctl">
+      <button type="button" class="lbmbtn" id="lbzoomin" aria-label="Zoom in">&#43;</button>
+      <button type="button" class="lbmbtn" id="lbzoomout" aria-label="Zoom out">&minus;</button>
+      <button type="button" class="lbmbtn lbmfit" id="lbzoomreset" aria-label="Fit photo to screen">1:1</button>
+    </div>
+  </div>
+  <button type="button" class="lbnav lbnext" aria-label="Next photo">&#8250;</button>
+  <p class="lbcap" id="lbcaption"></p>
+  <div class="lbthumbs" id="lbthumbs"></div>
+</div>
+
+<script src="script.js?v=43"></script>
+<script src="gallery.js?v=43"></script>
+<script src="transitions.js?v=43"></script>
+</body>
+</html>

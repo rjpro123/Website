@@ -1,0 +1,40 @@
+BACKUP 4 OF: D:\Website (Souwest Lawn & Garden Service website)
+TAKEN:      2026-11-13 20:53
+GIT COMMIT: 03fd406
+FULL SHA:   03fd4066524fc3df76b9c394c07f027054f451d0
+REMOTE:     https://github.com/rjpro123/Website (branch: main)
+LIVE SITE:  https://rjpro123.github.io/Website/
+
+Fourth full snapshot of the site at the commit above.
+Backup folders: "backup", "backup 2", "backup 3", "backup 4" (this one).
+
+PAGES:
+  index.html      Quote page (form + photo upload)
+  services.html   What We Do (12 service cards)
+  staff.html      The Team
+  gallery.html    Gallery + full screen photo viewer
+  thanks.html     Thank you page after sending
+  quote.html      Redirect stub -> index.html
+  email.html      Redirect stub -> index.html
+
+CODE:
+  styles.css      black + green theme
+  script.js       footer year + active tab
+  email.js        photo upload previews + guards
+  gallery.js      photo viewer (zoom, pan, swipe, thumbnails)
+  transitions.js  page transitions + reveal animations
+
+ASSETS:
+  assets/logo.png, logofooter.png, logomark.png
+  gallery/hutchman.jpg     gallery photo (1400x1050, 301KB)
+  Files/                    original uploads
+
+NOTES:
+  - No hyphens anywhere in the site (owner rule).
+  - Nav tabs: Quote | What We Do | Gallery | Staff
+  - .git not included (git cannot track a nested repo).
+    Full copy with history: D:\Website-Full-Backup-2026-11-11.zip
+  - Files/Gallery Imgaes/ is excluded by .gitignore (raw 2MB upload).
+
+TO RESTORE SITE FILES:
+  robocopy "D:\Website\backup 4\*" "D:\Website" /E

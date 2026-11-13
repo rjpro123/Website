@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+.env
+*.local
+.DS_Store
+Thumbs.db
+
+# Backup folder is pushed to GitHub, but its nested .git is not
+# (otherwise git treats it as an embedded repo / broken submodule).
+backup/.git/
+
+# Raw photo uploads (optimised copies live in gallery/)
+Files/Gallery Imgaes/
