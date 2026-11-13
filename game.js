@@ -545,6 +545,16 @@
   reset();
   showOverlay("SOUWEST GARDEN RUN", "Jump the bricks, stomp the goombas, grab the coins.");
 
+  // small hook so the game can be checked from the console
+  window.souwestgame = {
+    get x(){ return p ? Math.round(p.x) : 0; },
+    get y(){ return p ? Math.round(p.y) : 0; },
+    get state(){ return state; },
+    get coins(){ return coinCount; },
+    get score(){ return score; },
+    get keys(){ return { left: keys.left, right: keys.right, jump: keys.jump }; }
+  };
+
   function loop(){
     update();
     draw();
