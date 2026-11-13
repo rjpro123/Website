@@ -17,7 +17,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=31">
+  <link rel="stylesheet" href="styles.css?v=32">
 </head>
 <body>
 
@@ -116,20 +116,25 @@
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
   <div class="lbbackdrop" data-lbclose></div>
   <div class="lbtop">
-    <span class="lbcount" id="lbcount">1 of 1</span>
+    <div class="lbleft">
+      <span class="lbcount" id="lbcount">1 of 1</span>
+      <span class="lbzoom" id="lbzoom" hidden>2.2x</span>
+    </div>
     <button type="button" class="lbclose" data-lbclose aria-label="Close photo viewer">&times;</button>
   </div>
   <button type="button" class="lbnav lbprev" aria-label="Previous photo">&#8249;</button>
   <div class="lbstage" id="lbstage">
     <img id="lbimage" src="" alt="">
+    <div class="lbloader" id="lbloader" hidden><span class="lbring"></span></div>
+    <p class="lbhint" id="lbhint">Click the photo to zoom &middot; drag to move around</p>
   </div>
   <button type="button" class="lbnav lbnext" aria-label="Next photo">&#8250;</button>
   <p class="lbcap" id="lbcaption"></p>
   <div class="lbthumbs" id="lbthumbs"></div>
 </div>
 
-<script src="script.js?v=31"></script>
-<script src="gallery.js?v=31"></script>
-<script src="transitions.js?v=31"></script>
+<script src="script.js?v=32"></script>
+<script src="gallery.js?v=32"></script>
+<script src="transitions.js?v=32"></script>
 </body>
 </html>

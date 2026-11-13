@@ -10,6 +10,10 @@
   var lbCap = document.getElementById("lbcaption");
   var lbCount = document.getElementById("lbcount");
   var lbThumbs = document.getElementById("lbthumbs");
+  var lbZoom = document.getElementById("lbzoom");
+  var lbHint = document.getElementById("lbhint");
+  var lbLoader = document.getElementById("lbloader");
+  var hintTimer = null;
 
   var items = Array.prototype.slice.call(grid.querySelectorAll(".gitem"));
   var photos = items.filter(function(it){ return it.querySelector(".gframe img"); });
@@ -66,6 +70,19 @@
     stage.classList.toggle("iszoomed", zoomed);
     lbImg.classList.toggle("iszoomed", zoomed);
     lb.classList.toggle("iszoomed", zoomed);
+    if (lbZoom){
+      lbZoom.hidden = !zoomed;
+      lbZoom.textContent = factor.toFixed(1) + "x";
+    }
+    if (lbHint){
+      if (zoomed){
+        lbHint.textContent = "Drag to move around &middot; click to zoom out";
+        lbHint.classList.remove("isfade");
+      } else {
+        lbHint.textContent = "Click the photo to zoom \u00b7 drag to move around";
+        lbHint.classList.add("isfade");
+      }
+    }
   }
 
   function zoomOut(){
@@ -74,10 +91,14 @@
     lbImg.classList.remove("iszoomed");
     lb.classList.remove("iszoomed");
     lbImg.style.transform = "none";
+    if (lbZoom) lbZoom.hidden = true;
   }
 
   function render(){
     var d = read(photos[index]);
+    if (lbLoader) lbLoader.hidden = false;
+    lbImg.onload = function(){ if (lbLoader) lbLoader.hidden = true; };
+    lbImg.onerror = function(){ if (lbLoader) lbLoader.hidden = true; };
     lbImg.src = d.src;
     lbImg.alt = d.alt;
     zoomOut();
@@ -106,6 +127,11 @@
     document.body.classList.add("lblock");
     var close = lb.querySelector(".lbclose");
     if (close) close.focus();
+    if (lbHint){
+      lbHint.classList.remove("isfade");
+      if (hintTimer) clearTimeout(hintTimer);
+      hintTimer = setTimeout(function(){ lbHint.classList.add("isfade"); }, 4000);
+    }
   }
 
   function close(){
