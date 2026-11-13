@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Game | Souwest Lawn &amp; Garden Service | Adelaide</title>
+  <meta name="description" content="An 8 bit platform game for the Souwest Lawn and Garden crew. Testing only.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Souwest Lawn &amp; Garden">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts load without blocking render -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=48">
+</head>
+<body>
+
+<header class="siteheader">
+  <div class="wrapwide">
+    <div class="brand">
+      <a href="index.html"><img src="assets/logo.png" alt="Souwest Lawn &amp; Garden Service" class="brandlogo"></a>
+    </div>
+    <p class="tagline">Lawn &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
+    <nav class="navtabs" aria-label="Pages">
+      <a class="tab" href="index.html">Quote</a>
+      <a class="tab" href="services.html">What We Do</a>
+      <a class="tab" href="gallery.html">Gallery</a>
+      <a class="tab" href="staff.html">Staff</a>
+      <a class="tab" href="experimental.html">Experimental</a>
+      <a class="tab isactive" href="game.html">Game</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrapwide">
+
+  <div class="pagehead">
+    <h1 class="pagetitle">The Game</h1>
+    <p class="pagesub">An 8 bit platformer for the crew. Testing only &mdash; no high scores, no pressure.<em>Arrows or A D to move, space to jump.</em></p>
+  </div>
+
+  <div class="gamewrap">
+    <div class="gamehud">
+      <span>SCORE <b id="gscore">0</b></span>
+      <span>COINS <b id="gcoins">0</b></span>
+      <span>TIME <b id="gtime">300</b></span>
+      <span>LIVES <b id="glives">3</b></span>
+      <button type="button" class="gamebtn" id="gmute" aria-label="Turn sound off">SOUND ON</button>
+      <button type="button" class="gamebtn" id="grestart" aria-label="Start again">RESTART</button>
+    </div>
+
+    <div class="gameframe">
+      <canvas id="game" width="480" height="270" aria-label="8 bit platform game"></canvas>
+      <div class="gameoverlay" id="goverlay">
+        <p class="gamebig" id="gtitle">SOUWEST GARDEN RUN</p>
+        <p class="gamesub" id="gsub">Jump the bricks, stomp the goombas, grab the coins.</p>
+        <button type="button" class="btnsubmit gamesmall" id="gstart">START</button>
+      </div>
+    </div>
+
+    <div class="gamepad">
+      <button type="button" class="gpad" data-key="left" aria-label="Move left">&#9664;</button>
+      <button type="button" class="gpad" data-key="right" aria-label="Move right">&#9654;</button>
+      <button type="button" class="gpad gpadjump" data-key="jump" aria-label="Jump">JUMP</button>
+    </div>
+
+    <p class="gamenote">Arrow keys or A and D to move. Space, W or the up arrow to jump. On a phone use the buttons below.</p>
+  </div>
+
+  <div class="ctaband">
+    <h2>Back to the real site</h2>
+    <p>Nothing to see here yet. The quote form is where it is all happening.</p>
+    <a class="btnsubmit" href="index.html">Get a quote</a>
+  </div>
+
+  <footer class="sitefooter">
+    <img src="assets/logofooter.png" alt="Souwest Lawn &amp; Garden Service" class="footermark">
+    <p class="footceo">Patrick Glynn</p>
+    <p class="footline">Souwest Lawn &amp; Garden Service. Lawn &amp; Garden Maintenance Across Adelaide &amp; Suburbs</p>
+    <div class="footlinks">
+      <a href="index.html">Quote</a>
+      <a href="services.html">What We Do</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="staff.html">Staff</a>
+      <a href="experimental.html">Experimental</a>
+      <a href="game.html">Game</a>
+    </div>
+    <p class="copy">&copy; <span id="year">2026</span> Souwest Lawn &amp; Garden Service. All rights reserved.</p>
+  </footer>
+
+</main>
+
+<script src="script.js?v=48"></script>
+<script src="transitions.js?v=48"></script>
+<script src="game.js?v=48"></script>
+</body>
+</html>

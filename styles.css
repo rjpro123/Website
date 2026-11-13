@@ -609,3 +609,41 @@ body.lblock{overflow:hidden}
 .jobstatus.progress{background:rgba(255,255,255,.08);color:#d7d7d7}
 .jobstatus.scheduled{background:rgba(99,192,132,.10);color:#9fd6b0}
 .jobstatus.quote{background:rgba(255,255,255,.05);color:#9c9c9c}
+
+/* ---------- 8 bit game ---------- */
+.gamewrap{margin:26px 0 8px}
+.gamehud{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;
+  background:var(--surface);border-radius:14px 14px 0 0;padding:12px 14px;
+  font-family:var(--head);font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.06em;
+}
+.gamehud b{color:var(--euc-bright);font-size:.95rem;margin-left:4px}
+.gamebtn{
+  margin-left:auto;background:var(--surface-2);border:1px solid var(--line);
+  color:var(--muted);border-radius:8px;padding:7px 11px;cursor:pointer;
+  font-family:var(--head);font-weight:700;font-size:.68rem;letter-spacing:.08em;
+}
+.gamebtn:hover{border-color:var(--euc-bright);color:var(--euc-bright)}
+.gameframe{position:relative;background:#000;border-radius:0 0 14px 14px;overflow:hidden;line-height:0}
+.gameframe canvas{width:100%;height:auto;display:block;image-rendering:pixelated;image-rendering:crisp-edges}
+.gameoverlay{
+  position:absolute;inset:0;display:none;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;padding:20px;text-align:center;
+  background:rgba(0,0,0,.72);line-height:1.4;
+}
+.gameoverlay.show{display:flex}
+.gamebig{font-family:var(--head);font-weight:800;font-size:1.15rem;color:#D6F5DC;letter-spacing:.04em}
+.gamesub{font-size:.85rem;color:var(--muted);max-width:40ch}
+.gamesmall{width:auto;padding:0 26px;min-height:48px;font-size:.9rem;margin-top:4px}
+.gamepad{
+  display:flex;gap:10px;margin-top:14px;
+}
+.gpad{
+  flex:1;min-height:64px;border-radius:14px;cursor:pointer;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--ink);
+  font-size:1.3rem;font-family:var(--head);font-weight:800;
+  touch-action:none;user-select:none;-webkit-user-select:none;
+}
+.gpad:active{background:var(--euc-bright);color:#08180E;border-color:transparent}
+.gpadjump{flex:1.4;font-size:.95rem;letter-spacing:.06em}
+.gamenote{font-size:.8rem;color:var(--faint);text-align:center;margin-top:12px;line-height:1.5}
