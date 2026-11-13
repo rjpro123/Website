@@ -123,7 +123,7 @@
   function finishJob(w){
     var amount = pay(w.def.pay, w.def);
     floatCash(amount);
-    popCoin(120 + Math.random() * 220, 150);
+    popCoin(120 + Math.random() * 220, 180);
     save();
     render();
   }
@@ -326,7 +326,7 @@
   var sceneCv = document.getElementById("tyscene");
   var sctx = sceneCv ? sceneCv.getContext("2d") : null;
   if (sctx) sctx.imageSmoothingEnabled = false;
-  var SW = 480, SH = 220;
+  var SW = 480, SH = 260;
   var pops = [];
 
   function px(c, x, y, w, h, col){ c.fillStyle = col; c.fillRect(x, y, w, h); }
@@ -350,43 +350,43 @@
     px(c, 262 + cl2, 34, 16, 8, "#ffffff");
 
     // lawn
-    px(c, 0, 160, SW, SH - 160, "#4a9b3c");
-    px(c, 0, 160, SW, 4, "#6fc455");
-    px(c, 0, 196, SW, 4, "#3a7d30");
+    px(c, 0, 190, SW, SH - 190, "#4a9b3c");
+    px(c, 0, 190, SW, 4, "#6fc455");
+    px(c, 0, 226, SW, 4, "#3a7d30");
 
     // house
-    px(c, 26, 96, 96, 64, "#d9c39a");
-    px(c, 18, 84, 112, 14, "#a3452f");
-    px(c, 26, 70, 96, 16, "#c2543a");
-    px(c, 62, 122, 22, 38, "#6b4423");
-    px(c, 74, 140, 3, 3, "#ffd45e");
-    px(c, 40, 108, 20, 18, "#8fd3f0");
-    px(c, 88, 108, 20, 18, "#8fd3f0");
-    px(c, 40, 108, 20, 2, "#2e6f8f");
-    px(c, 88, 108, 20, 2, "#2e6f8f");
+    px(c, 26, 126, 96, 64, "#d9c39a");
+    px(c, 18, 114, 112, 14, "#a3452f");
+    px(c, 26, 100, 96, 16, "#c2543a");
+    px(c, 62, 152, 22, 38, "#6b4423");
+    px(c, 74, 170, 3, 3, "#ffd45e");
+    px(c, 40, 138, 20, 18, "#8fd3f0");
+    px(c, 88, 138, 20, 18, "#8fd3f0");
+    px(c, 40, 138, 20, 2, "#2e6f8f");
+    px(c, 88, 138, 20, 2, "#2e6f8f");
 
     // garden bed
-    px(c, 140, 176, 70, 20, "#6b4423");
-    px(c, 142, 172, 66, 6, "#7fc85c");
-    for (var f = 0; f < 5; f++) px(c, 148 + f * 12, 166, 5, 8, "#e2626b");
+    px(c, 140, 206, 70, 20, "#6b4423");
+    px(c, 142, 202, 66, 6, "#7fc85c");
+    for (var f = 0; f < 5; f++) px(c, 148 + f * 12, 196, 5, 8, "#e2626b");
 
     // tree
-    px(c, 232, 120, 8, 42, "#6b4423");
-    px(c, 214, 92, 44, 34, "#2f7a33");
-    px(c, 222, 84, 28, 12, "#3f9440");
-    px(c, 220, 98, 10, 10, "#57ad4c");
+    px(c, 232, 150, 8, 42, "#6b4423");
+    px(c, 214, 122, 44, 34, "#2f7a33");
+    px(c, 222, 114, 28, 12, "#3f9440");
+    px(c, 220, 128, 10, 10, "#57ad4c");
 
     // hedge
-    for (var hg = 0; hg < 7; hg++) px(c, 330 + hg * 16, 138, 16, 24, "#2f7a33");
+    for (var hg = 0; hg < 7; hg++) px(c, 330 + hg * 16, 168, 16, 24, "#2f7a33");
 
     // depot shed and ute appear with the trailer upgrade
     if (state.owned.trailer){
-      px(c, 380, 116, 64, 46, "#8a8f86");
-      px(c, 374, 106, 76, 12, "#5f655e");
-      px(c, 396, 134, 22, 28, "#3d423d");
-      px(c, 440, 140, 36, 18, "#c2543a");
-      px(c, 444, 158, 8, 8, "#2b2b2b");
-      px(c, 466, 158, 8, 8, "#2b2b2b");
+      px(c, 380, 146, 64, 46, "#8a8f86");
+      px(c, 374, 136, 76, 12, "#5f655e");
+      px(c, 396, 164, 22, 28, "#3d423d");
+      px(c, 440, 170, 36, 18, "#c2543a");
+      px(c, 444, 188, 8, 8, "#2b2b2b");
+      px(c, 466, 188, 8, 8, "#2b2b2b");
     }
 
     // gear standing on the lawn
@@ -401,7 +401,7 @@
     ];
     for (var tl = 0; tl < tools.length; tl++){
       if (!state.owned[tools[tl].id]) continue;
-      var X = tools[tl].x, Y = 186;
+      var X = tools[tl].x, Y = 216;
       if (tools[tl].kind === "mower"){
         px(c, X, Y, 18, 10, "#d82800");
         px(c, X + 4, Y - 8, 6, 8, "#d82800");
@@ -431,7 +431,7 @@
     // crew on the tools
     for (var cr = 0; cr < state.crew; cr++){
       var bx = 300 + cr * 22 + Math.round(Math.sin(t * 1.6 + cr) * 14);
-      var by = 168 + (cr % 2) * 8;
+      var by = 198 + (cr % 2) * 8;
       px(c, bx, by - 12, 10, 8, "#d82800");
       px(c, bx + 1, by - 20, 8, 8, "#fca044");
       px(c, bx + 2, by - 4, 3, 6, "#0058f8");
@@ -443,11 +443,11 @@
       var job = working[w2].def;
       if (job.id !== "mow" && job.id !== "edge") continue;
       var mx = 150 + Math.round(((Date.now() / 14) % 120));
-      px(c, mx - 26, 176, 24, 4, "#6fc455");
-      px(c, mx, 178, 20, 11, "#d82800");
-      px(c, mx + 5, 168, 7, 10, "#d82800");
-      px(c, mx, 189, 7, 5, "#2b2b2b");
-      px(c, mx + 14, 189, 7, 5, "#2b2b2b");
+      px(c, mx - 26, 206, 24, 4, "#6fc455");
+      px(c, mx, 208, 20, 11, "#d82800");
+      px(c, mx + 5, 198, 7, 10, "#d82800");
+      px(c, mx, 219, 7, 5, "#2b2b2b");
+      px(c, mx + 14, 219, 7, 5, "#2b2b2b");
     }
 
     // coins popping
