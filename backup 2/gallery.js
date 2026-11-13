@@ -28,6 +28,7 @@
   var tx = 0, ty = 0;   // pan offset in pixels
   var base = null;      // unscaled image box
   var dragging = false, sx = 0, sy = 0, moved = false;
+  var anchor = null;   // last pointer position over the photo
 
   function read(it){
     var img = it.querySelector(".gframe img");
@@ -220,15 +221,25 @@
     var r = stage.getBoundingClientRect();
     return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
   }
+  // the point the zoom should grow around: wherever the user last touched
+  // the photo, otherwise the middle of the stage
+  function zoomAnchor(){
+    if (!anchor) return stageCentre();
+    var r = stage.getBoundingClientRect();
+    return {
+      x: Math.max(r.left, Math.min(r.right, anchor.x)),
+      y: Math.max(r.top, Math.min(r.bottom, anchor.y))
+    };
+  }
   if (btnIn){
     btnIn.addEventListener("click", function(){
-      var c = stageCentre();
+      var c = zoomAnchor();
       setZoom(factor * 1.45, c.x, c.y);
     });
   }
   if (btnOut){
     btnOut.addEventListener("click", function(){
-      var c = stageCentre();
+      var c = zoomAnchor();
       setZoom(factor / 1.45, c.x, c.y);
     });
   }
@@ -245,6 +256,7 @@
 
   // click to zoom into that spot, click again to zoom out
   stage.addEventListener("click", function(e){
+    anchor = { x: e.clientX, y: e.clientY };
     if (factor > 1.02){
       if (moved) return;
       zoomOut();
@@ -263,6 +275,10 @@
     stage.classList.add("isdragging");
     lbImg.style.transition = "none";
   });
+  lbImg.addEventListener("pointermove", function(e){
+    anchor = { x: e.clientX, y: e.clientY };
+  });
+
   stage.addEventListener("pointermove", function(e){
     if (!dragging) return;
     var dx = e.clientX - sx, dy = e.clientY - sy;
@@ -294,8 +310,8 @@
     if (e.key === "Escape") close();
     else if (e.key === "ArrowRight") next();
     else if (e.key === "ArrowLeft") prev();
-    else if (e.key === "+" || e.key === "=") setZoom(factor * 1.2, window.innerWidth/2, window.innerHeight/2);
-    else if (e.key === "-") setZoom(factor / 1.2, window.innerWidth/2, window.innerHeight/2);
+    else if (e.key === "+" || e.key === "="){ var a = zoomAnchor(); setZoom(factor * 1.2, a.x, a.y); }
+    else if (e.key === "-"){ var b = zoomAnchor(); setZoom(factor / 1.2, b.x, b.y); }
   });
 
   // swipe between photos (only when not zoomed)
