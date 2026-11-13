@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Game | Souwest Lawn &amp; Garden Service | Adelaide</title>
-  <meta name="description" content="An 8 bit platform game for the Souwest Lawn and Garden crew. Testing only.">
+  <meta name="description" content="Run your own landscaping crew. Buy gear, take on bigger jobs and grow the business. Testing only.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,7 +18,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=53">
+  <link rel="stylesheet" href="styles.css?v=54">
 </head>
 <body>
 
@@ -41,36 +41,46 @@
 <main class="wrapwide">
 
   <div class="pagehead">
-    <h1 class="pagetitle">The Game</h1>
-    <p class="pagesub">An 8 bit platformer for the crew. Testing only &mdash; no high scores, no pressure.<em>Arrows or A D to move, space to jump.</em></p>
+    <h1 class="pagetitle">Garden Tycoon</h1>
+    <p class="pagesub">Start with a mower and a pair of boots. Take on bigger jobs, buy better gear and grow the crew.<em>Your progress saves on this phone.</em></p>
   </div>
 
-  <div class="gamewrap">
-    <div class="gamehud">
-      <span>SCORE <b id="gscore">0</b></span>
-      <span>COINS <b id="gcoins">0</b></span>
-      <span>TIME <b id="gtime">300</b></span>
-      <span>LIVES <b id="glives">3</b></span>
-      <button type="button" class="gamebtn" id="gmute" aria-label="Turn sound off">SOUND ON</button>
-      <button type="button" class="gamebtn" id="grestart" aria-label="Start again">RESTART</button>
+  <div class="tycoon">
+
+    <div class="tyhud">
+      <div class="tystat"><span>Cash</span><b id="tcash">$0</b></div>
+      <div class="tystat"><span>Earned</span><b id="tearned">$0</b></div>
+      <div class="tystat"><span>Jobs done</span><b id="tjobs">0</b></div>
+      <div class="tystat"><span>Day</span><b id="tday">1</b></div>
+      <button type="button" class="gamebtn" id="treset">RESET</button>
     </div>
 
-    <div class="gameframe">
-      <canvas id="game" width="480" height="270" aria-label="8 bit platform game"></canvas>
-      <div class="gameoverlay" id="goverlay">
-        <p class="gamebig" id="gtitle">SOUWEST GARDEN RUN</p>
-        <p class="gamesub" id="gsub">Jump the bricks, stomp the goombas, grab the coins.</p>
-        <button type="button" class="btnsubmit gamesmall" id="gstart">START</button>
-      </div>
+    <div class="tygrid">
+      <section class="typanel">
+        <h2>Job board</h2>
+        <p class="tysub">Tap a job to get cracking. Bigger work needs better gear.</p>
+        <div class="tyjobs" id="tyjobs"></div>
+      </section>
+
+      <section class="typanel">
+        <h2>Shop</h2>
+        <p class="tysub">Gear unlocks new jobs. Crew work while you are away.</p>
+        <div class="tyshop" id="tyshop"></div>
+      </section>
     </div>
 
-    <div class="gamepad">
-      <button type="button" class="gpad" data-key="left" aria-label="Move left">&#9664;</button>
-      <button type="button" class="gpad" data-key="right" aria-label="Move right">&#9654;</button>
-      <button type="button" class="gpad gpadjump" data-key="jump" aria-label="Jump">JUMP</button>
+    <section class="typanel tycrewrap">
+      <h2>The crew</h2>
+      <p class="tysub" id="tycrewsub">Hire a crew member and they will pick up work on their own.</p>
+      <div class="tycrew" id="tycrew"></div>
+    </section>
+
+    <div class="tywin" id="tywin" hidden>
+      <p class="tybig">Depot owned</p>
+      <p class="tysub">You built a real landscaping business. Keep growing it if you like.</p>
+      <button type="button" class="btnsubmit tystartbtn" id="tywinbtn">KEEP GOING</button>
     </div>
 
-    <p class="gamenote">Arrow keys or A and D to move. Space, W or the up arrow to jump. On a phone use the buttons below.</p>
   </div>
 
   <div class="ctaband">
@@ -95,8 +105,8 @@
 
 </main>
 
-<script src="script.js?v=53"></script>
-<script src="transitions.js?v=53"></script>
-<script src="game.js?v=53"></script>
+<script src="script.js?v=54"></script>
+<script src="transitions.js?v=54"></script>
+<script src="game.js?v=54"></script>
 </body>
 </html>
