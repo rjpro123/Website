@@ -1,8 +1,9 @@
 (function(){
   "use strict";
 
-  var EMAIL = "rileyhutchins12@gmail.com";
+  var EMAIL = "";  // Email will be set when site is ready for publish
   var MAX_FILES = 5;
+  // FormSubmit will be configured when site goes live
   var MAX_BYTES = 10 * 1024 * 1024;   // FormSubmit limit is 10MB in TOTAL
 
   /* ---------------- Photo upload previews ---------------- */
