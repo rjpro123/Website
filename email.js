@@ -1,7 +1,7 @@
 (function(){
   "use strict";
 
-  var EMAIL = "souwestgardening@gmail.com";
+  var EMAIL = "rileyhutchins12@gmail.com";
   var MAX_FILES = 5;
   var MAX_BYTES = 10 * 1024 * 1024;   // FormSubmit limit is 10MB in TOTAL
 
