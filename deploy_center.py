@@ -3,7 +3,7 @@ import subprocess
 r = subprocess.run(['git', 'add', '-A'], capture_output=True, text=True, cwd='D:/Website')
 print('git add:', r.returncode)
 
-r2 = subprocess.run(['git', 'commit', '-q', '-m', 'Final email update: rileyhutchins12@gmail.com'], capture_output=True, text=True, cwd='D:/Website')
+r2 = subprocess.run(['git', 'commit', '-q', '-m', 'Fix mobile centering: equal padding on wrapwide'], capture_output=True, text=True, cwd='D:/Website')
 print('git commit:', r2.returncode)
 
 r3 = subprocess.run(['git', 'push', 'origin', 'main'], capture_output=True, text=True, cwd='D:/Website')

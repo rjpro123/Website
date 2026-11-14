@@ -277,7 +277,7 @@ body{
   touch-action:manipulation;
   padding-bottom:env(safe-area-inset-bottom);
 }
-.wrapwide{
+.wrapwide{width:min(960px,100%);margin-inline:auto;padding:18px}.wrapwide{
   padding-left:max(18px,env(safe-area-inset-left));
   padding-right:max(18px,env(safe-area-inset-right));
 }
