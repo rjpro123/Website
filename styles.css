@@ -563,14 +563,14 @@ body.lblock{overflow:hidden}
   .navtabs{
   text-align:center;
 
-    gap:6px;flex-wrap:nowrap;justify-content:flex-start;
+    gap:6px;flex-wrap:nowrap;justify-content:center;
     overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
     margin:0;padding:2px 0 6px;
     -webkit-overflow-scrolling:touch;
   }
   .navtabs::-webkit-scrollbar{display:none}
   .footlinks{
-    gap:6px;flex-wrap:nowrap;justify-content:flex-start;
+    gap:6px;flex-wrap:nowrap;justify-content:center;
     overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
     padding-bottom:2px;
   }
