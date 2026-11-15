@@ -69,42 +69,6 @@
       <figcaption><strong>Hutch Man</strong><span>Keeping an eye on the jobs</span></figcaption>
     </figure>
 
-    <!-- Manual pages (open in the photo viewer) -->
-    <figure class="gitem manualtile">
-      <div class="gframe">
-        <img src="assets/manual/manualpage1.png" alt="Professional manual page 1" width="1191" height="1684" loading="lazy">
-      </div>
-      <figcaption><strong>Manual</strong><span>Page 1 of 5</span></figcaption>
-    </figure>
-
-    <figure class="gitem manualtile">
-      <div class="gframe">
-        <img src="assets/manual/manualpage2.png" alt="Professional manual page 2" width="1191" height="1684" loading="lazy">
-      </div>
-      <figcaption><strong>Manual</strong><span>Page 2 of 5</span></figcaption>
-    </figure>
-
-    <figure class="gitem manualtile">
-      <div class="gframe">
-        <img src="assets/manual/manualpage3.png" alt="Professional manual page 3" width="1191" height="1684" loading="lazy">
-      </div>
-      <figcaption><strong>Manual</strong><span>Page 3 of 5</span></figcaption>
-    </figure>
-
-    <figure class="gitem manualtile">
-      <div class="gframe">
-        <img src="assets/manual/manualpage4.png" alt="Professional manual page 4" width="1191" height="1684" loading="lazy">
-      </div>
-      <figcaption><strong>Manual</strong><span>Page 4 of 5</span></figcaption>
-    </figure>
-
-    <figure class="gitem manualtile">
-      <div class="gframe">
-        <img src="assets/manual/manualpage5.png" alt="Professional manual page 5" width="1191" height="1684" loading="lazy">
-      </div>
-      <figcaption><strong>Manual</strong><span>Page 5 of 5</span></figcaption>
-    </figure>
-
     <figure class="gitem">
       <div class="gframe" role="img" aria-label="Garden bed refresh, Brighton">
         <span class="gicon">&#127804;</span>
@@ -137,15 +101,7 @@
       <figcaption><strong>Kikuyu &amp; Couch care</strong><span>Unley, SA</span></figcaption>
     </figure>
 
-    <figure class="gitem">
-      <div class="gframe" role="img" aria-label="Strata common areas, Norwood">
-        <span class="gicon">&#127968;</span>
-        <span class="gph">Coming soon</span>
-      </div>
-      <figcaption><strong>Strata common areas</strong><span>Norwood, SA</span></figcaption>
-    </figure>
-
-  </div>
+    </div>
 
   <p class="pdfdlstandalone">
     <a href="assets/Souwest_Professional_Manual_v19.pdf" download>Download the manual PDF</a>
@@ -199,8 +155,19 @@
   var card = document.getElementById("pdfcard");
   if (!card) return;
   function openManual(){
-    var first = document.querySelector(".manualtile");
-    if (first) first.click();
+    // open the lightbox on the first manual page image
+    var lbImg = document.getElementById("lbimage");
+    if (lbImg) lbImg.src = "assets/manual/manualpage1.png";
+    var lbCount = document.getElementById("lbcount");
+    if (lbCount) lbCount.textContent = "1 of 5";
+    var lbCaption = document.getElementById("lbcaption");
+    if (lbCaption) lbCaption.textContent = "Professional Manual — Page 1";
+    document.getElementById("lightbox").hidden = false;
+    document.body.classList.add("pdflock");
+    // preload the rest so navigation is smooth
+    for (var i = 2; i <= 5; i++) {
+      new Image().src = "assets/manual/manualpage" + i + ".png";
+    }
   }
   card.addEventListener("click", openManual);
   card.addEventListener("keydown", function(e){

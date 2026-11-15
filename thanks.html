@@ -47,6 +47,7 @@
     <div class="successicon">&#10003;</div>
     <h1>Thanks mate!</h1>
     <p>Got it. We will have a look at the job and get back to you within a day.</p>
+    <p class="redirectnote">Taking you to our gallery in <span id="countdown">5</span>...</p>
     <div class="heroactions">
       <a class="btnsubmit" href="index.html">Build a detailed quote</a>
       <a class="btnprimary" href="gallery.html">See our work</a>
@@ -69,7 +70,23 @@
 
 </main>
 
-<script src="script.js?v=73"></script>
-<script src="transitions.js?v=73"></script>
+<script src="script.js?v=74"></script>
+<script src="transitions.js?v=74"></script>
+<script>
+(function(){
+  "use strict";
+  var n = 5;
+  var el = document.getElementById("countdown");
+  var timer = setInterval(function(){
+    n -= 1;
+    if (el) el.textContent = n;
+    if (n <= 0){
+      clearInterval(timer);
+      // replace keeps the thank you page out of the back button history
+      window.location.replace("gallery.html");
+    }
+  }, 1000);
+})();
+</script>
 </body>
 </html>
