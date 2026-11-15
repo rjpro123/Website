@@ -17,7 +17,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=60">
+  <link rel="stylesheet" href="styles.css?v=71">
 </head>
 <body>
 
@@ -49,6 +49,16 @@
   </div>
 
   <div class="gallerygrid">
+
+    <!-- PDF manual card -->
+    <figure class="gitem gitempdf">
+      <div class="gframe gframepdf" id="pdfcard" role="button" tabindex="0" aria-label="Open the Souwest professional manual">
+        <span class="gicon pdficon">&#128196;</span>
+        <span class="gpdftitle">Professional Manual</span>
+        <span class="gpdfsub">Tap to view</span>
+      </div>
+      <figcaption><strong>Professional Manual</strong><span>Our services and standards</span></figcaption>
+    </figure>
 
     <!-- DEV: to publish a photo, drop the file in D:\Website\gallery\ and replace the
          placeholder div below with: <div class="gframe"><img src="gallery/file.jpg" alt="..."></div> -->
@@ -143,8 +153,21 @@
   <div class="lbthumbs" id="lbthumbs"></div>
 </div>
 
-<script src="script.js?v=60"></script>
-<script src="gallery.js?v=60"></script>
-<script src="transitions.js?v=60"></script>
+<!-- ---------- PDF viewer ---------- -->
+<div class="pdfviewer" id="pdfviewer" hidden role="dialog" aria-modal="true" aria-label="Manual viewer">
+  <div class="pdftop">
+    <span class="pdftitle">Professional Manual</span>
+    <div class="pdfactions">
+      <a class="pdfdl" href="assets/Souwest_Professional_Manual_v19.pdf" download>Download</a>
+      <button type="button" class="pdfclose" id="pdfclose" aria-label="Close manual viewer">&times;</button>
+    </div>
+  </div>
+  <iframe id="pdfframe" src="about:blank" title="Souwest Professional Manual"></iframe>
+</div>
+
+<script src="script.js?v=71"></script>
+<script src="gallery.js?v=71"></script>
+<script src="pdfviewer.js?v=71"></script>
+<script src="transitions.js?v=71"></script>
 </body>
 </html>
