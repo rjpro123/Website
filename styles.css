@@ -38,7 +38,11 @@ img{display:block;max-width:100%;height:auto}
 
 .navtabs{
   text-align:center;
-display:flex;gap:8px;justify-content:center;margin:0 0 16px}
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin:0 0 16px;
+  width:100%}
 .tab{padding:9px 26px;border-radius:999px;font-family:var(--head);font-weight:700;font-size:.88rem;color:var(--muted);background:rgba(255,255,255,.05);text-decoration:none;transition:.2s}
 .tab:hover{color:var(--ink);background:rgba(255,255,255,.1)}
 .tab.isactive{background:var(--euc-bright);color:#08180E}
