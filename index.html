@@ -17,7 +17,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=69">
+  <link rel="stylesheet" href="styles.css?v=70">
 </head>
 <body>
 
@@ -104,6 +104,14 @@
 
   </section>
 
+  <div class="copyemailbar">
+    <p class="copyemaillabel">Prefer to email us directly?</p>
+    <button type="button" class="copyemailbtn" id="copyEmailBtn" data-email="rileyhutchins12@gmail.com">
+      <span class="copyemailaddr">rileyhutchins12@gmail.com</span>
+      <span class="copyemailhint">Tap to copy</span>
+    </button>
+  </div>
+
   <footer class="sitefooter">
     <img src="assets/logofooter.png" alt="Souwest Lawn &amp; Garden Service" class="footermark">
     <p class="footceo">Patrick Glynn</p>
@@ -120,8 +128,42 @@
 
 </main>
 
-<script src="script.js?v=69"></script>
-<script src="email.js?v=69"></script>
-<script src="transitions.js?v=69"></script>
-<script>function copyEmail(el){ navigator.clipboard.writeText(el.dataset.email || el.textContent); el.select(); el.setSelectionRange(0,9999); }</script></body>
+<script src="script.js?v=70"></script>
+<script src="email.js?v=70"></script>
+<script src="transitions.js?v=70"></script>
+<script>
+(function(){
+  "use strict";
+  var btn = document.getElementById("copyEmailBtn");
+  if (!btn) return;
+  var hint = btn.querySelector(".copyemailhint");
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  btn.addEventListener("click", function(){
+    var addr = btn.getAttribute("data-email");
+    function done(){
+      btn.classList.add("copied");
+      if (hint) hint.textContent = "Copied to clipboard!";
+      setTimeout(function(){
+        btn.classList.remove("copied");
+        if (hint) hint.textContent = "Tap to copy";
+      }, 2200);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addr).then(done).catch(function(){ fallbackCopy(addr); done(); });
+    } else {
+      fallbackCopy(addr);
+      done();
+    }
+  });
+})();
+</script></body>
 </html>

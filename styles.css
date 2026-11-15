@@ -279,9 +279,6 @@ body{
   touch-action:manipulation;
   padding-bottom:env(safe-area-inset-bottom);
 }
-  padding-left:max(18px,env(safe-area-inset-left));
-  padding-right:max(18px,env(safe-area-inset-right));
-}
 
 /* iOS zooms the page when a focused field is smaller than 16px */
 input,select,textarea{font-size:16px}
@@ -636,4 +633,36 @@ body.lblock{overflow:hidden}
 @media (max-width:640px){
   .soonbanner{padding:8px 14px;gap:8px}
   .soontext{font-size:.62rem;letter-spacing:.1em}
+}
+
+/* ---------- Copy email bar ---------- */
+.copyemailbar{
+  margin:16px auto 0;max-width:min(620px,100%);
+  background:var(--surface);border-radius:16px;padding:18px;
+  text-align:center;
+}
+.copyemaillabel{
+  font-family:var(--head);font-weight:700;font-size:.9rem;color:var(--ink);
+  margin-bottom:10px;
+}
+.copyemailbtn{
+  width:100%;min-height:58px;padding:12px 18px;border-radius:14px;cursor:pointer;
+  background:var(--surface-2);border:1.5px dashed rgba(99,192,132,.35);
+  color:var(--euc-bright);font-family:var(--head);font-weight:700;font-size:.98rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  transition:.2s;
+}
+.copyemailbtn:hover{border-color:var(--euc-bright);border-style:solid}
+.copyemailaddr{word-break:break-all}
+.copyemailhint{
+  font-family:var(--body);font-weight:500;font-size:.7rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--faint);
+}
+.copyemailbtn.copied{
+  border-style:solid;border-color:var(--euc-bright);background:var(--euc-soft);
+}
+.copyemailbtn.copied .copyemailhint{color:var(--euc-bright)}
+@media (max-width:640px){
+  .copyemailbar{margin:12px 0 0;padding:14px}
+  .copyemailbtn{min-height:54px}
 }
