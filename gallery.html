@@ -17,7 +17,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=74">
+  <link rel="stylesheet" href="styles.css?v=75">
 </head>
 <body>
 
@@ -35,8 +35,9 @@
     <nav class="navtabs" aria-label="Pages">
 <a class="tab" href="index.html">Quote</a>
 <a class="tab" href="services.html">What We Do</a>
-<a class="tab isactive" href="gallery.html">Gallery</a>
-<a class="tab" href="staff.html">The Team</a>
+<a class="tab" href="gallery.html">Gallery</a>
+<a class="tab" href="manual.html">Manual</a>
+<a class="tab isactive" href="staff.html">The Team</a>
     </nav>
   </div>
 </header>
@@ -49,16 +50,6 @@
   </div>
 
   <div class="gallerygrid">
-
-    <!-- PDF manual card -->
-    <figure class="gitem gitempdf">
-      <div class="gframe gframepdf" id="pdfcard" role="button" tabindex="0" aria-label="Open the Souwest professional manual in the viewer">
-        <span class="gicon pdficon">&#128196;</span>
-        <span class="gpdftitle">Professional Manual</span>
-        <span class="gpdfsub">Tap to view</span>
-      </div>
-      <figcaption><strong>Professional Manual</strong><span>Our services and standards</span></figcaption>
-    </figure>
 
     <!-- DEV: to publish a photo, drop the file in D:\Website\gallery\ and replace the
          placeholder div below with: <div class="gframe"><img src="gallery/file.jpg" alt="..."></div> -->
@@ -102,11 +93,6 @@
     </figure>
 
     </div>
-
-  <!-- Manual PDF viewer button - separate from image gallery -->
-  <div class="pdfviewerbtn">
-    <a href="assets/Souwest_Professional_Manual_v19.pdf" target="_blank" rel="noopener" aria-label="View the Professional Manual">&#128196; View Manual</a>
-  </div>
 
   <footer class="sitefooter">
     <img src="assets/logofooter.png" alt="Souwest Lawn &amp; Garden Service" class="footermark">
@@ -153,35 +139,11 @@
 <script>
 (function(){
   "use strict";
-  var card = document.getElementById("pdfcard");
-  if (!card) return;
-  function openManual(){
-    // open the lightbox on the first manual page image
-    var lbImg = document.getElementById("lbimage");
-    if (lbImg) lbImg.src = "assets/manual/manualpage1.png";
-    var lbCount = document.getElementById("lbcount");
-    if (lbCount) lbCount.textContent = "1 of 5";
-    var lbCaption = document.getElementById("lbcaption");
-    if (lbCaption) lbCaption.textContent = "Professional Manual — Page 1";
-    document.getElementById("lightbox").hidden = false;
-    document.body.classList.add("pdflock");
-    // preload the rest so navigation is smooth
-    for (var i = 2; i <= 5; i++) {
-      new Image().src = "assets/manual/manualpage" + i + ".png";
-    }
-  }
-  card.addEventListener("click", openManual);
-  card.addEventListener("keydown", function(e){
-    if (e.key === "Enter" || e.key === " "){
-      e.preventDefault();
-      openManual();
-    }
-  });
 })();
 </script>
 
-<script src="script.js?v=74"></script>
-<script src="gallery.js?v=74"></script>
-<script src="transitions.js?v=74"></script>
+<script src="script.js?v=75"></script>
+<script src="gallery.js?v=75"></script>
+<script src="transitions.js?v=75"></script>
 </body>
 </html>
