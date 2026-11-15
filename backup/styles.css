@@ -1,3 +1,5 @@
+.wrapwide{width:min(960px,100%);margin-inline:auto;padding-inline:18px}
+
 :root{
   --bg:#000000;
   --bg-glow:none;
@@ -34,7 +36,9 @@ img{display:block;max-width:100%;height:auto}
 .brandlogo{display:block;width:min(340px,88%);height:auto;margin:0 auto}
 .tagline{text-align:center;font-family:var(--head);font-weight:600;color:#C9EBD2;font-size:.95rem;margin:10px 0 18px;letter-spacing:.01em}
 
-.navtabs{display:flex;gap:8px;justify-content:center;margin:0 0 16px}
+.navtabs{
+  text-align:center;
+display:flex;gap:8px;justify-content:center;margin:0 0 16px}
 .tab{padding:9px 26px;border-radius:999px;font-family:var(--head);font-weight:700;font-size:.88rem;color:var(--muted);background:rgba(255,255,255,.05);text-decoration:none;transition:.2s}
 .tab:hover{color:var(--ink);background:rgba(255,255,255,.1)}
 .tab.isactive{background:var(--euc-bright);color:#08180E}
@@ -155,7 +159,7 @@ select option{background:var(--surface-2);color:var(--ink)}
 .footlinks a:hover{color:var(--euc-bright)}
 
 /* ---------- Gallery page ---------- */
-.wrapwide{width:min(960px,100%);margin-inline:auto;padding-inline:18px}
+
 .pagehead{text-align:center;max-width:min(620px,100%);margin-inline:auto;padding:30px 0 6px}
 .pagetitle{font-family:var(--head);font-size:clamp(1.5rem,4.2vw,2.05rem);color:#D6F5DC;margin-bottom:10px;line-height:1.2}
 .pagesub{color:var(--muted);font-size:.95rem;max-width:52ch;margin-inline:auto;line-height:1.6}
@@ -274,10 +278,6 @@ body{
   -webkit-overflow-scrolling:touch;
   touch-action:manipulation;
   padding-bottom:env(safe-area-inset-bottom);
-}
-.wrapwide{
-  padding-left:max(18px,env(safe-area-inset-left));
-  padding-right:max(18px,env(safe-area-inset-right));
 }
 
 /* iOS zooms the page when a focused field is smaller than 16px */
@@ -558,14 +558,16 @@ body.lblock{overflow:hidden}
 /* ---------- Nav tabs on small screens ---------- */
 @media (max-width:640px){
   .navtabs{
-    gap:6px;flex-wrap:nowrap;justify-content:flex-start;
+  text-align:center;
+
+    gap:6px;flex-wrap:nowrap;justify-content:center;
     overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
     margin:0;padding:2px 0 6px;
     -webkit-overflow-scrolling:touch;
   }
   .navtabs::-webkit-scrollbar{display:none}
   .footlinks{
-    gap:6px;flex-wrap:nowrap;justify-content:flex-start;
+    gap:6px;flex-wrap:nowrap;justify-content:center;
     overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
     padding-bottom:2px;
   }
@@ -610,140 +612,57 @@ body.lblock{overflow:hidden}
 .jobstatus.scheduled{background:rgba(99,192,132,.10);color:#9fd6b0}
 .jobstatus.quote{background:rgba(255,255,255,.05);color:#9c9c9c}
 
-
-/* ---------- Garden Tycoon ---------- */
-.tycoon{margin:26px 0 8px}
-.tyhud{
-  display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
-  background:var(--surface);border-radius:14px 14px 0 0;padding:14px 16px;
+/* ---------- Opening soon banner ---------- */
+.soonbanner{
+  position:relative;z-index:10;
+  background:#08180E;border-bottom:1px solid rgba(99,192,132,.28);
+  padding:10px max(18px,env(safe-area-inset-left)) 10px max(18px,env(safe-area-inset-right));
+  display:flex;align-items:center;justify-content:center;gap:10px;
 }
-.tystat{display:flex;flex-direction:column;gap:2px}
-.tystat span{
-  font-family:var(--head);font-size:.66rem;font-weight:700;letter-spacing:.12em;
+.soondot{
+  width:7px;height:7px;border-radius:50%;flex:none;
+  background:var(--euc-bright);box-shadow:0 0 10px var(--euc-glow);
+  animation:soondot 2.2s ease-in-out infinite;
+}
+@keyframes soondot{0%,100%{opacity:1}50%{opacity:.35}}
+.soontext{
+  margin:0;font-family:var(--head);font-size:.7rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:#8FD9A6;
+}
+.soontext b{color:#D6F5DC}
+@media (max-width:640px){
+  .soonbanner{padding:8px 14px;gap:8px}
+  .soontext{font-size:.62rem;letter-spacing:.1em}
+}
+
+/* ---------- Copy email bar ---------- */
+.copyemailbar{
+  margin:16px auto 0;max-width:min(620px,100%);
+  background:var(--surface);border-radius:16px;padding:18px;
+  text-align:center;
+}
+.copyemaillabel{
+  font-family:var(--head);font-weight:700;font-size:.9rem;color:var(--ink);
+  margin-bottom:10px;
+}
+.copyemailbtn{
+  width:100%;min-height:58px;padding:12px 18px;border-radius:14px;cursor:pointer;
+  background:var(--surface-2);border:1.5px dashed rgba(99,192,132,.35);
+  color:var(--euc-bright);font-family:var(--head);font-weight:700;font-size:.98rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  transition:.2s;
+}
+.copyemailbtn:hover{border-color:var(--euc-bright);border-style:solid}
+.copyemailaddr{word-break:break-all}
+.copyemailhint{
+  font-family:var(--body);font-weight:500;font-size:.7rem;letter-spacing:.09em;
   text-transform:uppercase;color:var(--faint);
 }
-.tystat b{font-family:var(--head);font-size:1.15rem;color:var(--euc-bright)}
-.tyhud .gamebtn{margin-left:auto}
-
-.tygrid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
-.typanel{background:var(--surface);border-radius:16px;padding:20px 18px}
-.typanel h2{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:4px}
-.tysub{font-size:.84rem;color:var(--muted);margin-bottom:16px;line-height:1.5}
-
-.tyjobs{display:grid;gap:8px}
-.tyjob{
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  background:var(--surface-2);border-radius:13px;padding:11px 12px;
+.copyemailbtn.copied{
+  border-style:solid;border-color:var(--euc-bright);background:var(--euc-soft);
 }
-.tyjob.locked{opacity:.45}
-.tyjobicon{font-size:1.3rem;line-height:1;flex:none;width:26px;text-align:center}
-.tyjobtext{flex:1;min-width:0;display:block}
-.tyjobtext b{display:block;font-family:var(--head);font-weight:700;font-size:.94rem;color:var(--ink)}
-.tyjobtext em{display:block;font-style:normal;font-size:.78rem;color:var(--muted);margin-top:1px}
-.tyjobpay{
-  font-family:var(--head);font-weight:800;font-size:.9rem;color:var(--euc-bright);
-  white-space:nowrap;flex:none;
+.copyemailbtn.copied .copyemailhint{color:var(--euc-bright)}
+@media (max-width:640px){
+  .copyemailbar{margin:12px 0 0;padding:14px}
+  .copyemailbtn{min-height:54px}
 }
-.tyjobbtn{
-  flex:none;min-height:42px;padding:0 16px;border-radius:10px;cursor:pointer;
-  background:var(--euc-bright);border:none;color:#08180E;
-  font-family:var(--head);font-weight:800;font-size:.78rem;letter-spacing:.06em;
-}
-.tyjobbtn:disabled{background:var(--surface);color:var(--faint);border:1px solid var(--line);cursor:default}
-.tyjob.doing{border-left:3px solid var(--euc-bright)}
-.tybar{display:block;height:6px;border-radius:3px;background:var(--surface);margin-top:7px;overflow:hidden}
-.tybar i{display:block;height:100%;background:var(--euc-bright);border-radius:3px;transition:width .12s linear}
-
-.tyshop{display:grid;gap:8px}
-.tyshopitem{
-  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-  background:var(--surface-2);border-radius:13px;padding:11px 12px;
-}
-.tyshopitem.owned{opacity:.65}
-.tyshopname{flex:1;min-width:0;display:block}
-.tyshopname b{display:block;font-family:var(--head);font-weight:700;font-size:.92rem;color:var(--ink)}
-.tyshopname em{display:block;font-style:normal;font-size:.78rem;color:var(--muted);margin-top:1px}
-.tybuybtn{
-  flex:none;min-height:42px;padding:0 16px;border-radius:10px;cursor:pointer;
-  background:var(--euc-bright);border:none;color:#08180E;
-  font-family:var(--head);font-weight:800;font-size:.85rem;
-}
-.tybuybtn:disabled{background:transparent;color:var(--faint);border:1px solid var(--line);cursor:default}
-.tyowned{
-  flex:none;font-family:var(--head);font-weight:800;font-size:.68rem;letter-spacing:.1em;
-  color:var(--euc-bright);
-}
-
-.tycrewrap{margin-top:14px}
-.tycrew{display:flex;flex-wrap:wrap;gap:9px}
-.tycrewcard{
-  background:var(--surface-2);border-radius:12px;padding:10px 14px;
-  border:1px solid var(--line);
-}
-.tycrewcard b{display:block;font-family:var(--head);font-size:.9rem;color:var(--ink)}
-.tycrewcard em{display:block;font-style:normal;font-size:.75rem;color:var(--muted)}
-.tycrewcard.empty{color:var(--muted);font-size:.86rem;background:transparent;border-style:dashed}
-
-.tywin{
-  margin-top:16px;background:var(--surface);border-radius:16px;padding:24px 18px;text-align:center;
-  border:1px solid var(--euc-bright);
-}
-.tywin[hidden]{display:none}
-.tybig{font-family:var(--head);font-size:1.3rem;color:var(--euc-bright);margin-bottom:6px}
-.tystartbtn{width:auto;padding:0 28px;margin-top:8px}
-
-.tyfloat{
-  position:absolute;pointer-events:none;font-family:var(--head);font-weight:800;
-  font-size:.9rem;color:var(--euc-bright);animation:tyfloat 1.2s ease-out forwards;
-}
-@keyframes tyfloat{
-  from{opacity:1;transform:translateY(0)}
-  to{opacity:0;transform:translateY(-26px)}
-}
-@media (min-width:820px){
-  .tygrid{grid-template-columns:1.15fr .85fr}
-}
-
-/* ---------- Tycoon scene + visual GUI ---------- */
-.tyscene{position:relative;border-radius:16px;overflow:hidden;background:#0d1a10;margin-top:14px;border:1px solid var(--line)}
-.tyscene canvas{width:100%;height:auto;display:block;image-rendering:pixelated}
-.tyscenehud{
-  display:flex;align-items:center;gap:10px;
-  padding:11px 14px;background:var(--surface);border-top:1px solid var(--line);
-}
-.tygoaltext{font-family:var(--head);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#cfe3d2;white-space:nowrap}
-.tygoalbar{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;min-width:60px}
-.tygoalbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--euc-bright),#8FD9A6);transition:width .4s ease}
-.tygoalnum{font-family:var(--head);font-weight:800;font-size:.78rem;color:#8FD9A6;white-space:nowrap}
-
-/* job cards with icon tiles */
-.tyjob{background:var(--surface-2);border-radius:13px;padding:11px 12px;align-items:center}
-.tyjobicon{
-  width:38px;height:38px;flex:none;border-radius:10px;display:grid;place-items:center;
-  font-size:1.25rem;line-height:1;background:rgba(99,192,132,.12);
-  border:1px solid rgba(99,192,132,.2);
-}
-.tyjob.locked .tyjobicon{background:var(--surface);border-color:var(--line)}
-.tyjobtext b{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.tyjobtext b small{
-  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
-  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 7px;
-}
-
-/* shop with icons */
-.tyshopitem{padding:12px}
-.tyshopicon{
-  width:38px;height:38px;flex:none;border-radius:10px;display:grid;place-items:center;
-  font-size:1.25rem;line-height:1;background:rgba(99,192,132,.10);border:1px solid rgba(99,192,132,.18);
-}
-.tyshopitem.owned .tyshopicon{background:var(--surface);border-color:var(--line);filter:grayscale(.4)}
-.tyshopitem.owned .tyshopname b{color:var(--muted)}
-
-/* crew avatars */
-.tycrewcard{display:flex;align-items:center;gap:10px;background:var(--surface-2);border-radius:12px;padding:9px 13px}
-.tycrewface{
-  width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
-  background:rgba(99,192,132,.16);border:1px solid rgba(99,192,132,.28);
-  font-family:var(--head);font-weight:800;font-size:.8rem;color:var(--euc-bright);
-}
-.tycrewcard.empty{color:var(--muted);font-size:.86rem;background:transparent;border-style:dashed}
