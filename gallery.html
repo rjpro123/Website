@@ -17,7 +17,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=72">
+  <link rel="stylesheet" href="styles.css?v=73">
 </head>
 <body>
 
@@ -52,10 +52,10 @@
 
     <!-- PDF manual card -->
     <figure class="gitem gitempdf">
-      <div class="gframe gframepdf" id="pdfcard" role="button" tabindex="0" aria-label="Read the Souwest professional manual below">
+      <div class="gframe gframepdf" id="pdfcard" role="button" tabindex="0" aria-label="Open the Souwest professional manual in the viewer">
         <span class="gicon pdficon">&#128196;</span>
         <span class="gpdftitle">Professional Manual</span>
-        <span class="gpdfsub">Read it below</span>
+        <span class="gpdfsub">Tap to view</span>
       </div>
       <figcaption><strong>Professional Manual</strong><span>Our services and standards</span></figcaption>
     </figure>
@@ -67,6 +67,42 @@
         <img src="gallery/hutchman.jpg" alt="Hutch Man the cat resting on the office rug" width="1400" height="1050" loading="lazy">
       </div>
       <figcaption><strong>Hutch Man</strong><span>Keeping an eye on the jobs</span></figcaption>
+    </figure>
+
+    <!-- Manual pages (open in the photo viewer) -->
+    <figure class="gitem manualtile">
+      <div class="gframe">
+        <img src="assets/manual/manualpage1.png" alt="Professional manual page 1" width="1191" height="1684" loading="lazy">
+      </div>
+      <figcaption><strong>Manual</strong><span>Page 1 of 5</span></figcaption>
+    </figure>
+
+    <figure class="gitem manualtile">
+      <div class="gframe">
+        <img src="assets/manual/manualpage2.png" alt="Professional manual page 2" width="1191" height="1684" loading="lazy">
+      </div>
+      <figcaption><strong>Manual</strong><span>Page 2 of 5</span></figcaption>
+    </figure>
+
+    <figure class="gitem manualtile">
+      <div class="gframe">
+        <img src="assets/manual/manualpage3.png" alt="Professional manual page 3" width="1191" height="1684" loading="lazy">
+      </div>
+      <figcaption><strong>Manual</strong><span>Page 3 of 5</span></figcaption>
+    </figure>
+
+    <figure class="gitem manualtile">
+      <div class="gframe">
+        <img src="assets/manual/manualpage4.png" alt="Professional manual page 4" width="1191" height="1684" loading="lazy">
+      </div>
+      <figcaption><strong>Manual</strong><span>Page 4 of 5</span></figcaption>
+    </figure>
+
+    <figure class="gitem manualtile">
+      <div class="gframe">
+        <img src="assets/manual/manualpage5.png" alt="Professional manual page 5" width="1191" height="1684" loading="lazy">
+      </div>
+      <figcaption><strong>Manual</strong><span>Page 5 of 5</span></figcaption>
     </figure>
 
     <figure class="gitem">
@@ -111,33 +147,9 @@
 
   </div>
 
-  <!-- ---------- Inline manual reader ---------- -->
-  <section class="manualwrap" id="manual" aria-label="Professional manual reader">
-    <div class="manualhead">
-      <h2 class="manualtitle">&#128196; Professional Manual</h2>
-      <p class="manualsub">Read it right here. Tap any page to view it full size.</p>
-    </div>
-    <div class="manualpages">
-      <a class="manualpage" href="assets/manual/manualpage1.png" target="_blank" rel="noopener">
-        <img src="assets/manual/manualpage1.png" alt="Professional manual page 1" loading="lazy" width="1191" height="1684">
-      </a>
-      <a class="manualpage" href="assets/manual/manualpage2.png" target="_blank" rel="noopener">
-        <img src="assets/manual/manualpage2.png" alt="Professional manual page 2" loading="lazy" width="1191" height="1684">
-      </a>
-      <a class="manualpage" href="assets/manual/manualpage3.png" target="_blank" rel="noopener">
-        <img src="assets/manual/manualpage3.png" alt="Professional manual page 3" loading="lazy" width="1191" height="1684">
-      </a>
-      <a class="manualpage" href="assets/manual/manualpage4.png" target="_blank" rel="noopener">
-        <img src="assets/manual/manualpage4.png" alt="Professional manual page 4" loading="lazy" width="1191" height="1684">
-      </a>
-      <a class="manualpage" href="assets/manual/manualpage5.png" target="_blank" rel="noopener">
-        <img src="assets/manual/manualpage5.png" alt="Professional manual page 5" loading="lazy" width="1191" height="1684">
-      </a>
-    </div>
-    <div class="manualactions">
-      <a class="pdfdl" href="assets/Souwest_Professional_Manual_v19.pdf" download>Download PDF</a>
-    </div>
-  </section>
+  <p class="pdfdlstandalone">
+    <a href="assets/Souwest_Professional_Manual_v19.pdf" download>Download the manual PDF</a>
+  </p>
 
   <footer class="sitefooter">
     <img src="assets/logofooter.png" alt="Souwest Lawn &amp; Garden Service" class="footermark">
@@ -185,23 +197,23 @@
 (function(){
   "use strict";
   var card = document.getElementById("pdfcard");
-  var reader = document.getElementById("manual");
-  if (card && reader){
-    card.addEventListener("click", function(){
-      reader.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-    card.addEventListener("keydown", function(e){
-      if (e.key === "Enter" || e.key === " "){
-        e.preventDefault();
-        reader.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
+  if (!card) return;
+  function openManual(){
+    var first = document.querySelector(".manualtile");
+    if (first) first.click();
   }
+  card.addEventListener("click", openManual);
+  card.addEventListener("keydown", function(e){
+    if (e.key === "Enter" || e.key === " "){
+      e.preventDefault();
+      openManual();
+    }
+  });
 })();
 </script>
 
-<script src="script.js?v=72"></script>
-<script src="gallery.js?v=72"></script>
-<script src="transitions.js?v=72"></script>
+<script src="script.js?v=73"></script>
+<script src="gallery.js?v=73"></script>
+<script src="transitions.js?v=73"></script>
 </body>
 </html>
