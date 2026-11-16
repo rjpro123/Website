@@ -787,3 +787,25 @@ body.lblock{overflow:hidden}
   .manualsub{font-size:.8rem;margin-bottom:14px}
   .manualactions .pdfdl{padding:11px 22px;font-size:.8rem}
 }
+
+/* ---------- Service areas ---------- */
+.serviceareas{
+  margin:34px 0 8px;background:var(--surface);border-radius:20px;
+  padding:26px 20px 22px;text-align:center;
+}
+.areasheading{
+  font-family:var(--head);font-size:clamp(1.3rem,3vw,1.7rem);color:#D6F5DC;
+  margin-bottom:6px;
+}
+.areassub{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+.areaslist{
+  list-style:none;padding:0;margin:0 auto 14px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
+  max-width:560px;
+}
+.areaslist li{
+  font-family:var(--head);font-weight:700;font-size:.8rem;color:var(--euc-bright);
+  background:rgba(99,192,132,.1);border:1px solid rgba(99,192,132,.25);
+  border-radius:999px;padding:7px 14px;white-space:nowrap;
+}
+.areasnote{color:var(--faint);font-size:.78rem}
