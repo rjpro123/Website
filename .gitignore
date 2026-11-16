@@ -6,6 +6,11 @@ build/
 .DS_Store
 Thumbs.db
 
+# Backups stay local only - never push to GitHub
+backup_before_cleanup/
+backup_before_cleanup.zip
+*.zip
+
 # Backup folder is pushed to GitHub, but its nested .git is not
 # (otherwise git treats it as an embedded repo / broken submodule).
 backup/.git/
