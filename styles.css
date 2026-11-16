@@ -586,8 +586,23 @@ body.lblock{overflow:hidden}
     white-space:nowrap;line-height:1;
   }
 }
+@media (max-width:640px){
+  .navtabs{
+    gap:4px;
+    padding:0 2px;
+    margin:0 0 10px;
+  }
+  .tab{
+    flex:none;
+    min-height:40px;
+    padding:0 8px;
+    font-size:.78rem;
+    white-space:nowrap;
+    line-height:1;
+  }
+}
 @media (max-width:370px){
-  .tab{font-size:.74rem;padding:0 9px}
+  .tab{font-size:.74rem;padding:0 6px}
 }
 
 /* ---------- Experimental page (testing) ---------- */
