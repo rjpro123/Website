@@ -740,21 +740,21 @@ body.lblock{overflow:hidden}
   .testimonialgrid{grid-template-columns:repeat(3,1fr);gap:16px}
 }
 
-/* ---------- WhatsApp chat button ---------- */
-.whatsappbtn{
+/* ---------- Quick email button ---------- */
+.quickemailbtn{
   position:fixed;bottom:20px;right:20px;z-index:100;
   width:56px;height:56px;border-radius:50%;
-  background:#25D366;color:#fff;
+  background:var(--euc-bright);color:#08180E;
   display:grid;place-items:center;
-  box-shadow:0 4px 16px rgba(37,211,102,.4);
+  box-shadow:0 4px 16px rgba(99,192,132,.4);
   transition:transform .2s, box-shadow .2s;
   text-decoration:none;
 }
-.whatsappbtn svg{width:30px;height:30px}
-.whatsappbtn:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(37,211,102,.5)}
+.quickemailbtn svg{width:30px;height:30px}
+.quickemailbtn:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(99,192,132,.5)}
 @media (max-width:640px){
-  .whatsappbtn{width:50px;height:50px;bottom:16px;right:16px}
-  .whatsappbtn svg{width:26px;height:26px}
+  .quickemailbtn{width:50px;height:50px;bottom:16px;right:16px}
+  .quickemailbtn svg{width:26px;height:26px}
 }
 
 /* ---------- Mobile (max-width:640px) ---------- */
