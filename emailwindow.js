@@ -7,13 +7,13 @@
   if (!btn || !win) return;
 
   function openWin(){
-    win.hidden = false;
+    win.classList.add("isopen");
     var firstInput = win.querySelector("input");
     if (firstInput) firstInput.focus();
   }
 
   function closeWin(){
-    win.hidden = true;
+    win.classList.remove("isopen");
     btn.focus();
   }
 
@@ -22,12 +22,12 @@
 
   // Close on Escape
   document.addEventListener("keydown", function(e){
-    if (e.key === "Escape" && !win.hidden) closeWin();
+    if (e.key === "Escape" && win.classList.contains("isopen")) closeWin();
   });
 
   // Close when clicking outside
   document.addEventListener("click", function(e){
-    if (win.hidden) return;
+    if (!win.classList.contains("isopen")) return;
     if (!win.contains(e.target) && e.target !== btn) closeWin();
   });
 })();
