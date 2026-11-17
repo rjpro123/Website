@@ -17,3 +17,6 @@ backup/.git/
 
 # Raw photo uploads (optimised copies live in gallery/)
 Files/Gallery Imgaes/
+
+# Backup folders (all)
+backup_*/
