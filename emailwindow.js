@@ -28,6 +28,6 @@
   // Close when clicking outside
   document.addEventListener("click", function(e){
     if (!win.classList.contains("isopen")) return;
-    if (!win.contains(e.target) && e.target !== btn) closeWin();
+    if (!win.contains(e.target) && !btn.contains(e.target)) closeWin();
   });
 })();
