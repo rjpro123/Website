@@ -655,6 +655,108 @@ body.lblock{overflow:hidden}
 }
 .areasnote{color:var(--faint);font-size:.78rem}
 
+/* ---------- What to expect ---------- */
+.whattoexpect{
+  margin:34px 0 8px;background:var(--surface);border-radius:20px;
+  padding:26px 20px 22px;
+}
+.expecttitle{
+  font-family:var(--head);font-size:clamp(1.3rem,3vw,1.7rem);color:#D6F5DC;
+  margin-bottom:16px;text-align:center;
+}
+.expectsteps{
+  list-style:none;padding:0;margin:0;display:grid;gap:16px;
+}
+.expectsteps li{
+  display:flex;align-items:flex-start;gap:14px;
+}
+.stepnum{
+  flex:none;width:36px;height:36px;border-radius:50%;
+  background:var(--euc-bright);color:#08180E;
+  font-family:var(--head);font-weight:800;font-size:.95rem;
+  display:grid;place-items:center;flex-shrink:0;
+}
+.stepbody strong{
+  display:block;font-family:var(--head);font-size:.95rem;color:var(--ink);
+  margin-bottom:4px;
+}
+.stepbody p{color:var(--muted);font-size:.85rem;line-height:1.5}
+
+/* ---------- FAQ ---------- */
+.faqsection{
+  margin:34px 0 8px;background:var(--surface);border-radius:20px;
+  padding:26px 20px 22px;
+}
+.faqheading{
+  font-family:var(--head);font-size:clamp(1.3rem,3vw,1.7rem);color:#D6F5DC;
+  margin-bottom:16px;text-align:center;
+}
+.faqitem{
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:14px 0;
+}
+.faqitem:last-child{border-bottom:none}
+.faqitem summary{
+  cursor:pointer;font-family:var(--head);font-weight:700;font-size:.9rem;color:var(--ink);
+  list-style:none;display:flex;align-items:center;gap:10px;
+  transition:color .2s;
+}
+.faqitem summary::-webkit-details-marker{display:none}
+.faqitem summary::before{
+  content:"+";font-size:1.2rem;font-weight:400;color:var(--euc-bright);
+  transition:transform .2s;display:inline-block;
+}
+.faqitem[open] summary::before{transform:rotate(45deg)}
+.faqitem summary:hover{color:var(--euc-bright)}
+.faqitem p{color:var(--muted);font-size:.85rem;line-height:1.6;margin:10px 0 0 24px}
+
+/* ---------- Testimonials ---------- */
+.testimonialsection{
+  margin:34px 0 8px;background:var(--surface);border-radius:20px;
+  padding:26px 20px 22px;text-align:center;
+}
+.testimonialheading{
+  font-family:var(--head);font-size:clamp(1.3rem,3vw,1.7rem);color:#D6F5DC;
+  margin-bottom:16px;
+}
+.testimonialgrid{
+  display:grid;grid-template-columns:1fr;gap:14px;max-width:640px;margin-inline:auto;
+}
+.testimonialcard{
+  background:var(--surface-2);border-radius:14px;padding:18px 16px;
+  border:1px solid rgba(99,192,132,.15);
+}
+.testimonialtext{
+  color:var(--muted);font-size:.88rem;line-height:1.6;font-style:italic;
+  margin-bottom:10px;
+}
+.testimonialname{
+  font-family:var(--head);font-weight:700;font-size:.8rem;color:var(--euc-bright);
+}
+.testimonialnote{
+  color:var(--faint);font-size:.75rem;margin-top:16px;font-style:italic;
+}
+@media (min-width:640px){
+  .testimonialgrid{grid-template-columns:repeat(3,1fr);gap:16px}
+}
+
+/* ---------- WhatsApp chat button ---------- */
+.whatsappbtn{
+  position:fixed;bottom:20px;right:20px;z-index:100;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:grid;place-items:center;
+  box-shadow:0 4px 16px rgba(37,211,102,.4);
+  transition:transform .2s, box-shadow .2s;
+  text-decoration:none;
+}
+.whatsappbtn svg{width:30px;height:30px}
+.whatsappbtn:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(37,211,102,.5)}
+@media (max-width:640px){
+  .whatsappbtn{width:50px;height:50px;bottom:16px;right:16px}
+  .whatsappbtn svg{width:26px;height:26px}
+}
+
 /* ---------- Mobile (max-width:640px) ---------- */
 @media (max-width:640px){
   .lbnav{width:44px;height:44px;font-size:1.4rem}
