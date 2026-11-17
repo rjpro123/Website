@@ -17,7 +17,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=95">
+  <link rel="stylesheet" href="styles.css?v=97">
 </head>
 <body>
 
@@ -157,13 +157,31 @@
 
 
 
-<script src="script.js?v=95"></script>
-<script src="gallery.js?v=95"></script>
-<script src="transitions.js?v=95"></script>
+<script src="script.js?v=97"></script>
+<script src="emailwindow.js?v=97"></script>
+<script src="gallery.js?v=97"></script>
+<script src="transitions.js?v=97"></script>
   <!-- Quick email button -->
-  <a class="quickemailbtn" href="mailto:rileyhutchins12@gmail.com?subject=Quote%20enquiry&body=Hi%20Souwest%2C%20I%27d%20like%20a%20quote%20for%20my%20yard." aria-label="Send us an email">
+  <button class="quickemailbtn" type="button" id="emailBtn" aria-label="Send us an email">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-  </a>
+  </button>
+
+  <!-- Mini email window -->
+  <div class="emailwindow" id="emailWindow" hidden role="dialog" aria-label="Quick email">
+    <div class="emailtop">
+      <span class="emailtitle">Quick Message</span>
+      <button type="button" class="emailclose" id="emailClose" aria-label="Close">&times;</button>
+    </div>
+    <form class="emailform" action="https://formsubmit.co/rileyhutchins12@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Quick message from website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://rjpro123.github.io/Website/thanks.html">
+      <input type="text" name="Name" placeholder="Your name" required>
+      <input type="email" name="Email" placeholder="Your email" required>
+      <textarea name="Message" rows="3" placeholder="What do you need?" required></textarea>
+      <button type="submit" class="emailsend">Send</button>
+    </form>
+  </div>
 
 </body>
 </html>
