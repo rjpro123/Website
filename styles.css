@@ -511,30 +511,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .lbthumb.isactive{opacity:1;border-color:var(--euc-bright);transform:translateY(-2px)}
 
 body.lblock{overflow:hidden}
-@media (max-width:640px){
-  .lbnav{width:44px;height:44px;font-size:1.4rem}
-  .lbprev{left:8px}
-  .lbnext{right:8px}
-  .lbstage img{max-width:calc(100% - 6px)}
-  .lbthumb{width:74px;height:52px}
-  .lbtop{padding:12px 14px}
-  .lbhint{font-size:.7rem;padding:7px 13px}
-}
-@media (max-width:640px){
-  .lbnav{width:44px;height:44px;font-size:1.4rem}
-  .lbprev{left:8px}
-  .lbnext{right:8px}
-  .lbstage img{max-width:calc(100% - 12px)}
-  .lbthumb{width:72px;height:52px}
-  .lbtop{padding:12px 14px}
-}
-@media (max-width:640px){
-  .lbnav{width:44px;height:44px;font-size:1.4rem}
-  .lbprev{left:8px}
-  .lbnext{right:8px}
-  .lbfigure{padding:0 8px 6px}
-  .lbthumb{width:66px;height:48px}
-}
+
+
+
 
 /* ---------- Staff page ---------- */
 .staffgrid{display:grid;grid-template-columns:1fr;gap:14px;margin:26px 0 4px}
@@ -564,76 +543,11 @@ body.lblock{overflow:hidden}
 .ctaband .btnsubmit{width:auto;padding:0 34px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 
 /* ---------- Nav tabs on small screens ---------- */
-@media (max-width:640px){
-  .navtabs{
-  text-align:center;
 
-    gap:6px;flex-wrap:nowrap;justify-content:center;
-    overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
-    margin:0;padding:2px 0 6px;
-    -webkit-overflow-scrolling:touch;
-  }
-  .navtabs::-webkit-scrollbar{display:none}
-  .footlinks{
-    gap:6px;flex-wrap:nowrap;justify-content:center;
-    overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
-    padding-bottom:2px;
-  }
-  .footlinks::-webkit-scrollbar{display:none}
-  .footlinks a{flex:none;white-space:nowrap;padding:11px 8px}
-  .tab{
-    flex:none;min-height:44px;padding:0 12px;font-size:.8rem;
-    white-space:nowrap;line-height:1;
-  }
-}
-@media (max-width:640px){
-  .navtabs{
-    gap:4px;
-    padding:0 2px;
-    margin:0 0 10px;
-  }
-  .tab{
-    flex:none;
-    min-height:40px;
-    padding:0 8px;
-    font-size:.78rem;
-    white-space:nowrap;
-    line-height:1;
-  }
-}
+
 @media (max-width:370px){
   .tab{font-size:.74rem;padding:0 6px}
 }
-
-/* ---------- Experimental page (testing) ---------- */
-.signin{background:var(--surface);border-radius:18px;padding:22px 18px;margin:26px 0 6px}
-.signin h2{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:6px}
-.signin p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
-.signin .field{margin-bottom:12px}
-.signin .btnsubmit{width:100%}
-.signinnote{font-size:.8rem;color:var(--faint);text-align:center;margin-top:12px;line-height:1.5}
-.jobwrap{margin:26px 0 4px}
-.jobsheading{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:14px}
-.joblist{display:grid;gap:8px}
-.jobrow{
-  display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;
-  background:var(--surface);border-radius:13px;padding:12px 14px;
-}
-.jobref{
-  font-family:var(--head);font-weight:800;font-size:.78rem;color:var(--muted);
-  background:var(--surface-2);border-radius:8px;padding:5px 9px;flex:none;
-}
-.jobmain{flex:1;min-width:0;display:block}
-.jobtitle{display:block;font-family:var(--head);font-weight:700;font-size:.95rem;color:var(--ink)}
-.jobmeta{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
-.jobstatus{
-  flex:none;margin-left:auto;font-size:.66rem;font-weight:800;letter-spacing:.1em;
-  text-transform:uppercase;padding:6px 11px;border-radius:999px;white-space:nowrap;
-}
-.jobstatus.done{background:rgba(99,192,132,.18);color:var(--euc-bright)}
-.jobstatus.progress{background:rgba(255,255,255,.08);color:#d7d7d7}
-.jobstatus.scheduled{background:rgba(99,192,132,.10);color:#9fd6b0}
-.jobstatus.quote{background:rgba(255,255,255,.05);color:#9c9c9c}
 
 /* ---------- Opening soon banner ---------- */
 .soonbanner{
@@ -653,10 +567,7 @@ body.lblock{overflow:hidden}
   letter-spacing:.14em;text-transform:uppercase;color:#8FD9A6;
 }
 .soontext b{color:#D6F5DC}
-@media (max-width:640px){
-  .soonbanner{padding:8px 14px;gap:8px}
-  .soontext{font-size:.62rem;letter-spacing:.1em}
-}
+
 
 /* ---------- Copy email bar ---------- */
 .copyemailbar{
@@ -685,68 +596,7 @@ body.lblock{overflow:hidden}
   border-style:solid;border-color:var(--euc-bright);background:var(--euc-soft);
 }
 .copyemailbtn.copied .copyemailhint{color:var(--euc-bright)}
-@media (max-width:640px){
-  .copyemailbar{margin:12px 0 0;padding:14px}
-  .copyemailbtn{min-height:54px}
-}
 
-/* ---------- PDF manual card + viewer ---------- */
-.gframepdf{
-  background:linear-gradient(160deg,rgba(99,192,132,.14),rgba(99,192,132,.05));
-  border:1.5px dashed rgba(99,192,132,.4);
-  cursor:pointer;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:8px;padding:18px;text-align:center;
-  transition:.25s;
-}
-.gframepdf:hover,.gframepdf:focus-visible{
-  border-style:solid;border-color:var(--euc-bright);
-  background:linear-gradient(160deg,rgba(99,192,132,.2),rgba(99,192,132,.08));
-}
-.gframepdf .pdficon{font-size:2.2rem;line-height:1}
-.gpdftitle{
-  font-family:var(--head);font-weight:800;font-size:1rem;color:#D6F5DC;
-}
-.gpdfsub{
-  font-family:var(--body);font-size:.72rem;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--euc-bright);
-}
-.gitempdf{cursor:pointer}
-
-
-@media (max-width:640px){
-  .pdftop{padding:10px 12px}
-  .pdftitle{font-size:.9rem}
-  .pdfdl{padding:7px 13px;font-size:.74rem}
-  .pdfclose{width:38px;height:38px}
-}
-
-/* ---------- Manual download link ---------- */
-.pdfdlstandalone{
-  text-align:center;margin:26px 0 8px;
-}
-.pdfdlstandalone a{
-  display:inline-block;font-family:var(--head);font-weight:700;font-size:.85rem;
-  color:#08180E;background:var(--euc-bright);
-  padding:12px 26px;border-radius:999px;text-decoration:none;transition:.2s;
-}
-.pdfdlstandalone a:hover{background:#8FD9A6}
-
-/* ---------- PDF viewer button (separate from image gallery) ---------- */
-.pdfviewerbtn{
-  text-align:center;margin:18px 0 10px;
-}
-.pdfviewerbtn a{
-  display:inline-block;font-family:var(--head);font-weight:700;font-size:.88rem;
-  color:#08180E;background:var(--euc-bright);
-  padding:10px 22px;border-radius:999px;text-decoration:none;transition:.2s;
-  white-space:nowrap;
-}
-.pdfviewerbtn a:hover{background:#8FD9A6}
-.pdfviewerbtn a:focus-visible{
-  outline:2px solid var(--ink);
-  outline-offset:2px;
-}
 
 /* ---------- Manual reader ---------- */
 .manualwrap{
@@ -781,12 +631,7 @@ body.lblock{overflow:hidden}
   .manualpages{grid-template-columns:1fr 1fr;gap:18px}
   .manualpage:first-child{grid-column:1 / -1;max-width:520px;margin-inline:auto}
 }
-@media (max-width:640px){
-  .manualwrap{padding:20px 14px 18px;margin:24px 0 6px}
-  .manualpages{gap:12px}
-  .manualsub{font-size:.8rem;margin-bottom:14px}
-  .manualactions .pdfdl{padding:11px 22px;font-size:.8rem}
-}
+
 
 /* ---------- Service areas ---------- */
 .serviceareas{
@@ -809,3 +654,66 @@ body.lblock{overflow:hidden}
   border-radius:999px;padding:7px 14px;white-space:nowrap;
 }
 .areasnote{color:var(--faint);font-size:.78rem}
+
+/* ---------- Mobile (max-width:640px) ---------- */
+@media (max-width:640px){
+  .lbnav{width:44px;height:44px;font-size:1.4rem}
+  .lbprev{left:8px}
+  .lbnext{right:8px}
+  .lbstage img{max-width:calc(100% - 6px)}
+  .lbthumb{width:74px;height:52px}
+  .lbtop{padding:12px 14px}
+  .lbhint{font-size:.7rem;padding:7px 13px}
+  .lbnav{width:44px;height:44px;font-size:1.4rem}
+  .lbprev{left:8px}
+  .lbnext{right:8px}
+  .lbstage img{max-width:calc(100% - 12px)}
+  .lbthumb{width:72px;height:52px}
+  .lbtop{padding:12px 14px}
+  .lbnav{width:44px;height:44px;font-size:1.4rem}
+  .lbprev{left:8px}
+  .lbnext{right:8px}
+  .lbfigure{padding:0 8px 6px}
+  .lbthumb{width:66px;height:48px}
+  .navtabs{
+  text-align:center;
+
+    gap:6px;flex-wrap:nowrap;justify-content:center;
+    overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
+    margin:0;padding:2px 0 6px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .navtabs::-webkit-scrollbar{display:none}
+  .footlinks{
+    gap:6px;flex-wrap:nowrap;justify-content:center;
+    overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
+    padding-bottom:2px;
+  }
+  .footlinks::-webkit-scrollbar{display:none}
+  .footlinks a{flex:none;white-space:nowrap;padding:11px 8px}
+  .tab{
+    flex:none;min-height:44px;padding:0 12px;font-size:.8rem;
+    white-space:nowrap;line-height:1;
+  }
+  .navtabs{
+    gap:4px;
+    padding:0 2px;
+    margin:0 0 10px;
+  }
+  .tab{
+    flex:none;
+    min-height:40px;
+    padding:0 8px;
+    font-size:.78rem;
+    white-space:nowrap;
+    line-height:1;
+  }
+  .soonbanner{padding:8px 14px;gap:8px}
+  .soontext{font-size:.62rem;letter-spacing:.1em}
+  .copyemailbar{margin:12px 0 0;padding:14px}
+  .copyemailbtn{min-height:54px}
+  .manualwrap{padding:20px 14px 18px;margin:24px 0 6px}
+  .manualpages{gap:12px}
+  .manualsub{font-size:.8rem;margin-bottom:14px}
+  .manualactions .pdfdl{padding:11px 22px;font-size:.8rem}
+}
