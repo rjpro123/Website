@@ -877,6 +877,22 @@ body.lblock{overflow:hidden}
 .quickemailbtn svg{width:30px;height:30px}
 .quickemailbtn:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(99,192,132,.5)}
 .quickemailbtn:active{transform:scale(.92)}
+
+.emailwindow{
+  position:fixed;bottom:86px;right:20px;z-index:101;
+  width:320px;max-width:calc(100vw - 40px);
+  background:var(--surface);border-radius:16px;
+  border:1px solid rgba(99,192,132,.25);
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+  overflow:hidden;
+  opacity:0;transform:translateY(30px) scale(.9);
+  pointer-events:none;
+  transition:opacity .4s cubic-bezier(.16,.84,.44,1), transform .4s cubic-bezier(.16,.84,.44,1);
+}
+.emailwindow.isopen{
+  opacity:1;transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
 @media (max-width:640px){
   .quickemailbtn{width:50px;height:50px;bottom:16px;right:16px}
   .quickemailbtn svg{width:26px;height:26px}
