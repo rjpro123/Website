@@ -18,7 +18,41 @@
 
     if (!btn || !win) return;
 
-    btn.setAttribute("aria-expanded", "false");
+    var mobileMQ = window.matchMedia
+      ? window.matchMedia("(max-width: 640px), (hover: none) and (pointer: coarse)")
+      : null;
+
+    function isMobile(){
+      return mobileMQ ? mobileMQ.matches : window.innerWidth <= 640;
+    }
+
+    function openWin(){
+      win.classList.add("isopen");
+      btn.setAttribute("aria-expanded", "true");
+      var firstInput = win.querySelector("input:not([type='hidden']):not(.hp)");
+      if (firstInput) firstInput.focus();
+    }
+
+    function closeWin(restoreFocus){
+      win.classList.remove("isopen");
+      if (!isMobile()) btn.setAttribute("aria-expanded", "false");
+      if (restoreFocus) btn.focus();
+    }
+
+    function syncMode(){
+      if (isMobile()){
+        win.classList.remove("isopen");
+        btn.removeAttribute("aria-expanded");
+      } else {
+        btn.setAttribute("aria-expanded", win.classList.contains("isopen") ? "true" : "false");
+      }
+    }
+
+    syncMode();
+    if (mobileMQ){
+      if (mobileMQ.addEventListener) mobileMQ.addEventListener("change", syncMode);
+      else if (mobileMQ.addListener) mobileMQ.addListener(syncMode);
+    }
 
     var quickForm = win.querySelector("form");
     var quickSubmit = win.querySelector(".emailsend");
@@ -33,20 +67,11 @@
       });
     }
 
-    function openWin(){
-      win.classList.add("isopen");
-      btn.setAttribute("aria-expanded", "true");
-      var firstInput = win.querySelector("input:not([type='hidden']):not(.hp)");
-      if (firstInput) firstInput.focus();
-    }
-
-    function closeWin(restoreFocus){
-      win.classList.remove("isopen");
-      btn.setAttribute("aria-expanded", "false");
-      if (restoreFocus) btn.focus();
-    }
-
     btn.addEventListener("click", function(e){
+      if (isMobile()){
+        return;
+      }
+      e.preventDefault();
       e.stopPropagation();
       if (win.classList.contains("isopen")){
         closeWin(false);

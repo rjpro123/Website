@@ -799,6 +799,9 @@ body.lblock{overflow:hidden}
   border:none;transition:.2s;
 }
 .emailsend:hover{background:#8FD9A6}
+@media (max-width:640px), (hover:none) and (pointer:coarse){
+  .emailwindow, .emailwindow.isopen{display:none}
+}
 @media (max-width:640px){
   .emailwindow{width:calc(100vw - 32px);right:16px;bottom:calc(76px + env(safe-area-inset-bottom))}
   .emailform input, .emailform textarea{font-size:16px;padding:9px 11px}
