@@ -18,12 +18,19 @@
 
     if (!btn || !win) return;
 
-    var mobileMQ = window.matchMedia
-      ? window.matchMedia("(max-width: 640px), (hover: none) and (pointer: coarse)")
-      : null;
+    var widthMQ = window.matchMedia ? window.matchMedia("(max-width: 640px)") : null;
+    var touchMQ = window.matchMedia ? window.matchMedia("(hover: none) and (pointer: coarse)") : null;
+    var ua = navigator.userAgent || "";
+    var isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    var inFrame = false;
+    try { inFrame = window.self !== window.top; } catch (err) { inFrame = true; }
 
     function isMobile(){
-      return mobileMQ ? mobileMQ.matches : window.innerWidth <= 640;
+      if (isMobileUA) return true;
+      if (widthMQ && widthMQ.matches) return true;
+      if (touchMQ && touchMQ.matches) return true;
+      return window.innerWidth <= 640;
     }
 
     function openWin(){
@@ -43,16 +50,26 @@
       if (isMobile()){
         win.classList.remove("isopen");
         btn.removeAttribute("aria-expanded");
+        if (inFrame){
+          btn.setAttribute("target", "_blank");
+          btn.setAttribute("rel", "noopener noreferrer");
+        } else {
+          btn.removeAttribute("target");
+          btn.removeAttribute("rel");
+        }
       } else {
         btn.setAttribute("aria-expanded", win.classList.contains("isopen") ? "true" : "false");
+        btn.removeAttribute("target");
+        btn.removeAttribute("rel");
       }
     }
 
     syncMode();
-    if (mobileMQ){
-      if (mobileMQ.addEventListener) mobileMQ.addEventListener("change", syncMode);
-      else if (mobileMQ.addListener) mobileMQ.addListener(syncMode);
-    }
+    [widthMQ, touchMQ].forEach(function(mq){
+      if (!mq) return;
+      if (mq.addEventListener) mq.addEventListener("change", syncMode);
+      else if (mq.addListener) mq.addListener(syncMode);
+    });
 
     var quickForm = win.querySelector("form");
     var quickSubmit = win.querySelector(".emailsend");
