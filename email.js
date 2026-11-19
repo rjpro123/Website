@@ -70,6 +70,31 @@
     }
   } catch (e) {}
 
+  /* ---------------- Yard size & frequency single-select chips ---------------- */
+  function bindSingleChipGroup(wrapId, hiddenId){
+    var wrap = document.getElementById(wrapId);
+    var hidden = document.getElementById(hiddenId);
+    if (!wrap || !hidden) return;
+    wrap.addEventListener("click", function(e){
+      var btn = e.target && e.target.closest ? e.target.closest(".svcchip") : null;
+      if (!btn) return;
+      var wasSelected = btn.classList.contains("isselected");
+      Array.prototype.forEach.call(wrap.querySelectorAll(".svcchip"), function(b){
+        b.classList.remove("isselected");
+        b.setAttribute("aria-pressed", "false");
+      });
+      if (wasSelected){
+        hidden.value = "";
+      } else {
+        btn.classList.add("isselected");
+        btn.setAttribute("aria-pressed", "true");
+        hidden.value = btn.getAttribute("datavalue") || btn.textContent.trim();
+      }
+    });
+  }
+  bindSingleChipGroup("sizeChips", "mailYardSize");
+  bindSingleChipGroup("freqChips", "mailFrequency");
+
   /* ---------------- Photo upload queue + compression ---------------- */
   var input = document.getElementById("photos");
   var dropZone = document.getElementById("uploadZone");

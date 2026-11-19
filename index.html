@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="Souwest Lawn & Garden Service | Lawn & Garden Maintenance Adelaide">
   <meta name="twitter:description" content="Free quote for lawn and garden maintenance across Adelaide. Mowing, hedging, tree work, spraying, garden clean ups, new turf and more.">
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
-  <link rel="stylesheet" href="styles.css?v=138">
+  <link rel="stylesheet" href="styles.css?v=139">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,6 +43,11 @@
       { "@type": "Place", "name": "Marion, SA" },
       { "@type": "Place", "name": "Brighton, SA" },
       { "@type": "Place", "name": "Glenelg, SA" },
+      { "@type": "Place", "name": "Hallett Cove, SA" },
+      { "@type": "Place", "name": "Morphett Vale, SA" },
+      { "@type": "Place", "name": "Somerton Park, SA" },
+      { "@type": "Place", "name": "Mitcham, SA" },
+      { "@type": "Place", "name": "Blackwood, SA" },
       { "@type": "Place", "name": "Unley, SA" },
       { "@type": "Place", "name": "Stirling, SA" },
       { "@type": "Place", "name": "Norwood, SA" }
@@ -132,7 +137,8 @@
           enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="New website enquiry - Souwest Lawn &amp; Garden">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://rjpro123.github.io/Website/thanks.html">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="thanks.html">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <h2>Write your message</h2>
@@ -165,6 +171,25 @@
         </div>
       </div>
       <div class="field">
+        <label>Yard size <span class="optional">(optional)</span></label>
+        <input type="hidden" id="mailYardSize" name="Yard Size" value="">
+        <div class="svcchips" id="sizeChips" role="group" aria-label="Yard size">
+          <button type="button" class="svcchip" datavalue="Small courtyard" aria-pressed="false">Small courtyard</button>
+          <button type="button" class="svcchip" datavalue="Standard yard" aria-pressed="false">Standard yard</button>
+          <button type="button" class="svcchip" datavalue="Large yard" aria-pressed="false">Large yard</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>How often? <span class="optional">(optional)</span></label>
+        <input type="hidden" id="mailFrequency" name="Frequency" value="">
+        <div class="svcchips" id="freqChips" role="group" aria-label="Frequency">
+          <button type="button" class="svcchip" datavalue="Single visit" aria-pressed="false">Single visit</button>
+          <button type="button" class="svcchip" datavalue="Weekly" aria-pressed="false">Weekly</button>
+          <button type="button" class="svcchip" datavalue="Fortnightly" aria-pressed="false">Fortnightly</button>
+          <button type="button" class="svcchip" datavalue="Monthly" aria-pressed="false">Monthly</button>
+        </div>
+      </div>
+      <div class="field">
         <label for="mailSubject">Subject</label>
         <input id="mailSubject" name="Subject" type="text" placeholder="Lawn mowing quote for Marion">
       </div>
@@ -190,7 +215,7 @@
       </div>
 
       <button type="submit" class="btnsubmit">Send Message</button>
-
+      <p class="formtrust">Fully insured &middot; Free no obligation quote &middot; Pay when the job is done</p>
 
     </form>
 
@@ -211,6 +236,11 @@
       <li>Marion</li>
       <li>Brighton</li>
       <li>Glenelg</li>
+      <li>Hallett Cove</li>
+      <li>Morphett Vale</li>
+      <li>Somerton Park</li>
+      <li>Mitcham</li>
+      <li>Blackwood</li>
       <li>Unley</li>
       <li>Stirling</li>
       <li>Norwood</li>
@@ -263,10 +293,10 @@
 
 </main>
 
-<script src="script.js?v=138"></script>
-<script src="email.js?v=138"></script>
-<script src="emailwindow.js?v=138"></script>
-<script src="transitions.js?v=138"></script>
+<script src="script.js?v=139"></script>
+<script src="email.js?v=139"></script>
+<script src="emailwindow.js?v=139"></script>
+<script src="transitions.js?v=139"></script>
 <script>
 (function(){
   "use strict";
@@ -317,6 +347,7 @@
     <form class="emailform" action="https://formsubmit.co/rileyhutchins12@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Quick message from website">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="thanks.html">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="text" name="Name" placeholder="Your name" required>

@@ -13,9 +13,10 @@
   /* ---------------- Staggered reveal on load ---------------- */
   var REVEAL_SEL = [
     ".brand", ".tagline", ".navtabs", ".localbar",
-    ".pagehead", ".herohome", ".sec", ".module", ".dash-side",
-    ".mailcard", ".mailform", ".backrow", ".thankswrap",
-    ".svcgrid", ".svcstrip", ".gitem", ".sitefooter"
+    ".pagehead", ".herohome", ".whattoexpect", ".sec", ".module", ".dash-side",
+    ".mailcard", ".mailform", ".copyemailbar", ".serviceareas", ".faqsection",
+    ".testimonialsection", ".staffcard", ".ctaband",
+    ".backrow", ".thankswrap", ".svcgrid", ".svcstrip", ".gitem", ".sitefooter"
   ];
 
   function collect(){

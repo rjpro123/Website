@@ -323,6 +323,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .svcchip:hover{color:var(--ink);border-color:var(--euc-bright)}
 .svcchip.isselected{background:var(--euc-bright);color:#08180E;border-color:var(--euc-bright)}
+.formtrust{margin:12px 0 0;text-align:center;font-size:.78rem;color:var(--muted);line-height:1.5}
 
 /* ---------- Clickable service cards ---------- */
 .svclink{display:block;text-decoration:none;color:inherit;border:1px solid transparent;transition:transform .2s,border-color .2s,background .2s}

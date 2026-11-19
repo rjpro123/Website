@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="Our Work | Souwest Lawn & Garden Service | Adelaide">
   <meta name="twitter:description" content="Recent lawn mowing, hedging, cleanup and turf care work by Souwest Lawn & Garden Service across Adelaide and suburbs.">
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
-  <link rel="stylesheet" href="styles.css?v=138">
+  <link rel="stylesheet" href="styles.css?v=139">
 </head>
 <body>
 
@@ -54,15 +54,6 @@
 
   <div class="gallerygrid">
 
-    <!-- DEV: to publish a photo, drop the file in D:\Website\gallery\ and replace the
-         placeholder div below with: <div class="gframe"><img src="gallery/file.jpg" alt="..."></div> -->
-    <figure class="gitem">
-      <div class="gframe">
-        <img src="gallery/hutchman.jpg" alt="Hutch Man the cat resting on the office rug" width="1400" height="1050" loading="lazy">
-      </div>
-      <figcaption><strong>Hutch Man</strong><span>Keeping an eye on the jobs</span></figcaption>
-    </figure>
-
     <figure class="gitem">
       <div class="gframe">
         <img src="gallery/IMG_20261118_082944437.jpg" alt="Garden bed refresh" loading="lazy">
@@ -77,7 +68,20 @@
       <figcaption><strong>Hedge &amp; prune</strong><span>Stirling, SA</span></figcaption>
     </figure>
 
+    <figure class="gitem">
+      <div class="gframe">
+        <img src="gallery/hutchman.jpg" alt="Hutch Man the cat resting on the office rug" width="1400" height="1050" loading="lazy">
+      </div>
+      <figcaption><strong>Hutch Man</strong><span>Keeping an eye on the jobs</span></figcaption>
+    </figure>
+
     </div>
+
+  <div class="ctaband">
+    <h2>Like what you see?</h2>
+    <p>Send us a couple of photos of your yard and we will reply with a firm quote within a day.</p>
+    <a class="btnsubmit" href="index.html">Get a Quote</a>
+  </div>
 
   <section class="testimonialsection" aria-label="Customer reviews">
     <h2 class="testimonialheading">What Customers Say</h2>
@@ -141,10 +145,10 @@
 
 
 
-<script src="script.js?v=138"></script>
-<script src="emailwindow.js?v=138"></script>
-<script src="gallery.js?v=138"></script>
-<script src="transitions.js?v=138"></script>
+<script src="script.js?v=139"></script>
+<script src="emailwindow.js?v=139"></script>
+<script src="gallery.js?v=139"></script>
+<script src="transitions.js?v=139"></script>
   <!-- Quick email button -->
   <button class="quickemailbtn" type="button" id="emailBtn" aria-label="Send us an email">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -159,6 +163,7 @@
     <form class="emailform" action="https://formsubmit.co/rileyhutchins12@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Quick message from website">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="thanks.html">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="text" name="Name" placeholder="Your name" required>
