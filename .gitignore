@@ -20,3 +20,5 @@ Files/Gallery Imgaes/
 
 # Backup folders (all)
 backup_*/
+# Backup folder
+backups/
