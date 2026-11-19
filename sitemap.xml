@@ -16,11 +16,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rjpro123.github.io/Website/manual.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://rjpro123.github.io/Website/staff.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
