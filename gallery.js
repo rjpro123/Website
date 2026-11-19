@@ -99,7 +99,7 @@
     if (btnOut) btnOut.disabled = factor <= 1.02;
     if (lbHint){
       if (zoomed){
-        lbHint.textContent = "Drag to move around &middot; click to zoom out";
+        lbHint.textContent = "Drag to move around \u00b7 click to zoom out";
         lbHint.classList.remove("isfade");
       } else {
         lbHint.textContent = "Click the photo to zoom \u00b7 drag to move around";

@@ -43,7 +43,7 @@ img{display:block;max-width:100%;height:auto}
   justify-content:center;
   margin:0 0 16px;
   width:100%}
-.tab{padding:9px 26px;border-radius:999px;font-family:var(--head);font-weight:700;font-size:.88rem;color:var(--muted);background:rgba(255,255,255,.05);text-decoration:none;transition:.2s}
+.tab{padding:9px 26px;border-radius:999px;border-bottom:2px solid transparent;font-family:var(--head);font-weight:700;font-size:.88rem;color:var(--muted);background:rgba(255,255,255,.05);text-decoration:none;transition:.2s}
 .tab:hover{color:var(--ink);background:rgba(255,255,255,.1)}
 .tab.isactive{
   background:var(--euc-bright);
@@ -141,7 +141,7 @@ select option{background:var(--surface-2);color:var(--ink)}
 /* ---------- Shared ---------- */
 .copy{font-size:.78rem;color:var(--faint);text-align:center;margin:16px 0 0}
 .heroactions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.heroactions .btnprimary,.heroactions .btnsubmit{width:auto;padding:0 30px;display:inline-flex;align-items:center;justify-content:center}
+.heroactions .btnprimary,.heroactions .btnsubmit{width:auto;padding:14px 30px;display:inline-flex;align-items:center;justify-content:center}
 
 /* ---------- Accessible form groups ---------- */
 fieldset{border:none;padding:0;margin:0 0 16px}
@@ -153,7 +153,7 @@ legend{font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px
 .mailform textarea{min-height:120px}
 
 /* ---------- Email form (direct send) ---------- */
-.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.hp,input.hp,.emailform input.hp{position:absolute;left:-9999px;width:1px;min-height:0;height:1px;padding:0;border:0;opacity:0;pointer-events:none}
 .mailform .btnsubmit{margin-top:4px}
 .thankswrap{text-align:center;padding:56px 0 30px}
 .thankswrap .successicon{margin-bottom:18px}
@@ -286,23 +286,48 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .uploadbtn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
   width:100%;min-height:58px;padding:16px 24px;border-radius:16px;cursor:pointer;
-  background:var(--surface-2);border:2px dashed var(--line-strong);
+  background:var(--surface-2);border:2px dashed rgba(99,192,132,.38);
   font-family:var(--head);font-weight:700;font-size:.98rem;color:var(--ink);
   transition:.2s;
 }
-.uploadbtn:hover{border-color:var(--euc-bright);color:var(--euc-bright)}
+.uploadbtn:hover,.uploadbtn.isdrag{border-color:var(--euc-bright);color:var(--euc-bright);background:rgba(99,192,132,.08)}
 .uploadbtn svg{width:22px;height:22px;flex:none}
 .uploadhint{font-size:.82rem;color:var(--faint);line-height:1.5}
-.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.uploadstatus{font-family:var(--head);font-weight:700;font-size:.8rem;color:var(--euc-bright);margin-top:10px}
+.thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .thumbs:empty{display:none}
-.thumb{position:relative;width:72px;height:72px;border-radius:12px;overflow:hidden;background:var(--surface-2);flex:none}
+.thumb{position:relative;width:78px;height:78px;border-radius:12px;overflow:hidden;background:var(--surface-2);flex:none;border:1px solid rgba(99,192,132,.22)}
 .thumb img{width:100%;height:100%;object-fit:cover}
+.thumbfile{width:100%;height:100%;display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:.75rem;color:var(--muted)}
+.thumbremove{
+  position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;
+  border:none;background:rgba(0,0,0,.82);color:#fff;font-size:1rem;line-height:1;
+  display:grid;place-items:center;cursor:pointer;transition:background .15s,color .15s;
+}
+.thumbremove:hover{background:var(--danger);color:#08180E}
 .thumb span{
-  position:absolute;left:0;right:0;bottom:0;padding:3px 4px;
-  background:rgba(0,0,0,.72);color:#D6F5DC;font-size:.6rem;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  position:absolute;left:0;right:0;bottom:0;padding:3px 5px;
+  background:rgba(0,0,0,.76);color:#D6F5DC;font-size:.62rem;font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;
 }
 .thumb.isbad{outline:2px solid var(--danger);outline-offset:1px}
+.btnsubmit:disabled,.emailsend:disabled{opacity:.65;cursor:wait;transform:none}
+
+/* ---------- Service selector chips (quote form) ---------- */
+.svcchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.svcchip{
+  padding:8px 14px;border-radius:999px;cursor:pointer;
+  background:var(--surface-2);border:1px solid rgba(99,192,132,.28);
+  color:var(--muted);font-family:var(--head);font-weight:700;font-size:.8rem;
+  transition:.18s;
+}
+.svcchip:hover{color:var(--ink);border-color:var(--euc-bright)}
+.svcchip.isselected{background:var(--euc-bright);color:#08180E;border-color:var(--euc-bright)}
+
+/* ---------- Clickable service cards ---------- */
+.svclink{display:block;text-decoration:none;color:inherit;border:1px solid transparent;transition:transform .2s,border-color .2s,background .2s}
+.svclink:hover{border-color:rgba(99,192,132,.38);background:#121612;transform:translateY(-2px)}
+
 .pagesub em a{
   color:var(--euc-bright);text-decoration:none;
   border-bottom:1px solid rgba(99,192,132,.45);
@@ -477,7 +502,7 @@ body.lblock{overflow:hidden}
 .ctaband{margin:44px 0 8px;background:var(--surface);border-radius:20px;padding:30px 22px;text-align:center}
 .ctaband h2{font-family:var(--head);font-size:clamp(1.4rem,3vw,1.9rem);color:#D6F5DC;margin-bottom:8px}
 .ctaband p{color:var(--muted);margin-bottom:18px}
-.ctaband .btnsubmit{width:auto;padding:0 34px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.ctaband .btnsubmit{width:auto;padding:14px 34px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 
 /* ---------- Nav tabs on small screens ---------- */
 
@@ -647,26 +672,15 @@ body.lblock{overflow:hidden}
   .lbnav{width:44px;height:44px;font-size:1.4rem}
   .lbprev{left:8px}
   .lbnext{right:8px}
-  .lbstage img{max-width:calc(100% - 6px)}
-  .lbthumb{width:74px;height:52px}
+  .lbstage img{max-width:calc(100% - 12px)}
+  .lbthumb{width:66px;height:48px}
   .lbtop{padding:12px 14px}
   .lbhint{font-size:.7rem;padding:7px 13px}
-  .lbnav{width:44px;height:44px;font-size:1.4rem}
-  .lbprev{left:8px}
-  .lbnext{right:8px}
-  .lbstage img{max-width:calc(100% - 12px)}
-  .lbthumb{width:72px;height:52px}
-  .lbtop{padding:12px 14px}
-  .lbnav{width:44px;height:44px;font-size:1.4rem}
-  .lbprev{left:8px}
-  .lbnext{right:8px}
-    .lbthumb{width:66px;height:48px}
   .navtabs{
-  text-align:center;
-
-    gap:6px;flex-wrap:nowrap;justify-content:center;
+    text-align:center;
+    gap:4px;flex-wrap:nowrap;justify-content:center;
     overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;
-    margin:0;padding:2px 0 6px;
+    margin:0 0 10px;padding:0 2px;
     -webkit-overflow-scrolling:touch;
   }
   .navtabs::-webkit-scrollbar{display:none}
@@ -678,15 +692,6 @@ body.lblock{overflow:hidden}
   .footlinks::-webkit-scrollbar{display:none}
   .footlinks a{flex:none;white-space:nowrap;padding:11px 8px}
   .tab{
-    flex:none;min-height:44px;padding:0 12px;font-size:.8rem;
-    white-space:nowrap;line-height:1;
-  }
-  .navtabs{
-    gap:4px;
-    padding:0 2px;
-    margin:0 0 10px;
-  }
-  .tab{
     flex:none;
     min-height:40px;
     padding:0 8px;
@@ -694,11 +699,8 @@ body.lblock{overflow:hidden}
     white-space:nowrap;
     line-height:1;
   }
-  .soonbanner{padding:8px 14px;gap:8px}
-  .soontext{font-size:.62rem;letter-spacing:.1em}
   .copyemailbar{margin:12px 0 0;padding:14px}
   .copyemailbtn{min-height:54px}
-
 }
 
 /* ---------- 404 page ---------- */
@@ -801,19 +803,20 @@ body.lblock{overflow:hidden}
 
 /* ---------- Gallery sway animation (on image, NOT .gitem which is the reveal target) ---------- */
 @keyframes sway {
-  0% { transform: translateX(0) translateY(0) rotate(0deg); }
-  50% { transform: translateX(8px) translateY(-4px) rotate(-2deg); }
-  100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  0%, 100% { transform: scale(1.06) translateX(0) translateY(0) rotate(0deg); }
+  50% { transform: scale(1.06) translateX(6px) translateY(-3px) rotate(-1.5deg); }
 }
 
 /* Sway lives on the IMAGE so it never overrides the .reveal opacity animation
-   that transitions .gitem from opacity:0 to opacity:1 on load. Putting it on
-   .gitem made the sway rule win the cascade and left every gallery tile stuck
-   at opacity:0 (invisible) on real devices. */
+   that transitions .gitem from opacity:0 to opacity:1 on load. Scale(1.06)
+   keeps rotated edges tucked inside .gframe with no corner gaps. */
 .gframe img{
   animation: sway 6s ease-in-out infinite;
   animation-play-state: running;
   will-change: transform;
+}
+.gclick:hover .gframe img{
+  animation-play-state: paused;
 }
 .gitem:nth-child(1) .gframe img{ animation-delay: 0s; }
 .gitem:nth-child(2) .gframe img{ animation-delay: .8s; }

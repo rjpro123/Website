@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="Souwest Lawn & Garden Service | Lawn & Garden Maintenance Adelaide">
   <meta name="twitter:description" content="Free quote for lawn and garden maintenance across Adelaide. Mowing, hedging, tree work, spraying, garden clean ups, new turf and more.">
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
-  <link rel="stylesheet" href="styles.css?v=137">
+  <link rel="stylesheet" href="styles.css?v=138">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,11 +67,6 @@
   </script>
 </head>
 <body>
-
-<div class="soonbanner">
-  <span class="soondot" aria-hidden="true"></span>
-  <p class="soontext"><b>Under Construction</b>&nbsp;&middot;&nbsp;We are building a better experience for you. Book a quote when ready.</p>
-</div>
 
 <header class="siteheader">
   <div class="wrapwide">
@@ -154,6 +149,22 @@
         <input id="mailPhone" name="Phone" type="tel" autocomplete="tel" placeholder="0412 345 678">
       </div>
       <div class="field">
+        <label for="mailSuburb">Suburb <span class="optional">(optional)</span></label>
+        <input id="mailSuburb" name="Suburb" type="text" autocomplete="address-level2" placeholder="Marion, Brighton, Glenelg...">
+      </div>
+      <div class="field">
+        <label>What do you need done? <span class="optional">(tap to add)</span></label>
+        <div class="svcchips" id="serviceChips" role="group" aria-label="Services">
+          <button type="button" class="svcchip" dataservice="Lawn Mowing" aria-pressed="false">Lawn Mowing</button>
+          <button type="button" class="svcchip" dataservice="Hedging" aria-pressed="false">Hedging</button>
+          <button type="button" class="svcchip" dataservice="Tree Work" aria-pressed="false">Tree Work</button>
+          <button type="button" class="svcchip" dataservice="Spraying" aria-pressed="false">Spraying</button>
+          <button type="button" class="svcchip" dataservice="Garden Cleanup" aria-pressed="false">Garden Cleanup</button>
+          <button type="button" class="svcchip" dataservice="Mulching" aria-pressed="false">Mulching</button>
+          <button type="button" class="svcchip" dataservice="Turf" aria-pressed="false">Turf</button>
+        </div>
+      </div>
+      <div class="field">
         <label for="mailSubject">Subject</label>
         <input id="mailSubject" name="Subject" type="text" placeholder="Lawn mowing quote for Marion">
       </div>
@@ -165,14 +176,16 @@
       <div class="field">
         <label for="photos">Photos of your yard <span class="optional">(optional)</span></label>
         <div class="upload">
-          <input type="file" id="photos" name="photos" accept="image/*" multiple>
-          <label class="uploadbtn" for="photos">
+          <input type="file" id="photos" name="photo1" accept="image/*" multiple>
+          <label class="uploadbtn" id="uploadZone" for="photos">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
             Add photos
           </label>
-          <p class="uploadhint">Photos of the yard help us price it right. Up to 5 photos, 10MB total.</p>
+          <p class="uploadhint">Photos of the yard help us price it right. Up to 5 photos, 10MB total. Large phone photos are resized automatically.</p>
         </div>
+        <p class="uploadstatus" id="uploadStatus" hidden></p>
         <div class="thumbs" id="thumbs"></div>
+        <div id="photoFields" hidden></div>
         <p class="err" dataerrfor="photos"></p>
       </div>
 
@@ -250,10 +263,10 @@
 
 </main>
 
-<script src="script.js?v=137"></script>
-<script src="email.js?v=137"></script>
-<script src="emailwindow.js?v=137"></script>
-<script src="transitions.js?v=137"></script>
+<script src="script.js?v=138"></script>
+<script src="email.js?v=138"></script>
+<script src="emailwindow.js?v=138"></script>
+<script src="transitions.js?v=138"></script>
 <script>
 (function(){
   "use strict";
@@ -291,7 +304,7 @@
 </script>
 
   <!-- Quick email button -->
-  <button class="quickemailbtn" type="button" id="emailBtn" aria-label="Send us an email" onclick="var w=document.getElementById('emailWindow'); if(window.matchMedia && window.matchMedia('(max-width:640px)').matches){window.location.href='mailto:rileyhutchins12@gmail.com?subject=Quote%20enquiry&body=Hi%20Souwest%2C%20I%27d%20like%20a%20quote%20for%20my%20yard.';}else if(w){w.classList.toggle('isopen');}">
+  <button class="quickemailbtn" type="button" id="emailBtn" aria-label="Send us an email">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
   </button>
 
@@ -299,11 +312,13 @@
   <div class="emailwindow" id="emailWindow" role="dialog" aria-label="Quick email">
     <div class="emailtop">
       <span class="emailtitle">Quick Message</span>
-      <button type="button" class="emailclose" id="emailClose" aria-label="Close" onclick="document.getElementById('emailWindow').classList.remove('isopen')">&times;</button>
+      <button type="button" class="emailclose" id="emailClose" aria-label="Close">&times;</button>
     </div>
     <form class="emailform" action="https://formsubmit.co/rileyhutchins12@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Quick message from website">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="thanks.html">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="text" name="Name" placeholder="Your name" required>
       <input type="email" name="Email" placeholder="Your email" required>
       <textarea name="Message" rows="3" placeholder="What do you need?" required></textarea>
