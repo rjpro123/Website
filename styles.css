@@ -966,6 +966,8 @@ body.lblock{overflow:hidden}
 @media (prefers-reduced-motion: reduce) {
   .gitem {
     animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
