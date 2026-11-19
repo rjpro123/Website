@@ -573,11 +573,15 @@ body.lblock{overflow:hidden}
   display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
   max-width:560px;
 }
-.areaslist li{
+.areaslist li{margin:0;padding:0}
+.areapill{
   font-family:var(--head);font-weight:700;font-size:.8rem;color:var(--euc-bright);
   background:rgba(99,192,132,.1);border:1px solid rgba(99,192,132,.25);
-  border-radius:999px;padding:7px 14px;white-space:nowrap;
+  border-radius:999px;padding:7px 14px;white-space:nowrap;cursor:pointer;
+  transition:.18s;
 }
+.areapill:hover{border-color:var(--euc-bright);background:rgba(99,192,132,.2);transform:translateY(-1px)}
+.areapill.isselected{background:var(--euc-bright);color:#08180E;border-color:var(--euc-bright)}
 .areasnote{color:var(--faint);font-size:.78rem}
 
 /* ---------- What to expect ---------- */
@@ -726,7 +730,7 @@ body.lblock{overflow:hidden}
 
 /* ---------- Quick email button ---------- */
 .quickemailbtn{
-  position:fixed;bottom:20px;right:20px;z-index:100;
+  position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));right:20px;z-index:100;
   width:56px;height:56px;border-radius:50%;
   background:var(--euc-bright);color:#08180E;
   display:grid;place-items:center;
@@ -735,18 +739,18 @@ body.lblock{overflow:hidden}
   text-decoration:none;
   border:none;cursor:pointer;
 }
-.quickemailbtn svg{width:30px;height:30px}
+.quickemailbtn svg{width:30px;height:30px;pointer-events:none}
 .quickemailbtn:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(99,192,132,.5)}
 .quickemailbtn:active{transform:scale(.92)}
 
 @media (max-width:640px){
-  .quickemailbtn{width:50px;height:50px;bottom:16px;right:16px}
+  .quickemailbtn{width:50px;height:50px;bottom:calc(16px + env(safe-area-inset-bottom));right:16px}
   .quickemailbtn svg{width:26px;height:26px}
 }
 
 /* ---------- Email window (final, clean) ---------- */
 .emailwindow{
-  position:fixed;bottom:86px;right:20px;z-index:101;
+  position:fixed;bottom:calc(86px + env(safe-area-inset-bottom));right:20px;z-index:101;
   width:320px;max-width:calc(100vw - 40px);
   background:var(--surface);border-radius:16px;
   border:1px solid rgba(99,192,132,.25);
@@ -767,39 +771,38 @@ body.lblock{overflow:hidden}
   font-family:var(--head);font-weight:700;font-size:.9rem;color:#D6F5DC;
 }
 .emailclose{
-  width:28px;height:28px;border-radius:50%;cursor:pointer;
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  color:var(--muted);font-size:1.1rem;line-height:1;
+  width:32px;height:32px;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  color:var(--muted);font-size:1.2rem;line-height:1;
   display:grid;place-items:center;transition:.2s;
-  border:none;
 }
-.emailclose:hover{background:var(--euc-bright);color:#08180E}
+.emailclose:hover{background:var(--euc-bright);color:#08180E;border-color:transparent}
 .emailform{
   padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;
 }
 .emailform input,
 .emailform textarea{
-  width:100%;padding:10px 12px;
+  width:100%;min-height:44px;padding:10px 12px;
   background:var(--surface-2);border:1px solid rgba(255,255,255,.1);
-  border-radius:10px;color:var(--ink);font-family:var(--body);font-size:.85rem;
+  border-radius:10px;color:var(--ink);font-family:var(--body);font-size:16px;
   transition:border-color .2s;
 }
 .emailform input:focus,
 .emailform textarea:focus{
   outline:none;border-color:var(--euc-bright);
 }
-.emailform textarea{resize:vertical;min-height:70px}
+.emailform textarea{resize:vertical;min-height:84px}
 .emailsend{
-  width:100%;padding:11px;border-radius:10px;cursor:pointer;
+  width:100%;min-height:44px;padding:11px;border-radius:10px;cursor:pointer;
   background:var(--euc-bright);color:#08180E;
-  font-family:var(--head);font-weight:700;font-size:.9rem;
+  font-family:var(--head);font-weight:700;font-size:.92rem;
   border:none;transition:.2s;
 }
 .emailsend:hover{background:#8FD9A6}
 @media (max-width:640px){
-  .emailwindow{width:calc(100vw - 32px);right:16px;bottom:76px}
-  .emailform input, .emailform textarea{font-size:.8rem;padding:9px 11px}
-  .emailsend{padding:10px;font-size:.85rem}
+  .emailwindow{width:calc(100vw - 32px);right:16px;bottom:calc(76px + env(safe-area-inset-bottom))}
+  .emailform input, .emailform textarea{font-size:16px;padding:9px 11px}
+  .emailsend{padding:10px;font-size:.9rem}
 }
 
 /* ---------- Gallery sway animation (on image, NOT .gitem which is the reveal target) ---------- */

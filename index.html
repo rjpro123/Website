@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="Souwest Lawn & Garden Service | Lawn & Garden Maintenance Adelaide">
   <meta name="twitter:description" content="Free quote for lawn and garden maintenance across Adelaide. Mowing, hedging, tree work, spraying, garden clean ups, new turf and more.">
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
-  <link rel="stylesheet" href="styles.css?v=139">
+  <link rel="stylesheet" href="styles.css?v=141">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -190,6 +190,15 @@
         </div>
       </div>
       <div class="field">
+        <label>Green waste <span class="optional">(optional)</span></label>
+        <input type="hidden" id="mailGreenWaste" name="Green Waste" value="">
+        <div class="svcchips" id="wasteChips" role="group" aria-label="Green waste">
+          <button type="button" class="svcchip" datavalue="Use my green bin" aria-pressed="false">Use my green bin</button>
+          <button type="button" class="svcchip" datavalue="Take green waste away" aria-pressed="false">Take green waste away</button>
+          <button type="button" class="svcchip" datavalue="Leave clippings on lawn" aria-pressed="false">Leave clippings on lawn</button>
+        </div>
+      </div>
+      <div class="field">
         <label for="mailSubject">Subject</label>
         <input id="mailSubject" name="Subject" type="text" placeholder="Lawn mowing quote for Marion">
       </div>
@@ -231,20 +240,20 @@
 
   <section class="serviceareas" aria-label="Areas we service">
     <h2 class="areasheading">Areas We Service</h2>
-    <p class="areassub">Proudly looking after lawns and gardens across Adelaide's south, west and surrounding suburbs.</p>
-    <ul class="areaslist">
-      <li>Marion</li>
-      <li>Brighton</li>
-      <li>Glenelg</li>
-      <li>Hallett Cove</li>
-      <li>Morphett Vale</li>
-      <li>Somerton Park</li>
-      <li>Mitcham</li>
-      <li>Blackwood</li>
-      <li>Unley</li>
-      <li>Stirling</li>
-      <li>Norwood</li>
-      <li>Adelaide CBD &amp; surrounds</li>
+    <p class="areassub">Proudly looking after lawns and gardens across Adelaide's south, west and surrounding suburbs. Tap your suburb to fill the form.</p>
+    <ul class="areaslist" id="areasList">
+      <li><button type="button" class="areapill" datasuburb="Marion">Marion</button></li>
+      <li><button type="button" class="areapill" datasuburb="Brighton">Brighton</button></li>
+      <li><button type="button" class="areapill" datasuburb="Glenelg">Glenelg</button></li>
+      <li><button type="button" class="areapill" datasuburb="Hallett Cove">Hallett Cove</button></li>
+      <li><button type="button" class="areapill" datasuburb="Morphett Vale">Morphett Vale</button></li>
+      <li><button type="button" class="areapill" datasuburb="Somerton Park">Somerton Park</button></li>
+      <li><button type="button" class="areapill" datasuburb="Mitcham">Mitcham</button></li>
+      <li><button type="button" class="areapill" datasuburb="Blackwood">Blackwood</button></li>
+      <li><button type="button" class="areapill" datasuburb="Unley">Unley</button></li>
+      <li><button type="button" class="areapill" datasuburb="Stirling">Stirling</button></li>
+      <li><button type="button" class="areapill" datasuburb="Norwood">Norwood</button></li>
+      <li><button type="button" class="areapill" datasuburb="Adelaide CBD &amp; surrounds">Adelaide CBD &amp; surrounds</button></li>
     </ul>
     <p class="areasnote">Not sure if we cover your suburb? Send us a message and we will let you know.</p>
   </section>
@@ -293,10 +302,10 @@
 
 </main>
 
-<script src="script.js?v=139"></script>
-<script src="email.js?v=139"></script>
-<script src="emailwindow.js?v=139"></script>
-<script src="transitions.js?v=139"></script>
+<script src="script.js?v=141"></script>
+<script src="email.js?v=141"></script>
+<script src="emailwindow.js?v=141"></script>
+<script src="transitions.js?v=141"></script>
 <script>
 (function(){
   "use strict";

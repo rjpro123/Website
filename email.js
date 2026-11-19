@@ -94,6 +94,35 @@
   }
   bindSingleChipGroup("sizeChips", "mailYardSize");
   bindSingleChipGroup("freqChips", "mailFrequency");
+  bindSingleChipGroup("wasteChips", "mailGreenWaste");
+
+  /* ---------------- Interactive suburb pills ---------------- */
+  var areasList = document.getElementById("areasList");
+  var suburbInput = document.getElementById("mailSuburb");
+  var nameInput = document.getElementById("mailName");
+  var msgInput = document.getElementById("mailMessage");
+  var mailFormEl = document.getElementById("mailForm");
+
+  if (areasList && suburbInput){
+    areasList.addEventListener("click", function(e){
+      var pill = e.target && e.target.closest ? e.target.closest(".areapill") : null;
+      if (!pill) return;
+      var suburb = pill.getAttribute("datasuburb") || pill.textContent.trim();
+      suburbInput.value = suburb;
+
+      Array.prototype.forEach.call(areasList.querySelectorAll(".areapill"), function(p){
+        p.classList.toggle("isselected", p === pill);
+      });
+
+      if (mailFormEl && mailFormEl.scrollIntoView){
+        mailFormEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      setTimeout(function(){
+        if (nameInput && !nameInput.value.trim()) nameInput.focus({ preventScroll: true });
+        else if (msgInput) msgInput.focus({ preventScroll: true });
+      }, 350);
+    });
+  }
 
   /* ---------------- Photo upload queue + compression ---------------- */
   var input = document.getElementById("photos");
