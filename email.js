@@ -22,13 +22,21 @@
 
   /* ---------------- Service prefill from URL or chips ---------------- */
   var subjectInput = document.getElementById("mailSubject");
+  var servicesInput = document.getElementById("mailServices");
   var chipWrap = document.getElementById("serviceChips");
   var lastAutoSubject = "";
 
-  function updateSubjectFromChips(){
-    if (!chipWrap || !subjectInput) return;
+  function syncServicesField(){
+    if (!chipWrap) return [];
     var active = Array.prototype.slice.call(chipWrap.querySelectorAll(".svcchip.isselected"))
       .map(function(b){ return b.getAttribute("dataservice"); });
+    if (servicesInput) servicesInput.value = active.join(", ");
+    return active;
+  }
+
+  function updateSubjectFromChips(){
+    var active = syncServicesField();
+    if (!subjectInput) return;
     var current = subjectInput.value.trim();
     var canOverwrite = !current || current === lastAutoSubject || current.indexOf("Quote for ") === 0;
     if (!canOverwrite) return;
@@ -51,21 +59,41 @@
     });
   }
 
+  var SERVICE_MAP = [
+    { chip: "Lawn Mowing", keys: ["lawn mowing", "mowing", "edging"] },
+    { chip: "Hedging", keys: ["hedg"] },
+    { chip: "Tree Work", keys: ["tree", "stump", "branch"] },
+    { chip: "Spraying", keys: ["spray", "weed"] },
+    { chip: "Garden Cleanup", keys: ["cleanup", "clean up", "sale", "tidy"] },
+    { chip: "Mulching", keys: ["mulch", "soil", "planting", "garden beds"] },
+    { chip: "Turf", keys: ["turf", "aeration", "overseeding"] }
+  ];
+
   try {
     var params = new URLSearchParams(window.location.search);
     var svc = params.get("service");
-    if (svc && subjectInput){
-      lastAutoSubject = "Quote for " + svc;
-      subjectInput.value = lastAutoSubject;
+    if (svc){
+      if (subjectInput){
+        lastAutoSubject = "Quote for " + svc;
+        subjectInput.value = lastAutoSubject;
+      }
       if (chipWrap){
         var lower = svc.toLowerCase();
+        var matchedChips = [];
+        SERVICE_MAP.forEach(function(entry){
+          if (entry.keys.some(function(k){ return lower.indexOf(k) !== -1; })){
+            matchedChips.push(entry.chip.toLowerCase());
+          }
+        });
         Array.prototype.forEach.call(chipWrap.querySelectorAll(".svcchip"), function(btn){
           var label = (btn.getAttribute("dataservice") || "").toLowerCase();
-          if (label && lower.indexOf(label) !== -1){
+          if (label && (lower.indexOf(label) !== -1 || matchedChips.indexOf(label) !== -1)){
             btn.classList.add("isselected");
             btn.setAttribute("aria-pressed", "true");
           }
         });
+        var synced = syncServicesField();
+        if (servicesInput && !synced.length) servicesInput.value = svc;
       }
     }
   } catch (e) {}
@@ -308,6 +336,10 @@
     });
   }
 
+  function fileKey(f){
+    return (f.name || "") + "|" + (f.size || 0) + "|" + (f.lastModified || 0);
+  }
+
   function addFiles(incoming){
     var files = Array.prototype.slice.call(incoming || []);
     if (!files.length) return;
@@ -316,8 +348,11 @@
     var candidates = [];
 
     files.forEach(function(f){
+      var key = fileKey(f);
       var duplicate = queue.some(function(existing){
-        return existing.name === f.name && existing.size === f.size && existing.lastModified === f.lastModified;
+        return existing._origKey === key || fileKey(existing) === key;
+      }) || candidates.some(function(c){
+        return fileKey(c) === key;
       });
       if (duplicate) return;
 
@@ -341,7 +376,13 @@
       statusEl.hidden = false;
     }
 
-    Promise.all(candidates.map(compressImage)).then(function(processed){
+    Promise.all(candidates.map(function(orig){
+      var key = fileKey(orig);
+      return compressImage(orig).then(function(out){
+        out._origKey = key;
+        return out;
+      });
+    })).then(function(processed){
       processed.forEach(function(f){
         if (queue.length < MAX_FILES) queue.push(f);
       });

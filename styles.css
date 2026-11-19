@@ -505,11 +505,7 @@ body.lblock{overflow:hidden}
 .ctaband p{color:var(--muted);margin-bottom:18px}
 .ctaband .btnsubmit{width:auto;padding:14px 34px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 
-/* ---------- Nav tabs on small screens ---------- */
 
-@media (max-width:370px){
-  .tab{font-size:.74rem;padding:0 6px}
-}
 
 /* ---------- Opening soon banner ---------- */
 .soonbanner{
@@ -706,6 +702,9 @@ body.lblock{overflow:hidden}
   }
   .copyemailbar{margin:12px 0 0;padding:14px}
   .copyemailbtn{min-height:54px}
+}
+@media (max-width:370px){
+  .tab{font-size:.74rem;padding:0 6px}
 }
 
 /* ---------- 404 page ---------- */

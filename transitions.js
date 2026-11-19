@@ -95,6 +95,12 @@
     setTimeout(function(){
       window.location.assign(href);
     }, reduced ? 200 : 420);
+
+    setTimeout(function(){
+      navigating = false;
+      document.body.classList.remove("leaving");
+      if (veil) veil.classList.remove("on");
+    }, 3500);
   }
 
   /* ---------------- Boot ---------------- */

@@ -30,6 +30,7 @@
   var dragging = false, sx = 0, sy = 0, moved = false;
   var anchor = null;      // where the pointer last hovered over the photo
   var openAnchor = null;  // pointer position when the viewer was opened
+  var lastTrigger = null; // element to restore focus to on close
 
   function read(it){
     var img = it.querySelector(".gframe img");
@@ -147,12 +148,13 @@
 
   function open(i){
     index = i;
+    lastTrigger = photos[i] || document.activeElement;
     if (!anchor && openAnchor) anchor = { x: openAnchor.x, y: openAnchor.y };
     render();
     lb.hidden = false;
     document.body.classList.add("lblock");
-    var close = lb.querySelector(".lbclose");
-    if (close) close.focus();
+    var closeBtn = lb.querySelector(".lbclose");
+    if (closeBtn) closeBtn.focus();
     if (lbHint){
       lbHint.classList.remove("isfade");
       if (hintTimer) clearTimeout(hintTimer);
@@ -164,6 +166,13 @@
     lb.hidden = true;
     document.body.classList.remove("lblock");
     zoomOut();
+    anchor = null;
+    openAnchor = null;
+    if (hintTimer){ clearTimeout(hintTimer); hintTimer = null; }
+    if (lastTrigger && lastTrigger.focus){
+      lastTrigger.focus();
+    }
+    lastTrigger = null;
   }
 
   function next(){ index = (index + 1) % photos.length; render(); }
