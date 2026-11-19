@@ -51,25 +51,6 @@ img{display:block;max-width:100%;height:auto}
   border-bottom:2px solid var(--euc-bright);
 }
 
-
-
-
-
-
-
-
-
-
-
-.step.isactive{color:var(--euc-bright);font-weight:700}
-.step.isdone{color:var(--euc-bright)}
-
-.step.isactive .stepnum{background:var(--euc-bright);color:#08180E}
-.step.isdone .stepnum{background:var(--euc-soft);color:var(--euc-bright)}
-
-
-.pane.isactive{display:block}
-
 .field{margin-bottom:16px}
 .field>label{display:block;font-family:var(--head);font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--ink)}
 .optional{font-weight:500;color:var(--faint);font-family:var(--body)}
@@ -82,23 +63,6 @@ select option{background:var(--surface-2);color:var(--ink)}
 
 .err{display:none;font-size:.82rem;font-weight:600;color:var(--danger);margin-top:6px}
 .err.show{display:block}
-.haserror input,.haserror select,.haserror textarea{border-color:transparent;box-shadow:0 0 0 3px rgba(229,115,106,.22)}
-
-
-
-.seg input{appearance:none;width:20px;height:20px;border:2px solid transparent;border-radius:50%;flex:none;margin:0;background:#1C1C1C;transition:.2s}
-.seg input:checked{border-color:transparent;background:radial-gradient(circle,var(--euc-bright) 0 42%,#1C1C1C 45%)}
-.seg:has(input:checked){background:var(--euc-soft)}
-
-
-
-.tile input{appearance:none;width:22px;height:22px;border:2px solid transparent;border-radius:6px;flex:none;margin:0;position:relative;transition:.2s;background:#1C1C1C}
-.tile input:checked{background:var(--euc-bright)}
-.tile input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #08180E;border-width:0 2.5px 2.5px 0;transform:rotate(43deg)}
-.tile:has(input:checked){background:var(--euc-soft)}
-
-
-
 
 .btnprimary{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -110,7 +74,6 @@ select option{background:var(--surface-2);color:var(--ink)}
 }
 .btnprimary:hover{background:#7FCB98;box-shadow:0 14px 28px rgba(76,145,102,.4)}
 .btnprimary:active{transform:translateY(1px)}
-
 
 .btnsubmit{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -133,19 +96,7 @@ select option{background:var(--surface-2);color:var(--ink)}
 }
 .btnsubmit:hover::after{left:130%}
 
-.panenav .btnprimary{flex:1}
-
-
-
 .successicon{width:64px;height:64px;margin:0 auto 16px;border-radius:50%;background:var(--euc-soft);color:var(--euc-bright);display:grid;place-items:center;font-size:1.8rem;font-weight:700}
-.success h2{font-family:var(--head);font-size:1.5rem;color:#D6F5DC;margin-bottom:8px}
-.success p{color:var(--muted);margin-bottom:18px}
-
-
-
-.successcard dt{color:var(--muted);font-weight:600;flex:none}
-.successcard dd{text-align:right;font-weight:600;color:var(--ink)}
-.success a.btnghost{margin-inline:auto}
 
 /* ---------- Footer ---------- */
 .sitefooter{text-align:center;padding:26px 0 34px;margin-top:10px}
@@ -155,9 +106,7 @@ select option{background:var(--surface-2);color:var(--ink)}
 .footsub{font-size:.78rem;margin-top:4px;color:var(--faint)}
 
 @media (min-width:560px){
-  
-  
-  
+
   .footermark{width:240px}
 }
 
@@ -182,8 +131,6 @@ select option{background:var(--surface-2);color:var(--ink)}
 .gitem figcaption{padding:10px 4px 0}
 .gitem figcaption strong{display:block;font-family:var(--head);color:var(--ink);font-size:.92rem}
 .gitem figcaption span{font-size:.8rem;color:var(--muted)}
-.gnote{color:var(--muted);font-size:.82rem;text-align:center;max-width:52ch;margin:14px auto 0;padding-bottom:26px}
-.gnote code{color:var(--euc-bright);font-size:.8rem}
 @media (min-width:560px){.gallerygrid{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:860px){.gallerygrid{grid-template-columns:repeat(3,1fr);gap:16px}}
 
@@ -195,7 +142,6 @@ select option{background:var(--surface-2);color:var(--ink)}
 .copy{font-size:.78rem;color:var(--faint);text-align:center;margin:16px 0 0}
 .heroactions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .heroactions .btnprimary,.heroactions .btnsubmit{width:auto;padding:0 30px;display:inline-flex;align-items:center;justify-content:center}
-
 
 /* ---------- Accessible form groups ---------- */
 fieldset{border:none;padding:0;margin:0 0 16px}
@@ -263,7 +209,6 @@ body.leaving > header,body.leaving > main{
 .tab,.btnprimary,.btnsubmit{transition:transform .2s cubic-bezier(.2,.8,.2,1), background .2s, color .2s, opacity .2s}
 .tab:hover,.btnprimary:hover,.btnsubmit:hover{transform:translateY(-2px)}
 
-
 /* --- Respect reduced motion: keep a simple fade,drop all movement --- */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{
@@ -305,7 +250,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* no sticky hover states on touch screens */
 @media (hover:none){
-  .tab:hover,.btnprimary:hover,.btnsubmit:hover,.btnghost:hover,.barbtn:hover,.tile:hover,.seg:hover{transform:none}
+  .tab:hover,.btnprimary:hover,.btnsubmit:hover{transform:none}
 }
 
 /* price row must never overflow a narrow phone */
@@ -313,15 +258,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* single-column actions on small phones */
 @media (max-width:420px){
     .heroactions .btnprimary,.heroactions .btnsubmit{width:100%}
-    .panenav{flex-direction:column-reverse}
-  .panenav .btnprimary,.panenav .btnghost{width:100%}
   }
 
 /* sticky mobile CTA */
 
 /* ---------- Quote / Quick Email mode switch ---------- */
 @keyframes modeIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
-
 
 /* ---------- Service strip (soft landscaping & garden maintenance) ---------- */
 .svcstrip{display:grid;grid-template-columns:1fr;gap:10px;margin:46px 0 8px}
@@ -367,7 +309,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   transition:color .2s ease, border-color .2s ease;
 }
 .pagesub em a:hover{color:#8FD9A6;border-bottom-color:#8FD9A6}
-
 
 @media (max-width:639px){.svcstrip{gap:8px;margin:34px 0 8px}
   .svc{
@@ -453,7 +394,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   box-shadow:0 12px 30px rgba(0,0,0,.55);
 }
 .lbnav:hover{background:var(--euc-bright);color:#08180E;border-color:transparent;transform:translateY(-50%) scale(1.06)}
-.lbsingle .lbnav{display:none}
 .lbprev{left:20px}
 .lbnext{right:20px}
 
@@ -512,9 +452,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 body.lblock{overflow:hidden}
 
-
-
-
 /* ---------- Staff page ---------- */
 .staffgrid{display:grid;grid-template-columns:1fr;gap:14px;margin:26px 0 4px}
 .staffcard{background:var(--surface);border-radius:18px;padding:24px 20px;text-align:center}
@@ -544,7 +481,6 @@ body.lblock{overflow:hidden}
 
 /* ---------- Nav tabs on small screens ---------- */
 
-
 @media (max-width:370px){
   .tab{font-size:.74rem;padding:0 6px}
 }
@@ -567,7 +503,6 @@ body.lblock{overflow:hidden}
   letter-spacing:.14em;text-transform:uppercase;color:#8FD9A6;
 }
 .soontext b{color:#D6F5DC}
-
 
 /* ---------- Copy email bar ---------- */
 .copyemailbar{
@@ -596,8 +531,6 @@ body.lblock{overflow:hidden}
   border-style:solid;border-color:var(--euc-bright);background:var(--euc-soft);
 }
 .copyemailbtn.copied .copyemailhint{color:var(--euc-bright)}
-
-
 
 /* ---------- Service areas ---------- */
 .serviceareas{
@@ -709,9 +642,6 @@ body.lblock{overflow:hidden}
 /* ---------- Quick email button ---------- */
   /* ---------- Mini email window ---------- */
 
-  
-  
-
 /* ---------- Mobile (max-width:640px) ---------- */
 @media (max-width:640px){
   .lbnav{width:44px;height:44px;font-size:1.4rem}
@@ -730,8 +660,7 @@ body.lblock{overflow:hidden}
   .lbnav{width:44px;height:44px;font-size:1.4rem}
   .lbprev{left:8px}
   .lbnext{right:8px}
-  .lbfigure{padding:0 8px 6px}
-  .lbthumb{width:66px;height:48px}
+    .lbthumb{width:66px;height:48px}
   .navtabs{
   text-align:center;
 
@@ -792,40 +721,6 @@ body.lblock{overflow:hidden}
   display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
 }
 
-/* ---------- Newsletter bar ---------- */
-.newsletterbar{
-  margin:30px 0 8px;background:var(--surface);border-radius:20px;
-  padding:24px 20px;text-align:center;
-}
-.newsletterheading{
-  font-family:var(--head);font-size:1.15rem;color:#D6F5DC;margin-bottom:6px;
-}
-.newslettersub{color:var(--muted);font-size:.85rem;margin-bottom:14px}
-.newsletterform{
-  display:flex;gap:10px;max-width:440px;margin-inline:auto;
-}
-.newsletterform input{
-  flex:1;min-width:0;padding:11px 14px;
-  background:var(--surface-2);border:1px solid rgba(255,255,255,.1);
-  border-radius:10px;color:var(--ink);font-family:var(--body);font-size:.85rem;
-  transition:border-color .2s;
-}
-.newsletterform input:focus{outline:none;border-color:var(--euc-bright)}
-.newsletterform button{
-  flex:none;padding:11px 20px;border-radius:10px;cursor:pointer;
-  background:var(--euc-bright);color:#08180E;
-  font-family:var(--head);font-weight:700;font-size:.85rem;border:none;
-  transition:.2s;
-}
-.newsletterform button:hover{background:#8FD9A6}
-.newsletterthanks{
-  color:var(--euc-bright);font-size:.85rem;font-weight:700;
-}
-@media (max-width:640px){
-  .newsletterform{flex-direction:column}
-  .newsletterform button{width:100%}
-}
-
 /* ---------- Quick email button ---------- */
 .quickemailbtn{
   position:fixed;bottom:20px;right:20px;z-index:100;
@@ -840,8 +735,6 @@ body.lblock{overflow:hidden}
 .quickemailbtn svg{width:30px;height:30px}
 .quickemailbtn:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(99,192,132,.5)}
 .quickemailbtn:active{transform:scale(.92)}
-
-
 
 @media (max-width:640px){
   .quickemailbtn{width:50px;height:50px;bottom:16px;right:16px}
@@ -934,5 +827,4 @@ body.lblock{overflow:hidden}
     animation: none;
   }
 }
-
 
