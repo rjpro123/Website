@@ -9,11 +9,37 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 const HOST = '0.0.0.0';
 
-app.use('/backup', (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, '404.html'));
+const BLOCKED_PATHS = new Set([
+  '/brief.md',
+  '/readme.md',
+  '/package.json',
+  '/package-lock.json',
+  '/bun.lock',
+  '/metadata.json',
+  '/server.js',
+  '/.gitignore',
+  '/gallery/readme.txt'
+]);
+
+app.disable('x-powered-by');
+
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  const p = req.path.toLowerCase();
+  if (
+    p === '/backup' ||
+    p.startsWith('/backup/') ||
+    p === '/public' ||
+    p.startsWith('/public/') ||
+    BLOCKED_PATHS.has(p)
+  ) {
+    return res.status(404).sendFile(path.join(__dirname, '404.html'));
+  }
+  next();
 });
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname, { extensions: ['html'] }));
 
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, '404.html'));

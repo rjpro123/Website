@@ -13,10 +13,8 @@
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Fonts load without blocking render -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <meta property="og:title" content="Souwest Lawn & Garden Service | Lawn & Garden Maintenance Adelaide">
   <meta property="og:description" content="Free quote for lawn and garden maintenance across Adelaide. Mowing, hedging, tree work, spraying, garden clean ups, new turf and more.">
   <meta property="og:image" content="https://rjpro123.github.io/Website/assets/logo.png">
@@ -26,7 +24,7 @@
   <meta name="twitter:title" content="Souwest Lawn & Garden Service | Lawn & Garden Maintenance Adelaide">
   <meta name="twitter:description" content="Free quote for lawn and garden maintenance across Adelaide. Mowing, hedging, tree work, spraying, garden clean ups, new turf and more.">
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
-  <link rel="stylesheet" href="styles.css?v=144">
+  <link rel="stylesheet" href="css/styles.css?v=150">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -144,7 +142,7 @@
       <h2>Write your message</h2>
       <div class="field">
         <label for="mailName">Your name</label>
-        <input id="mailName" name="Name" type="text" autocomplete="name" placeholder="Hutch Man" required>
+        <input id="mailName" name="Name" type="text" autocomplete="name" placeholder="Your full name" required>
       </div>
       <div class="field">
         <label for="mailEmail">Your email</label>
@@ -216,7 +214,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
             Add photos
           </label>
-          <p class="uploadhint">Photos of the yard help us price it right. Up to 5 photos, 10MB total. Large phone photos are resized automatically.</p>
+          <p class="uploadhint">Photos of the yard help us price it right. Up to 10 photos, 10MB total. Large phone photos are resized automatically.</p>
         </div>
         <p class="uploadstatus" id="uploadStatus" hidden></p>
         <div class="thumbs" id="thumbs"></div>
@@ -235,7 +233,7 @@
     <p class="copyemaillabel">Prefer to email us directly?</p>
     <button type="button" class="copyemailbtn" id="copyEmailBtn" data-email="rileyhutchins12@gmail.com">
       <span class="copyemailaddr">rileyhutchins12@gmail.com</span>
-      <span class="copyemailhint">Tap to copy</span>
+      <span class="copyemailhint" aria-live="polite">Tap to copy</span>
     </button>
   </div>
 
@@ -303,46 +301,6 @@
 
 </main>
 
-<script src="script.js?v=144"></script>
-<script src="email.js?v=144"></script>
-<script src="emailwindow.js?v=144"></script>
-<script src="transitions.js?v=144"></script>
-<script>
-(function(){
-  "use strict";
-  var btn = document.getElementById("copyEmailBtn");
-  if (!btn) return;
-  var hint = btn.querySelector(".copyemailhint");
-  function fallbackCopy(text){
-    var ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand("copy"); } catch (e) {}
-    document.body.removeChild(ta);
-  }
-  btn.addEventListener("click", function(){
-    var addr = btn.getAttribute("data-email");
-    function done(){
-      btn.classList.add("copied");
-      if (hint) hint.textContent = "Copied to clipboard!";
-      setTimeout(function(){
-        btn.classList.remove("copied");
-        if (hint) hint.textContent = "Tap to copy";
-      }, 2200);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(addr).then(done).catch(function(){ fallbackCopy(addr); done(); });
-    } else {
-      fallbackCopy(addr);
-      done();
-    }
-  });
-})();
-</script>
-
   <!-- Quick email button -->
   <a class="quickemailbtn" id="emailBtn" href="mailto:rileyhutchins12@gmail.com?subject=Quick%20message%20from%20website" target="_blank" rel="noopener noreferrer" aria-label="Send us an email">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -367,5 +325,9 @@
     </form>
   </div>
 
+<script src="js/script.js?v=150"></script>
+<script src="js/email.js?v=150"></script>
+<script src="js/emailwindow.js?v=150"></script>
+<script src="js/transitions.js?v=150"></script>
 </body>
 </html>
