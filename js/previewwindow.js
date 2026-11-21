@@ -162,6 +162,7 @@
 
         thumbBtn.addEventListener("click", function(e){
           e.stopPropagation();
+          if (e.detail > 0 && thumbBtn.blur) thumbBtn.blur();
           goTo(i, true);
         });
         thumbsWrap.appendChild(thumbBtn);
@@ -278,12 +279,14 @@
   if (prevBtn){
     prevBtn.addEventListener("click", function(e){
       e.stopPropagation();
+      if (e.detail > 0 && prevBtn.blur) prevBtn.blur();
       goTo(index - 1, true);
     });
   }
   if (nextBtn){
     nextBtn.addEventListener("click", function(e){
       e.stopPropagation();
+      if (e.detail > 0 && nextBtn.blur) nextBtn.blur();
       goTo(index + 1, true);
     });
   }
@@ -291,6 +294,7 @@
   if (playBtn){
     playBtn.addEventListener("click", function(e){
       e.stopPropagation();
+      if (e.detail > 0 && playBtn.blur) playBtn.blur();
       manualPaused = !manualPaused;
       if (!manualPaused){
         controlsOpen = false;
@@ -307,7 +311,7 @@
       movedDrag = false;
       return;
     }
-    if (e.target && e.target.closest && e.target.closest("button,a")) return;
+    if (e.target && e.target.closest && e.target.closest("button,a,.showthumbs")) return;
     controlsOpen = !controlsOpen;
     show.classList.toggle("iscontrols", controlsOpen);
   });
@@ -381,7 +385,7 @@
   if (window.PointerEvent){
     viewport.addEventListener("pointerdown", function(e){
       if (e.button !== 0 && e.pointerType === "mouse") return;
-      if (e.target && e.target.closest && e.target.closest("button,a")) return;
+      if (e.target && e.target.closest && e.target.closest("button,a,.showthumbs")) return;
       beginDrag(e.clientX, e.clientY, e.pointerId);
     });
 
@@ -402,6 +406,7 @@
   } else {
     viewport.addEventListener("touchstart", function(e){
       if (!e.touches || e.touches.length !== 1) return;
+      if (e.target && e.target.closest && e.target.closest("button,a,.showthumbs")) return;
       beginDrag(e.touches[0].clientX, e.touches[0].clientY, null);
     }, { passive: true });
 
