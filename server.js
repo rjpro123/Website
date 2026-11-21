@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   const p = req.path.toLowerCase();
   if (
+    p.startsWith('/.') ||
     p === '/backup' ||
     p.startsWith('/backup/') ||
     p === '/public' ||

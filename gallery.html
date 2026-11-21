@@ -24,7 +24,7 @@
   <meta name="twitter:title" content="Our Work | Souwest Lawn & Garden Service | Adelaide">
   <meta name="twitter:description" content="Recent lawn mowing, hedging, cleanup and turf care work by Souwest Lawn & Garden Service across Adelaide and suburbs.">
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
-  <link rel="stylesheet" href="css/styles.css?v=152">
+  <link rel="stylesheet" href="css/styles.css?v=154">
 </head>
 <body>
 
@@ -50,18 +50,59 @@
     <p class="pagesub">Some of the lawns, gardens and beds we have worked on around Adelaide. More as we get them done.<em><a href="index.html">Not sure who to call? Get a quote.</a></em></p>
   </div>
 
+  <section class="beforeaftersection" aria-label="Before and after transformation">
+    <div class="beforeaftercard">
+      <div class="beforeafterheader">
+        <h2 class="beforeaftertitle">Before &amp; After: Yard Reset</h2>
+        <p class="beforeaftersub">Slide the divider or tap a view below to compare an overgrown yard against the finished cut and tidy.</p>
+      </div>
+
+      <div class="beforeafterslider" id="beforeAfterSlider">
+        <div class="beforeafterstage" id="beforeAfterStage">
+          <img class="beforeafterimg beforeafterafter" src="gallery/lawnresetafter.jpg" alt="After: Cleanly mowed lawn, trimmed hedges and weeded garden beds in Adelaide" loading="lazy">
+          <div class="beforeafterclip">
+            <img class="beforeafterimg beforeafterbefore" src="gallery/lawnresetbefore.jpg" alt="Before: Overgrown grass and tall weeds before maintenance" loading="lazy">
+          </div>
+
+          <div class="beforeafterdivider" aria-hidden="true">
+            <div class="beforeafterhandle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="8 7 3 12 8 17"></polyline>
+                <polyline points="16 7 21 12 16 17"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <span class="beforebadge" aria-hidden="true">Before &middot; Overgrown</span>
+          <span class="afterbadge" aria-hidden="true">After &middot; Full reset</span>
+
+          <input type="range" class="beforeafterrange" id="beforeAfterRange" min="0" max="100" value="50" step="0.5" aria-label="Before and after comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        </div>
+
+        <div class="beforeaftertoolbar">
+          <div class="beforeafterpresets" role="group" aria-label="Comparison views">
+            <button type="button" class="beforeafterbtn" datapercent="100">Show Before</button>
+            <button type="button" class="beforeafterbtn isactive" datapercent="50">50 / 50 Split</button>
+            <button type="button" class="beforeafterbtn" datapercent="0">Show After</button>
+          </div>
+          <p class="beforeafterhint">Drag anywhere on the photo or tap a view</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="gallerygrid">
 
     <figure class="gitem">
       <div class="gframe">
-        <img src="gallery/IMG_20261118_082944437.jpg" alt="Garden bed refresh in Brighton, SA" loading="lazy">
+        <img src="gallery/brightonbed.jpg" alt="Garden bed refresh in Brighton, SA" loading="lazy">
       </div>
       <figcaption><strong>Garden bed refresh</strong><span>Brighton, SA</span></figcaption>
     </figure>
 
     <figure class="gitem">
       <div class="gframe">
-        <img src="gallery/IMG_20261118_100119823.jpg" alt="Hedge and prune in Stirling, SA" loading="lazy">
+        <img src="gallery/stirlinghedge.jpg" alt="Hedge and prune in Stirling, SA" loading="lazy">
       </div>
       <figcaption><strong>Hedge &amp; prune</strong><span>Stirling, SA</span></figcaption>
     </figure>
@@ -75,12 +116,19 @@
 
     <figure class="gitem">
       <div class="gframe">
-        <img src="gallery/IMG_20261120_122744958.jpg" alt="Lawn mowing and garden care job in Adelaide" loading="lazy">
+        <img src="gallery/adelaidelawn.jpg" alt="Lawn mowing and garden care job in Adelaide" loading="lazy">
       </div>
       <figcaption><strong>Latest job</strong><span>Adelaide, SA</span></figcaption>
     </figure>
 
-    </div>
+    <figure class="gitem">
+      <div class="gframe">
+        <img src="gallery/gardencleanup.jpg" alt="Garden bed and potted citrus care in Adelaide" loading="lazy">
+      </div>
+      <figcaption><strong>Garden bed care</strong><span>Adelaide, SA</span></figcaption>
+    </figure>
+
+  </div>
 
   <div class="ctaband">
     <h2>Like what you see?</h2>
@@ -158,8 +206,6 @@
   <div class="lbthumbs" id="lbthumbs"></div>
 </div>
 
-
-
   <!-- Quick email button -->
   <a class="quickemailbtn" id="emailBtn" href="mailto:rileyhutchins12@gmail.com?subject=Quick%20message%20from%20website" target="_blank" rel="noopener noreferrer" aria-label="Send us an email">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -184,10 +230,11 @@
     </form>
   </div>
 
-<script src="js/script.js?v=151"></script>
-<script src="js/emailwindow.js?v=151"></script>
-<script src="js/gallery.js?v=151"></script>
-<script src="js/testimonials.js?v=152"></script>
-<script src="js/transitions.js?v=151"></script>
+<script src="js/script.js?v=154"></script>
+<script src="js/emailwindow.js?v=154"></script>
+<script src="js/gallery.js?v=154"></script>
+<script src="js/beforeafter.js?v=154"></script>
+<script src="js/testimonials.js?v=154"></script>
+<script src="js/transitions.js?v=154"></script>
 </body>
 </html>
