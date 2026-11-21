@@ -66,6 +66,20 @@
       alt: "Garden bed and potted citrus care in Adelaide",
       title: "Garden bed care",
       sub: "Adelaide, SA"
+    },
+    {
+      src: "gallery/villahedge.jpg",
+      thumb: "gallery/villahedge.jpg",
+      alt: "Boxed front hedge and edged lawn at a sandstone home in Adelaide",
+      title: "Hedge & lawn edge",
+      sub: "Adelaide, SA"
+    },
+    {
+      src: "gallery/courtyardhedge.jpg",
+      thumb: "gallery/courtyardhedge.jpg",
+      alt: "Mowed courtyard lawn, trimmed boundary hedges and tidy garden bed in Adelaide",
+      title: "Hedge trim & mow",
+      sub: "Adelaide, SA"
     }
   ];
 

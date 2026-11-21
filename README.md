@@ -43,9 +43,11 @@ Runs on `http://localhost:3000`.
 │   │   └── bedresetbefore.jpg / bedresetafter.jpg
 │   ├── adelaidelawn.jpg
 │   ├── brightonbed.jpg
+│   ├── courtyardhedge.jpg
 │   ├── gardencleanup.jpg
 │   ├── hutchman.jpg
-│   └── stirlinghedge.jpg
+│   ├── stirlinghedge.jpg
+│   └── villahedge.jpg
 ├── server.js           # Express static server for local & preview hosting
 ├── robots.txt
 ├── sitemap.xml
