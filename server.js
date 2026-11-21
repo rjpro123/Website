@@ -39,6 +39,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Serve gallery.html for /gallery and /gallery/ to prevent directory redirect collision
+app.get(['/gallery', '/gallery/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'gallery.html'));
+});
+
 app.use(express.static(__dirname, { extensions: ['html'] }));
 
 app.use((req, res) => {
