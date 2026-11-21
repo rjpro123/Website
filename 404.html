@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=153">
+  <link rel="stylesheet" href="css/styles.css?v=155">
   <meta property="og:title" content="Page Not Found | Souwest Lawn &amp; Garden Service">
   <meta property="og:image" content="https://rjpro123.github.io/Website/assets/logo.png">
 </head>
@@ -26,6 +26,33 @@
     </div>
   </div>
 </header>
+
+  <button type="button" class="menutoggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="4" y1="6" x2="20" y2="6"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="18" x2="20" y2="18"></line>
+    </svg>
+  </button>
+
+  <div class="drawerbackdrop" id="drawerBackdrop" aria-hidden="true"></div>
+
+  <aside class="mobiledrawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
+    <div class="drawerhead">
+      <a href="index.html"><img src="assets/logo.png" alt="Souwest Lawn &amp; Garden Service" class="drawerlogo"></a>
+      <button type="button" class="drawerclose" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <nav class="drawernav" aria-label="Mobile navigation">
+      <a class="drawerlink" href="index.html"><span>Quote</span><span class="drawerarrow" aria-hidden="true">&#8250;</span></a>
+      <a class="drawerlink" href="services.html"><span>What We Do</span><span class="drawerarrow" aria-hidden="true">&#8250;</span></a>
+      <a class="drawerlink" href="gallery.html"><span>Gallery</span><span class="drawerarrow" aria-hidden="true">&#8250;</span></a>
+      <a class="drawerlink" href="staff.html"><span>The Team</span><span class="drawerarrow" aria-hidden="true">&#8250;</span></a>
+    </nav>
+    <div class="drawerfoot">
+      <a class="btnprimary drawercta" href="index.html#mailForm">Get a Free Quote</a>
+      <p class="drawernote">Adelaide &amp; surrounding suburbs</p>
+    </div>
+  </aside>
 
 <main class="wrapwide">
   <div class="notfoundwrap">
@@ -63,8 +90,9 @@
   </form>
 </div>
 
-<script src="js/script.js?v=153"></script>
-<script src="js/emailwindow.js?v=153"></script>
-<script src="js/transitions.js?v=153"></script>
+<script src="js/script.js?v=155"></script>
+<script src="js/mobilenav.js?v=155"></script>
+<script src="js/emailwindow.js?v=155"></script>
+<script src="js/transitions.js?v=155"></script>
 </body>
 </html>

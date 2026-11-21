@@ -7,4 +7,5 @@ Drop job photos here using lowercase names without hyphens, then add an item to 
     <figcaption><strong>Job title</strong><span>Suburb, SA</span></figcaption>
   </figure>
 
+Before and after comparison pairs belong in gallery/beforeandafterphotos/.
 Best results: 4:3 ratio, around 1400px wide, compressed JPEG under 300KB.

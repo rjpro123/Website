@@ -25,6 +25,7 @@ Runs on `http://localhost:3000`.
 │   └── styles.css      # Site theme, layout, carousel & responsive styles
 ├── js/
 │   ├── script.js          # Footer year, active nav, FormSubmit redirect & thanks countdown
+│   ├── mobilenav.js       # Persistent mobile hamburger button & slide out navigation drawer
 │   ├── email.js           # Quote chips, suburb pills & client-side photo compression
 │   ├── emailwindow.js     # Quick message floating widget
 │   ├── gallery.js         # Full-screen photo lightbox with zoom, pan & swipe
@@ -37,12 +38,13 @@ Runs on `http://localhost:3000`.
 │   ├── logofooter.png     # Footer mark
 │   └── riley.jpg          # Team photo
 ├── gallery/
+│   ├── beforeandafterphotos/
+│   │   ├── lawnresetafter.jpg
+│   │   └── lawnresetbefore.jpg
 │   ├── adelaidelawn.jpg
 │   ├── brightonbed.jpg
 │   ├── gardencleanup.jpg
 │   ├── hutchman.jpg
-│   ├── lawnresetafter.jpg
-│   ├── lawnresetbefore.jpg
 │   ├── stirlinghedge.jpg
 │   └── README.txt
 ├── backup/             # Timestamped site snapshots (blocked from web serving)

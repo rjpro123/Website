@@ -79,6 +79,10 @@
       return;
     }
 
+    if (url.origin === window.location.origin && normPath(url.pathname) === normPath(window.location.pathname) && url.search === window.location.search && url.hash){
+      return;
+    }
+
     var href = link.getAttribute("href");
     e.preventDefault();
     navigating = true;
