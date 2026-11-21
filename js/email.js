@@ -163,7 +163,7 @@
       document.body.removeChild(ta);
     };
     copyBtn.addEventListener("click", function(){
-      var addr = copyBtn.getAttribute("data-email");
+      var addr = copyBtn.getAttribute("dataemail");
       var done = function(){
         if (copyTimer) clearTimeout(copyTimer);
         copyBtn.classList.add("copied");

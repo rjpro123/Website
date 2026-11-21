@@ -139,11 +139,7 @@
     function percentFromEvent(e){
       var rect = stage.getBoundingClientRect();
       if (!rect.width) return 50;
-      var clientX = e.clientX;
-      if (typeof clientX === "undefined" && e.touches && e.touches.length){
-        clientX = e.touches[0].clientX;
-      }
-      return ((clientX - rect.left) / rect.width) * 100;
+      return ((e.clientX - rect.left) / rect.width) * 100;
     }
 
     if (window.PointerEvent){
@@ -182,7 +178,6 @@
     applyPercent(currentPercent);
     syncPairs();
     startPairCycle();
-    slider.classList.add("isready");
   }
 
   function init(){

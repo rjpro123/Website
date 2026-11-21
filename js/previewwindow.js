@@ -407,6 +407,6 @@
   });
 
   syncPlayButton();
-  goTo(0, false);
+  syncUI();
   startAuto();
 })();
