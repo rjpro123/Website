@@ -25,7 +25,6 @@ Runs on `http://localhost:3000`.
 │   └── styles.css      # Site theme, layout, carousel & responsive styles
 ├── js/
 │   ├── script.js          # Footer year, active nav, FormSubmit redirect & thanks countdown
-│   ├── mobilenav.js       # Persistent mobile hamburger button & slide out navigation drawer
 │   ├── email.js           # Quote chips, suburb pills & client-side photo compression
 │   ├── emailwindow.js     # Quick message floating widget
 │   ├── gallery.js         # Full-screen photo lightbox with zoom, pan & swipe
