@@ -94,25 +94,52 @@
       });
     }
 
-    var beforeImg = document.querySelector(".beforeafterstage .beforeafterbefore");
-    var afterImg = document.querySelector(".beforeafterstage .beforeafterafter");
-    if (beforeImg){
-      list.push({
-        src: beforeImg.getAttribute("src"),
-        thumb: beforeImg.getAttribute("src"),
-        alt: beforeImg.getAttribute("alt") || "Yard Reset Before",
-        title: "Yard Reset (Before)",
-        sub: "Before & After"
+    var pairs = document.querySelectorAll(".beforeafterstage .beforeafterpair");
+    if (pairs.length){
+      Array.prototype.forEach.call(pairs, function(pair){
+        var pairTitle = pair.getAttribute("datapairtitle") || "Yard Reset";
+        var beforeImg = pair.querySelector(".beforeafterbefore");
+        var afterImg = pair.querySelector(".beforeafterafter");
+        if (beforeImg){
+          list.push({
+            src: beforeImg.getAttribute("src"),
+            thumb: beforeImg.getAttribute("src"),
+            alt: beforeImg.getAttribute("alt") || (pairTitle + " Before"),
+            title: pairTitle + " (Before)",
+            sub: "Before & After"
+          });
+        }
+        if (afterImg){
+          list.push({
+            src: afterImg.getAttribute("src"),
+            thumb: afterImg.getAttribute("src"),
+            alt: afterImg.getAttribute("alt") || (pairTitle + " After"),
+            title: pairTitle + " (After)",
+            sub: "Before & After"
+          });
+        }
       });
-    }
-    if (afterImg){
-      list.push({
-        src: afterImg.getAttribute("src"),
-        thumb: afterImg.getAttribute("src"),
-        alt: afterImg.getAttribute("alt") || "Yard Reset After",
-        title: "Yard Reset (After)",
-        sub: "Before & After"
-      });
+    } else {
+      var beforeImg = document.querySelector(".beforeafterstage .beforeafterbefore");
+      var afterImg = document.querySelector(".beforeafterstage .beforeafterafter");
+      if (beforeImg){
+        list.push({
+          src: beforeImg.getAttribute("src"),
+          thumb: beforeImg.getAttribute("src"),
+          alt: beforeImg.getAttribute("alt") || "Yard Reset Before",
+          title: "Yard Reset (Before)",
+          sub: "Before & After"
+        });
+      }
+      if (afterImg){
+        list.push({
+          src: afterImg.getAttribute("src"),
+          thumb: afterImg.getAttribute("src"),
+          alt: afterImg.getAttribute("alt") || "Yard Reset After",
+          title: "Yard Reset (After)",
+          sub: "Before & After"
+        });
+      }
     }
 
     return list;

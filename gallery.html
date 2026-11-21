@@ -26,7 +26,7 @@
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
   <link rel="preload" as="image" href="gallery/beforeandafterphotos/lawnresetafter.jpg">
   <link rel="preload" as="image" href="gallery/beforeandafterphotos/lawnresetbefore.jpg">
-  <link rel="stylesheet" href="css/styles.css?v=169">
+  <link rel="stylesheet" href="css/styles.css?v=171">
 </head>
 <body>
 
@@ -84,9 +84,25 @@
     <div class="beforeaftercard">
       <div class="beforeafterslider" id="beforeAfterSlider">
         <div class="beforeafterstage" id="beforeAfterStage">
-          <img class="beforeafterimg beforeafterafter" src="gallery/beforeandafterphotos/lawnresetafter.jpg" alt="After: Cleanly mowed lawn, trimmed hedges and weeded garden beds in Adelaide" width="1200" height="896" loading="eager" fetchpriority="high" decoding="async">
-          <div class="beforeafterclip">
-            <img class="beforeafterimg beforeafterbefore" src="gallery/beforeandafterphotos/lawnresetbefore.jpg" alt="Before: Overgrown grass and tall weeds before maintenance" width="1200" height="896" loading="eager" fetchpriority="high" decoding="async">
+          <div class="beforeafterpair isactive" datapairtitle="Yard Reset">
+            <img class="beforeafterimg beforeafterafter" src="gallery/beforeandafterphotos/lawnresetafter.jpg" alt="After: Cleanly mowed lawn, trimmed hedges and weeded garden beds in Adelaide" width="1200" height="896" loading="eager" fetchpriority="high" decoding="async">
+            <div class="beforeafterclip">
+              <img class="beforeafterimg beforeafterbefore" src="gallery/beforeandafterphotos/lawnresetbefore.jpg" alt="Before: Overgrown grass and tall weeds before maintenance" width="1200" height="896" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+          </div>
+
+          <div class="beforeafterpair" datapairtitle="Hedge &amp; Lawn Tidy">
+            <img class="beforeafterimg beforeafterafter" src="gallery/beforeandafterphotos/hedgeresetafter.jpg" alt="After: Crisp trimmed driveway hedge, fresh mulch border and edged front lawn in Adelaide" width="1200" height="896" loading="eager" decoding="async">
+            <div class="beforeafterclip">
+              <img class="beforeafterimg beforeafterbefore" src="gallery/beforeandafterphotos/hedgeresetbefore.jpg" alt="Before: Overgrown hedge spilling over driveway and untidy front lawn" width="1200" height="896" loading="eager" decoding="async">
+            </div>
+          </div>
+
+          <div class="beforeafterpair" datapairtitle="Garden Bed &amp; Mulch">
+            <img class="beforeafterimg beforeafterafter" src="gallery/beforeandafterphotos/bedresetafter.jpg" alt="After: Weeded garden bed with dark bark mulch, pruned shrubs and fresh mowed lawn" width="1200" height="896" loading="eager" decoding="async">
+            <div class="beforeafterclip">
+              <img class="beforeafterimg beforeafterbefore" src="gallery/beforeandafterphotos/bedresetbefore.jpg" alt="Before: Weed filled garden bed with dead leaves and unmowed grass" width="1200" height="896" loading="eager" decoding="async">
+            </div>
           </div>
 
           <div class="beforeafterdivider" aria-hidden="true">
@@ -102,6 +118,7 @@
           <span class="afterbadge" aria-hidden="true">After &middot; Full reset</span>
 
           <input type="range" class="beforeafterrange" id="beforeAfterRange" min="0" max="100" value="50" step="0.5" aria-label="Before and after comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <div class="beforeafterprogress" aria-hidden="true"><div class="beforeafterprogressfill"></div></div>
         </div>
 
         <div class="beforeaftertoolbar">
@@ -110,7 +127,7 @@
             <button type="button" class="beforeafterbtn isactive" datapercent="50">50 / 50 Split</button>
             <button type="button" class="beforeafterbtn" datapercent="0">Show After</button>
           </div>
-          <p class="beforeafterhint">Drag anywhere on the photo or tap a view</p>
+          <div class="beforeafterdots" role="tablist" aria-label="Before and after examples"></div>
         </div>
       </div>
     </div>
@@ -216,13 +233,13 @@
     </form>
   </div>
 
-<script src="js/script.js?v=167"></script>
-<script src="js/emailwindow.js?v=167"></script>
-<script src="js/gallerypreload.js?v=167"></script>
-<script src="js/gallery.js?v=167"></script>
-<script src="js/previewwindow.js?v=167"></script>
-<script src="js/beforeafter.js?v=167"></script>
-<script src="js/testimonials.js?v=167"></script>
-<script src="js/transitions.js?v=167"></script>
+<script src="js/script.js?v=171"></script>
+<script src="js/emailwindow.js?v=171"></script>
+<script src="js/gallerypreload.js?v=171"></script>
+<script src="js/gallery.js?v=171"></script>
+<script src="js/previewwindow.js?v=171"></script>
+<script src="js/beforeafter.js?v=172"></script>
+<script src="js/testimonials.js?v=171"></script>
+<script src="js/transitions.js?v=171"></script>
 </body>
 </html>

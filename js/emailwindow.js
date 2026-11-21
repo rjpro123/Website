@@ -24,20 +24,29 @@
 
     function openWin(){
       win.classList.add("isopen");
+      win.setAttribute("aria-hidden", "false");
       btn.setAttribute("aria-expanded", "true");
       var firstInput = win.querySelector("input:not([type='hidden']):not(.hp)");
-      if (firstInput) firstInput.focus();
+      if (firstInput){
+        requestAnimationFrame(function(){
+          try { firstInput.focus({ preventScroll: true }); } catch (err) { firstInput.focus(); }
+        });
+      }
     }
 
     function closeWin(restoreFocus){
       win.classList.remove("isopen");
+      win.setAttribute("aria-hidden", "true");
       if (!isMobile()) btn.setAttribute("aria-expanded", "false");
-      if (restoreFocus) btn.focus();
+      if (restoreFocus){
+        try { btn.focus({ preventScroll: true }); } catch (err) { btn.focus(); }
+      }
     }
 
     function syncMode(){
       if (isMobile()){
         win.classList.remove("isopen");
+        win.setAttribute("aria-hidden", "true");
         btn.removeAttribute("aria-expanded");
         if (inFrame){
           btn.setAttribute("target", "_blank");
@@ -47,7 +56,9 @@
           btn.removeAttribute("rel");
         }
       } else {
-        btn.setAttribute("aria-expanded", win.classList.contains("isopen") ? "true" : "false");
+        var open = win.classList.contains("isopen");
+        win.setAttribute("aria-hidden", open ? "false" : "true");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
         btn.removeAttribute("target");
         btn.removeAttribute("rel");
       }
