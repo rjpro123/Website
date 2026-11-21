@@ -88,21 +88,31 @@
     <a class="btnsubmit" href="index.html">Get a Quote</a>
   </div>
 
-  <section class="testimonialsection" aria-label="Customer reviews">
+  <section class="testimonialsection" aria-label="Customer reviews" aria-roledescription="carousel">
     <h2 class="testimonialheading">What Customers Say</h2>
-    <div class="testimonialgrid">
-      <div class="testimonialcard">
-        <p class="testimonialtext">Patrick turned up on time, did a great job on the lawns and hedging, and left everything tidy. Will use again.</p>
-        <p class="testimonialname">Sarah M, Marion</p>
+    <div class="testimonialslider">
+      <div class="testimonialviewport">
+        <div class="testimonialtrack">
+          <article class="testimonialcard">
+            <p class="testimonialtext">Patrick turned up on time, did a great job on the lawns and hedging, and left everything tidy. Will use again.</p>
+            <p class="testimonialname">Sarah M, Marion</p>
+          </article>
+          <article class="testimonialcard">
+            <p class="testimonialtext">Quick quote, fair price, and the garden looks a hundred times better. Highly recommend.</p>
+            <p class="testimonialname">David K, Glenelg</p>
+          </article>
+          <article class="testimonialcard">
+            <p class="testimonialtext">Reliable, friendly, and they actually show up when they say they will. Hard to find that these days.</p>
+            <p class="testimonialname">Lisa T, Brighton</p>
+          </article>
+        </div>
       </div>
-      <div class="testimonialcard">
-        <p class="testimonialtext">Quick quote, fair price, and the garden looks a hundred times better. Highly recommend.</p>
-        <p class="testimonialname">David K, Glenelg</p>
+      <div class="testimonialcontrols">
+        <button type="button" class="testimonialnav testimonialprev" aria-label="Previous review">&#8249;</button>
+        <div class="testimonialdots" aria-label="Choose a review"></div>
+        <button type="button" class="testimonialnav testimonialnext" aria-label="Next review">&#8250;</button>
       </div>
-      <div class="testimonialcard">
-        <p class="testimonialtext">Reliable, friendly, and they actually show up when they say they will. Hard to find that these days.</p>
-        <p class="testimonialname">Lisa T, Brighton</p>
-      </div>
+      <p class="testimonialstatus" aria-live="polite"></p>
     </div>
   </section>
 
@@ -161,7 +171,7 @@
       <span class="emailtitle">Quick Message</span>
       <button type="button" class="emailclose" id="emailClose" aria-label="Close">&times;</button>
     </div>
-    <form class="emailform" action="https://formsubmit.co/rileyhutchins12@gmail.com" method="POST">
+    <form class="emailform" action="https://formsubmit.co/7178a5f9a528161930af43634bad8f39" method="POST">
       <input type="hidden" name="_subject" value="Quick message from website">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -177,6 +187,7 @@
 <script src="js/script.js?v=151"></script>
 <script src="js/emailwindow.js?v=151"></script>
 <script src="js/gallery.js?v=151"></script>
+<script src="js/testimonials.js?v=152"></script>
 <script src="js/transitions.js?v=151"></script>
 </body>
 </html>

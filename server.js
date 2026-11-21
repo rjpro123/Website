@@ -14,7 +14,6 @@ const BLOCKED_PATHS = new Set([
   '/readme.md',
   '/package.json',
   '/package-lock.json',
-  '/bun.lock',
   '/metadata.json',
   '/server.js',
   '/.gitignore',

@@ -1,0 +1,24 @@
+node_modules/
+dist/
+build/
+.env
+*.local
+.DS_Store
+Thumbs.db
+
+# Backups stay local only - never push to GitHub
+backup_before_cleanup/
+backup_before_cleanup.zip
+*.zip
+
+# Backup folder is pushed to GitHub, but its nested .git is not
+# (otherwise git treats it as an embedded repo / broken submodule).
+backup/.git/
+
+# Raw photo uploads (optimised copies live in gallery/)
+Files/Gallery Imgaes/
+
+# Backup folders (all)
+backup_*/
+# Backup folder
+backups/

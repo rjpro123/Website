@@ -76,42 +76,45 @@
 
   function setZoom(f, cx, cy){
     measure();
-    var px = cx - base.left, py = cy - base.top;
+    if (!base.w || !base.h) return;
+    var prevFactor = factor;
+    var imgX = (cx - base.left - tx) / prevFactor;
+    var imgY = (cy - base.top - ty) / prevFactor;
     factor = Math.max(1, Math.min(MAXZOOM, f));
-    tx = cx - base.left - px * factor;
-    ty = cy - base.top - py * factor;
+    if (factor <= 1.02){
+      zoomOut();
+      return;
+    }
+    tx = cx - base.left - imgX * factor;
+    ty = cy - base.top - imgY * factor;
     clamp();
     paint();
-    var zoomed = factor > 1.02;
-    stage.classList.toggle("iszoomed", zoomed);
-    lbImg.classList.toggle("iszoomed", zoomed);
-    lb.classList.toggle("iszoomed", zoomed);
+    stage.classList.add("iszoomed");
     if (lbZoom){
-      lbZoom.hidden = !zoomed;
+      lbZoom.hidden = false;
       lbZoom.textContent = factor.toFixed(1) + "x";
     }
     if (btnIn) btnIn.disabled = factor >= MAXZOOM;
-    if (btnOut) btnOut.disabled = factor <= 1.02;
+    if (btnOut) btnOut.disabled = false;
+    if (btnReset) btnReset.disabled = false;
     if (lbHint){
-      if (zoomed){
-        lbHint.textContent = "Drag to move around \u00b7 click to zoom out";
-        lbHint.classList.remove("isfade");
-      } else {
-        lbHint.textContent = "Click the photo to zoom \u00b7 drag to move around";
-        lbHint.classList.add("isfade");
-      }
+      lbHint.textContent = "Drag to move around \u00b7 click to zoom out";
+      lbHint.classList.remove("isfade");
     }
   }
 
   function zoomOut(){
-    factor = 1; tx = 0; ty = 0;
+    factor = 1; tx = 0; ty = 0; moved = false;
     stage.classList.remove("iszoomed");
-    lbImg.classList.remove("iszoomed");
-    lb.classList.remove("iszoomed");
     lbImg.style.transform = "none";
     if (lbZoom){ lbZoom.hidden = true; lbZoom.textContent = "1x"; }
     if (btnIn) btnIn.disabled = false;
     if (btnOut) btnOut.disabled = true;
+    if (btnReset) btnReset.disabled = true;
+    if (lbHint){
+      lbHint.textContent = "Click the photo to zoom \u00b7 drag to move around";
+      lbHint.classList.add("isfade");
+    }
   }
 
   function render(){
@@ -176,7 +179,7 @@
   function prev(){ index = (index - 1 + photos.length) % photos.length; render(); }
 
   window.addEventListener("resize", function(){
-    if (lb.hidden) return;
+    if (lb.hidden || factor <= 1.02) return;
     measure();
     clamp();
     paint();
@@ -257,10 +260,12 @@
   stage.addEventListener("click", function(e){
     anchor = { x: e.clientX, y: e.clientY };
     if (factor > 1.02){
-      if (moved) return;
+      if (moved){ moved = false; return; }
       zoomOut();
     } else if (e.target === lbImg){
-      setZoom(2.2, e.clientX, e.clientY);
+      if (lbImg.complete && lbImg.naturalWidth > 0){
+        setZoom(2.2, e.clientX, e.clientY);
+      }
     } else {
       close();
     }
@@ -318,9 +323,12 @@
   });
 
   var x0 = null;
-  stage.addEventListener("touchstart", function(e){ x0 = e.changedTouches[0].clientX; }, { passive: true });
+  stage.addEventListener("touchstart", function(e){
+    if (e.touches && e.touches.length > 1){ x0 = null; return; }
+    x0 = e.changedTouches[0].clientX;
+  }, { passive: true });
   stage.addEventListener("touchend", function(e){
-    if (x0 === null || factor > 1.02){ x0 = null; return; }
+    if (x0 === null || factor > 1.02 || (e.changedTouches && e.changedTouches.length !== 1)){ x0 = null; return; }
     var dx = e.changedTouches[0].clientX - x0;
     if (Math.abs(dx) > 60){ if (dx > 0) prev(); else next(); }
     x0 = null;

@@ -153,10 +153,12 @@
     var fallbackCopy = function(text){
       var ta = document.createElement("textarea");
       ta.value = text;
+      ta.readOnly = true;
       ta.style.position = "fixed";
       ta.style.opacity = "0";
       document.body.appendChild(ta);
       ta.select();
+      try { ta.setSelectionRange(0, text.length); } catch (err) {}
       try { document.execCommand("copy"); } catch (err) {}
       document.body.removeChild(ta);
     };
@@ -193,6 +195,9 @@
 
   var queue = [];
   var objectUrls = [];
+  var activeBatches = 0;
+  var pendingFiles = 0;
+  var inFlightKeys = {};
   var processing = false;
 
   function showError(msgText){
@@ -301,7 +306,10 @@
     });
 
     if (statusEl){
-      if (queue.length){
+      if (processing){
+        statusEl.textContent = "Preparing photos...";
+        statusEl.hidden = false;
+      } else if (queue.length){
         statusEl.textContent = queue.length + " of " + MAX_FILES + " photo" + (queue.length === 1 ? "" : "s") + " \u00b7 " + formatSize(total) + " of 10 MB";
         statusEl.hidden = false;
       } else {
@@ -388,14 +396,14 @@
         return;
       }
       var key = fileKey(f);
-      var duplicate = queue.some(function(existing){
+      var duplicate = !!inFlightKeys[key] || queue.some(function(existing){
         return existing._origKey === key || fileKey(existing) === key;
       }) || candidates.some(function(c){
         return fileKey(c) === key;
       });
       if (duplicate) return;
 
-      if (queue.length + candidates.length >= MAX_FILES){
+      if (queue.length + pendingFiles + candidates.length >= MAX_FILES){
         skipped += 1;
         return;
       }
@@ -411,12 +419,17 @@
       return;
     }
 
+    activeBatches += 1;
+    pendingFiles += candidates.length;
     processing = true;
+    candidates.forEach(function(f){ inFlightKeys[fileKey(f)] = true; });
+
     if (statusEl){
       statusEl.textContent = "Preparing photos...";
       statusEl.hidden = false;
     }
 
+    var batchKeys = candidates.map(fileKey);
     Promise.all(candidates.map(function(orig){
       var key = fileKey(orig);
       return compressImage(orig).then(function(out){
@@ -427,12 +440,21 @@
       processed.forEach(function(f){
         if (queue.length < MAX_FILES) queue.push(f);
       });
-      processing = false;
+      batchKeys.forEach(function(k){ delete inFlightKeys[k]; });
+      pendingFiles = Math.max(0, pendingFiles - candidates.length);
+      activeBatches = Math.max(0, activeBatches - 1);
+      processing = activeBatches > 0;
       syncInput();
       var notice = "";
       if (rejectedType > 0) notice = "Only image files were added (non image files skipped).";
       else if (skipped > 0) notice = "You can attach up to " + MAX_FILES + " photos. Extra photos were skipped.";
       renderQueue(notice);
+    }).catch(function(){
+      batchKeys.forEach(function(k){ delete inFlightKeys[k]; });
+      pendingFiles = Math.max(0, pendingFiles - candidates.length);
+      activeBatches = Math.max(0, activeBatches - 1);
+      processing = activeBatches > 0;
+      renderQueue("Could not process one of the selected photos. Please try again.");
     });
   }
 
