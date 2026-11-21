@@ -20,9 +20,6 @@
   function initSlider(slider){
     var stage = slider.querySelector(".beforeafterstage");
     var range = slider.querySelector(".beforeafterrange");
-    var buttons = Array.prototype.slice.call(slider.querySelectorAll(".beforeafterbtn"));
-    var beforeBadge = slider.querySelector(".beforebadge");
-    var afterBadge = slider.querySelector(".afterbadge");
     var pairs = Array.prototype.slice.call(slider.querySelectorAll(".beforeafterpair"));
     var dotsWrap = slider.querySelector(".beforeafterdots");
     var progressEl = slider.querySelector(".beforeafterprogressfill");
@@ -30,7 +27,6 @@
 
     var currentPercent = clamp(range.value || 50);
     var dragging = false;
-    var animFrame = null;
     var pairIndex = 0;
     var prevPairIndex = -1;
     var pairTimer = null;
@@ -41,44 +37,6 @@
       slider.style.setProperty("--split", currentPercent.toFixed(1) + "%");
       range.value = currentPercent;
       range.setAttribute("aria-valuenow", Math.round(currentPercent));
-
-      if (beforeBadge){
-        beforeBadge.style.opacity = currentPercent <= 5 ? "0" : "1";
-      }
-      if (afterBadge){
-        afterBadge.style.opacity = currentPercent >= 95 ? "0" : "1";
-      }
-
-      buttons.forEach(function(btn){
-        var target = Number(btn.getAttribute("datapercent"));
-        var match = Math.abs(target - currentPercent) < 2.5;
-        btn.classList.toggle("isactive", match);
-        btn.setAttribute("aria-pressed", match ? "true" : "false");
-      });
-    }
-
-    function smoothTo(targetPercent){
-      if (animFrame) cancelAnimationFrame(animFrame);
-      var start = currentPercent;
-      var target = clamp(targetPercent);
-      var startTime = null;
-      var duration = 280;
-
-      function step(now){
-        if (!startTime) startTime = now;
-        var elapsed = now - startTime;
-        var progress = Math.min(1, elapsed / duration);
-        var ease = 1 - Math.pow(1 - progress, 3);
-        var val = start + (target - start) * ease;
-        applyPercent(val);
-        if (progress < 1){
-          animFrame = requestAnimationFrame(step);
-        } else {
-          animFrame = null;
-          applyPercent(target);
-        }
-      }
-      animFrame = requestAnimationFrame(step);
     }
 
     function resetProgress(animate){
@@ -176,14 +134,6 @@
 
     range.addEventListener("change", function(){
       applyPercent(range.value);
-    });
-
-    buttons.forEach(function(btn){
-      btn.addEventListener("click", function(e){
-        if (e.detail > 0 && btn.blur) btn.blur();
-        var target = Number(btn.getAttribute("datapercent"));
-        if (!isNaN(target)) smoothTo(target);
-      });
     });
 
     function percentFromEvent(e){

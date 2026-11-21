@@ -7,5 +7,4 @@ build/
 Thumbs.db
 *.zip
 .playwright-cli/
-backup/.git/
 bun.lock
