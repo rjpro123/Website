@@ -28,8 +28,6 @@ app.use((req, res, next) => {
   const p = req.path.toLowerCase();
   if (
     p.startsWith('/.') ||
-    p === '/backup' ||
-    p.startsWith('/backup/') ||
     p === '/public' ||
     p.startsWith('/public/') ||
     BLOCKED_PATHS.has(p)

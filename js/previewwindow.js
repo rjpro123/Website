@@ -70,64 +70,19 @@
   ];
 
   function collectPhotos(){
-    var list = [];
-
-    var gridItems = document.querySelectorAll(".gallerygrid .gitem");
-    if (gridItems.length){
-      Array.prototype.forEach.call(gridItems, function(item){
-        var img = item.querySelector(".gframe img");
-        if (!img) return;
-        var cap = item.querySelector("figcaption");
-        var strong = cap ? cap.querySelector("strong") : null;
-        var sub = cap ? cap.querySelector("span") : null;
-        list.push({
-          src: img.getAttribute("data-full") || img.getAttribute("src"),
-          thumb: img.getAttribute("src"),
-          alt: img.getAttribute("alt") || (strong ? strong.textContent : ""),
-          title: strong ? strong.textContent : "Gallery photo",
-          sub: sub ? sub.textContent : ""
-        });
-      });
-    } else {
-      GALLERY_PHOTOS.forEach(function(item){
-        list.push(item);
-      });
-    }
+    var list = GALLERY_PHOTOS.slice();
 
     var pairs = document.querySelectorAll(".beforeafterstage .beforeafterpair");
-    if (pairs.length){
-      Array.prototype.forEach.call(pairs, function(pair){
-        var pairTitle = pair.getAttribute("datapairtitle") || "Yard Reset";
-        var beforeImg = pair.querySelector(".beforeafterbefore");
-        var afterImg = pair.querySelector(".beforeafterafter");
-        if (beforeImg){
-          list.push({
-            src: beforeImg.getAttribute("src"),
-            thumb: beforeImg.getAttribute("src"),
-            alt: beforeImg.getAttribute("alt") || (pairTitle + " Before"),
-            title: pairTitle + " (Before)",
-            sub: "Before & After"
-          });
-        }
-        if (afterImg){
-          list.push({
-            src: afterImg.getAttribute("src"),
-            thumb: afterImg.getAttribute("src"),
-            alt: afterImg.getAttribute("alt") || (pairTitle + " After"),
-            title: pairTitle + " (After)",
-            sub: "Before & After"
-          });
-        }
-      });
-    } else {
-      var beforeImg = document.querySelector(".beforeafterstage .beforeafterbefore");
-      var afterImg = document.querySelector(".beforeafterstage .beforeafterafter");
+    Array.prototype.forEach.call(pairs, function(pair){
+      var pairTitle = pair.getAttribute("datapairtitle") || "Yard Reset";
+      var beforeImg = pair.querySelector(".beforeafterbefore");
+      var afterImg = pair.querySelector(".beforeafterafter");
       if (beforeImg){
         list.push({
           src: beforeImg.getAttribute("src"),
           thumb: beforeImg.getAttribute("src"),
-          alt: beforeImg.getAttribute("alt") || "Yard Reset Before",
-          title: "Yard Reset (Before)",
+          alt: beforeImg.getAttribute("alt") || (pairTitle + " Before"),
+          title: pairTitle + " (Before)",
           sub: "Before & After"
         });
       }
@@ -135,12 +90,12 @@
         list.push({
           src: afterImg.getAttribute("src"),
           thumb: afterImg.getAttribute("src"),
-          alt: afterImg.getAttribute("alt") || "Yard Reset After",
-          title: "Yard Reset (After)",
+          alt: afterImg.getAttribute("alt") || (pairTitle + " After"),
+          title: pairTitle + " (After)",
           sub: "Before & After"
         });
       }
-    }
+    });
 
     return list;
   }

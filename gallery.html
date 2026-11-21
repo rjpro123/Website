@@ -26,7 +26,7 @@
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
   <link rel="preload" as="image" href="gallery/beforeandafterphotos/lawnresetafter.jpg">
   <link rel="preload" as="image" href="gallery/beforeandafterphotos/lawnresetbefore.jpg">
-  <link rel="stylesheet" href="css/styles.css?v=171">
+  <link rel="stylesheet" href="css/styles.css?v=174">
 </head>
 <body>
 
@@ -59,7 +59,7 @@
       <div class="showoverlaytop">
         <div class="showtitlewrap">
           <h2 class="showtitle">All Photos</h2>
-          <span class="showcount" id="showCount">1 of 7</span>
+          <span class="showcount" id="showCount">1 of 11</span>
         </div>
         <button type="button" class="showplaybtn" id="showPlayBtn" aria-pressed="false" aria-label="Stop playing slideshow">
           <svg class="showiconpause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
@@ -82,8 +82,8 @@
 
   <section class="beforeaftersection" aria-label="Before and after transformation">
     <div class="beforeaftercard">
-      <div class="beforeafterslider" id="beforeAfterSlider">
-        <div class="beforeafterstage" id="beforeAfterStage">
+      <div class="beforeafterslider">
+        <div class="beforeafterstage">
           <div class="beforeafterpair isactive" datapairtitle="Yard Reset">
             <img class="beforeafterimg beforeafterafter" src="gallery/beforeandafterphotos/lawnresetafter.jpg" alt="After: Cleanly mowed lawn, trimmed hedges and weeded garden beds in Adelaide" width="1200" height="896" loading="eager" fetchpriority="high" decoding="async">
             <div class="beforeafterclip">
@@ -117,7 +117,7 @@
           <span class="beforebadge" aria-hidden="true">Before &middot; Overgrown</span>
           <span class="afterbadge" aria-hidden="true">After &middot; Full reset</span>
 
-          <input type="range" class="beforeafterrange" id="beforeAfterRange" min="0" max="100" value="50" step="0.5" aria-label="Before and after comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <input type="range" class="beforeafterrange" min="0" max="100" value="50" step="0.5" aria-label="Before and after comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
           <div class="beforeafterprogress" aria-hidden="true"><div class="beforeafterprogressfill"></div></div>
         </div>
 
@@ -183,32 +183,6 @@
 
 </main>
 
-<!-- ---------- Photo viewer ---------- -->
-<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <div class="lbbackdrop" data-lbclose></div>
-  <div class="lbtop">
-    <div class="lbleft">
-      <span class="lbcount" id="lbcount">1 of 1</span>
-      <span class="lbzoom" id="lbzoom" hidden>2.2x</span>
-    </div>
-    <button type="button" class="lbclose" data-lbclose aria-label="Close photo viewer">&times;</button>
-  </div>
-  <button type="button" class="lbnav lbprev" aria-label="Previous photo">&#8249;</button>
-  <div class="lbstage" id="lbstage">
-    <img id="lbimage" src="" alt="">
-    <div class="lbloader" id="lbloader" hidden><span class="lbring"></span></div>
-    <p class="lbhint" id="lbhint">Click the photo to zoom &middot; drag to move around</p>
-    <div class="lbzoomctl">
-      <button type="button" class="lbmbtn" id="lbzoomin" aria-label="Zoom in">&#43;</button>
-      <button type="button" class="lbmbtn" id="lbzoomout" aria-label="Zoom out">&minus;</button>
-      <button type="button" class="lbmbtn lbmfit" id="lbzoomreset" aria-label="Fit photo to screen">1:1</button>
-    </div>
-  </div>
-  <button type="button" class="lbnav lbnext" aria-label="Next photo">&#8250;</button>
-  <p class="lbcap" id="lbcaption"></p>
-  <div class="lbthumbs" id="lbthumbs"></div>
-</div>
-
   <!-- Quick email button -->
   <a class="quickemailbtn" id="emailBtn" href="mailto:rileyhutchins12@gmail.com?subject=Quick%20message%20from%20website" target="_blank" rel="noopener noreferrer" aria-label="Send us an email">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -233,13 +207,12 @@
     </form>
   </div>
 
-<script src="js/script.js?v=171"></script>
-<script src="js/emailwindow.js?v=171"></script>
-<script src="js/gallerypreload.js?v=171"></script>
-<script src="js/gallery.js?v=171"></script>
-<script src="js/previewwindow.js?v=171"></script>
-<script src="js/beforeafter.js?v=172"></script>
-<script src="js/testimonials.js?v=171"></script>
-<script src="js/transitions.js?v=171"></script>
+<script src="js/script.js?v=174"></script>
+<script src="js/emailwindow.js?v=174"></script>
+<script src="js/gallerypreload.js?v=174"></script>
+<script src="js/previewwindow.js?v=174"></script>
+<script src="js/beforeafter.js?v=174"></script>
+<script src="js/testimonials.js?v=174"></script>
+<script src="js/transitions.js?v=174"></script>
 </body>
 </html>

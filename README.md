@@ -1,6 +1,6 @@
 # Souwest Lawn & Garden Service
 
-Website for Souwest Lawn & Garden Service (Adelaide, SA) featuring a quote enquiry form with automatic photo resizing, services breakdown, photo gallery with lightbox and customer review slider, team page, and quick message popup.
+Website for Souwest Lawn & Garden Service (Adelaide, SA) featuring a quote enquiry form with automatic photo compression and preview thumbnails, services breakdown, gallery slideshow, interactive before & after comparison slider, customer review carousel, team page, and quick message popup.
 
 ## Local Development
 
@@ -17,21 +17,19 @@ Runs on `http://localhost:3000`.
 .
 ├── index.html          # Quote request page with option chips & photo upload
 ├── services.html       # Services & FAQ page
-├── gallery.html        # Photo gallery, lightbox & testimonial slider
+├── gallery.html        # Photo slideshow, before & after comparison & review slider
 ├── staff.html          # Team profiles
 ├── thanks.html         # Submission confirmation page
 ├── 404.html            # Custom 404 page
 ├── css/
-│   └── styles.css      # Site theme, layout, carousel & responsive styles
+│   └── styles.css      # Site theme, layout, slideshow & responsive styles
 ├── js/
 │   ├── script.js          # Footer year, active nav, FormSubmit redirect & thanks countdown
-│   ├── email.js           # Quote chips, suburb pills & client-side photo compression
-│   ├── emailwindow.js     # Quick message floating widget
-│   ├── gallery.js         # Full-screen photo lightbox with zoom, pan & swipe
-│   ├── gallerypreload.js  # Background image preloader, decode & hover prefetch
-│   ├── preloadplanner.js  # Pure helpers for image preload ordering & deduplication
-│   ├── beforeafter.js     # Interactive Before & After comparison slider
-│   ├── beforeaftermath.js # Math helpers for comparison split
+│   ├── email.js           # Quote chips, suburb pills & client-side photo compression/preview
+│   ├── emailwindow.js     # Quick message floating popup (desktop)
+│   ├── gallerypreload.js  # Image preloader & async decode helper
+│   ├── previewwindow.js   # Smooth crossfade photo slideshow with touch & hover controls
+│   ├── beforeafter.js     # Interactive Before & After slider with 5s smooth auto-cycling
 │   ├── testimonials.js    # Customer review slider with swipe, keyboard & autoplay
 │   └── transitions.js     # Smooth page transition overlay
 ├── assets/
@@ -40,15 +38,14 @@ Runs on `http://localhost:3000`.
 │   └── riley.jpg          # Team photo
 ├── gallery/
 │   ├── beforeandafterphotos/
-│   │   ├── lawnresetafter.jpg
-│   │   └── lawnresetbefore.jpg
+│   │   ├── lawnresetbefore.jpg / lawnresetafter.jpg
+│   │   ├── hedgeresetbefore.jpg / hedgeresetafter.jpg
+│   │   └── bedresetbefore.jpg / bedresetafter.jpg
 │   ├── adelaidelawn.jpg
 │   ├── brightonbed.jpg
 │   ├── gardencleanup.jpg
 │   ├── hutchman.jpg
-│   ├── stirlinghedge.jpg
-│   └── README.txt
-├── backup/             # Timestamped site snapshots (blocked from web serving)
+│   └── stirlinghedge.jpg
 ├── server.js           # Express static server for local & preview hosting
 ├── robots.txt
 ├── sitemap.xml
