@@ -128,7 +128,7 @@ body.leaving > header,body.leaving > main{
 .heroactions .btnprimary,.heroactions .btnsubmit{width:auto;padding:14px 30px;display:inline-flex;align-items:center;justify-content:center}
 
 /* ---------- Forms & photo upload ---------- */
-.mailwrap{max-width:min(620px,100%);margin-inline:auto}
+.mailwrap{max-width:min(620px,100%);margin:22px auto 0}
 .mailform{background:var(--surface);border-radius:20px;padding:22px 18px;scroll-margin-top:16px}
 .mailform h2{font-family:var(--head);font-size:1.05rem;color:#D6F5DC;margin-bottom:14px}
 .mailform .btnsubmit{margin-top:4px}
