@@ -28,6 +28,8 @@ Runs on `http://localhost:3000`.
 │   ├── email.js           # Quote chips, suburb pills & client-side photo compression
 │   ├── emailwindow.js     # Quick message floating widget
 │   ├── gallery.js         # Full-screen photo lightbox with zoom, pan & swipe
+│   ├── gallerypreload.js  # Background image preloader, decode & hover prefetch
+│   ├── preloadplanner.js  # Pure helpers for image preload ordering & deduplication
 │   ├── beforeafter.js     # Interactive Before & After comparison slider
 │   ├── beforeaftermath.js # Math helpers for comparison split
 │   ├── testimonials.js    # Customer review slider with swipe, keyboard & autoplay

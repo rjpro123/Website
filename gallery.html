@@ -24,7 +24,9 @@
   <meta name="twitter:title" content="Our Work | Souwest Lawn & Garden Service | Adelaide">
   <meta name="twitter:description" content="Recent lawn mowing, hedging, cleanup and turf care work by Souwest Lawn & Garden Service across Adelaide and suburbs.">
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
-  <link rel="stylesheet" href="css/styles.css?v=156">
+  <link rel="preload" as="image" href="gallery/beforeandafterphotos/lawnresetafter.jpg">
+  <link rel="preload" as="image" href="gallery/beforeandafterphotos/lawnresetbefore.jpg">
+  <link rel="stylesheet" href="css/styles.css?v=158">
 </head>
 <body>
 
@@ -59,9 +61,9 @@
 
       <div class="beforeafterslider" id="beforeAfterSlider">
         <div class="beforeafterstage" id="beforeAfterStage">
-          <img class="beforeafterimg beforeafterafter" src="gallery/beforeandafterphotos/lawnresetafter.jpg" alt="After: Cleanly mowed lawn, trimmed hedges and weeded garden beds in Adelaide" loading="lazy">
+          <img class="beforeafterimg beforeafterafter" src="gallery/beforeandafterphotos/lawnresetafter.jpg" alt="After: Cleanly mowed lawn, trimmed hedges and weeded garden beds in Adelaide" width="1200" height="896" loading="eager" fetchpriority="high" decoding="async">
           <div class="beforeafterclip">
-            <img class="beforeafterimg beforeafterbefore" src="gallery/beforeandafterphotos/lawnresetbefore.jpg" alt="Before: Overgrown grass and tall weeds before maintenance" loading="lazy">
+            <img class="beforeafterimg beforeafterbefore" src="gallery/beforeandafterphotos/lawnresetbefore.jpg" alt="Before: Overgrown grass and tall weeds before maintenance" width="1200" height="896" loading="eager" fetchpriority="high" decoding="async">
           </div>
 
           <div class="beforeafterdivider" aria-hidden="true">
@@ -95,35 +97,35 @@
 
     <figure class="gitem">
       <div class="gframe">
-        <img src="gallery/brightonbed.jpg" alt="Garden bed refresh in Brighton, SA" loading="lazy">
+        <img src="gallery/brightonbed.jpg" alt="Garden bed refresh in Brighton, SA" width="1400" height="1054" loading="eager" decoding="async">
       </div>
       <figcaption><strong>Garden bed refresh</strong><span>Brighton, SA</span></figcaption>
     </figure>
 
     <figure class="gitem">
       <div class="gframe">
-        <img src="gallery/stirlinghedge.jpg" alt="Hedge and prune in Stirling, SA" loading="lazy">
+        <img src="gallery/stirlinghedge.jpg" alt="Hedge and prune in Stirling, SA" width="1052" height="1400" loading="eager" decoding="async">
       </div>
       <figcaption><strong>Hedge &amp; prune</strong><span>Stirling, SA</span></figcaption>
     </figure>
 
     <figure class="gitem">
       <div class="gframe">
-        <img src="gallery/hutchman.jpg" alt="Hutch Man the cat resting on the office rug" width="1400" height="1050" loading="lazy">
+        <img src="gallery/hutchman.jpg" alt="Hutch Man the cat resting on the office rug" width="700" height="525" loading="eager" decoding="async">
       </div>
       <figcaption><strong>Hutch Man</strong><span>Keeping an eye on the jobs</span></figcaption>
     </figure>
 
     <figure class="gitem">
       <div class="gframe">
-        <img src="gallery/adelaidelawn.jpg" alt="Lawn mowing and garden care job in Adelaide" loading="lazy">
+        <img src="gallery/adelaidelawn.jpg" alt="Lawn mowing and garden care job in Adelaide" width="1400" height="1054" loading="lazy" decoding="async">
       </div>
       <figcaption><strong>Latest job</strong><span>Adelaide, SA</span></figcaption>
     </figure>
 
     <figure class="gitem">
       <div class="gframe">
-        <img src="gallery/gardencleanup.jpg" alt="Garden bed and potted citrus care in Adelaide" loading="lazy">
+        <img src="gallery/gardencleanup.jpg" alt="Garden bed and potted citrus care in Adelaide" width="1052" height="1400" loading="lazy" decoding="async">
       </div>
       <figcaption><strong>Garden bed care</strong><span>Adelaide, SA</span></figcaption>
     </figure>
@@ -230,11 +232,12 @@
     </form>
   </div>
 
-<script src="js/script.js?v=156"></script>
-<script src="js/emailwindow.js?v=156"></script>
-<script src="js/gallery.js?v=156"></script>
-<script src="js/beforeafter.js?v=156"></script>
-<script src="js/testimonials.js?v=156"></script>
-<script src="js/transitions.js?v=156"></script>
+<script src="js/script.js?v=158"></script>
+<script src="js/emailwindow.js?v=158"></script>
+<script src="js/gallerypreload.js?v=158"></script>
+<script src="js/gallery.js?v=158"></script>
+<script src="js/beforeafter.js?v=158"></script>
+<script src="js/testimonials.js?v=158"></script>
+<script src="js/transitions.js?v=158"></script>
 </body>
 </html>
