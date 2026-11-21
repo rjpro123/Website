@@ -26,7 +26,7 @@
   <meta name="twitter:image" content="https://rjpro123.github.io/Website/assets/logo.png">
   <link rel="preload" as="image" href="gallery/beforeandafterphotos/lawnresetafter.jpg">
   <link rel="preload" as="image" href="gallery/beforeandafterphotos/lawnresetbefore.jpg">
-  <link rel="stylesheet" href="css/styles.css?v=166">
+  <link rel="stylesheet" href="css/styles.css?v=167">
 </head>
 <body>
 
@@ -51,6 +51,34 @@
     <h1 class="pagetitle">Our Work</h1>
     <p class="pagesub">Some of the lawns, gardens and beds we have worked on around Adelaide. More as we get them done.<em><a href="index.html">Not sure who to call? Get a quote.</a></em></p>
   </div>
+
+  <section class="galleryshow" id="galleryShow" aria-label="All gallery photos slideshow">
+    <div class="showviewport" id="showViewport">
+      <div class="showtrack" id="showTrack"></div>
+
+      <div class="showoverlaytop">
+        <div class="showtitlewrap">
+          <h2 class="showtitle">All Photos</h2>
+          <span class="showcount" id="showCount">1 of 7</span>
+        </div>
+        <button type="button" class="showplaybtn" id="showPlayBtn" aria-pressed="false" aria-label="Stop playing slideshow">
+          <svg class="showiconpause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
+          <svg class="showiconplay" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7 5 19 12 7 19 7 5"></polygon></svg>
+          <span id="showPlayLabel">Stop</span>
+        </button>
+      </div>
+
+      <button type="button" class="shownav showprev" id="showPrevBtn" aria-label="Previous photo">&#8249;</button>
+      <button type="button" class="shownav shownext" id="showNextBtn" aria-label="Next photo">&#8250;</button>
+
+      <div class="showoverlaybottom">
+        <div class="showcaption" id="showCaption"></div>
+        <div class="showthumbs" id="showThumbs" role="tablist" aria-label="Choose a photo"></div>
+      </div>
+
+      <div class="showprogress" aria-hidden="true"><div class="showprogressfill" id="showProgress"></div></div>
+    </div>
+  </section>
 
   <section class="beforeaftersection" aria-label="Before and after transformation">
     <div class="beforeaftercard">
@@ -90,34 +118,6 @@
           <p class="beforeafterhint">Drag anywhere on the photo or tap a view</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="galleryshow" id="galleryShow" aria-label="All gallery photos slideshow">
-    <div class="showviewport" id="showViewport">
-      <div class="showtrack" id="showTrack"></div>
-
-      <div class="showoverlaytop">
-        <div class="showtitlewrap">
-          <h2 class="showtitle">All Photos</h2>
-          <span class="showcount" id="showCount">1 of 7</span>
-        </div>
-        <button type="button" class="showplaybtn" id="showPlayBtn" aria-pressed="false" aria-label="Stop playing slideshow">
-          <svg class="showiconpause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
-          <svg class="showiconplay" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7 5 19 12 7 19 7 5"></polygon></svg>
-          <span id="showPlayLabel">Stop</span>
-        </button>
-      </div>
-
-      <button type="button" class="shownav showprev" id="showPrevBtn" aria-label="Previous photo">&#8249;</button>
-      <button type="button" class="shownav shownext" id="showNextBtn" aria-label="Next photo">&#8250;</button>
-
-      <div class="showoverlaybottom">
-        <div class="showcaption" id="showCaption"></div>
-        <div class="showthumbs" id="showThumbs" role="tablist" aria-label="Choose a photo"></div>
-      </div>
-
-      <div class="showprogress" aria-hidden="true"><div class="showprogressfill" id="showProgress"></div></div>
     </div>
   </section>
 
@@ -221,13 +221,13 @@
     </form>
   </div>
 
-<script src="js/script.js?v=166"></script>
-<script src="js/emailwindow.js?v=166"></script>
-<script src="js/gallerypreload.js?v=166"></script>
-<script src="js/gallery.js?v=166"></script>
-<script src="js/previewwindow.js?v=166"></script>
-<script src="js/beforeafter.js?v=166"></script>
-<script src="js/testimonials.js?v=166"></script>
-<script src="js/transitions.js?v=166"></script>
+<script src="js/script.js?v=167"></script>
+<script src="js/emailwindow.js?v=167"></script>
+<script src="js/gallerypreload.js?v=167"></script>
+<script src="js/gallery.js?v=167"></script>
+<script src="js/previewwindow.js?v=167"></script>
+<script src="js/beforeafter.js?v=167"></script>
+<script src="js/testimonials.js?v=167"></script>
+<script src="js/transitions.js?v=167"></script>
 </body>
 </html>

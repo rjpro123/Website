@@ -281,7 +281,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--euc-bright);box-shado
 }
 
 /* ---------- Before & After comparison slider ---------- */
-.beforeaftersection{margin:10px 0 32px}
+.beforeaftersection{margin:20px 0 32px}
 .beforeaftercard{
   background:var(--surface);border:1px solid rgba(99,192,132,.18);
   border-radius:var(--r);padding:22px;
