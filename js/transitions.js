@@ -30,6 +30,7 @@
   }
 
   var resetTimer = null;
+  var navTimer = null;
 
   function normPath(p){
     return p.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
@@ -55,6 +56,7 @@
 
   function clearVeil(){
     navigating = false;
+    if (navTimer){ clearTimeout(navTimer); navTimer = null; }
     if (resetTimer){ clearTimeout(resetTimer); resetTimer = null; }
     document.body.classList.remove("leaving");
     if (veil) veil.classList.remove("on");
@@ -93,7 +95,8 @@
       requestAnimationFrame(function(){ v.classList.add("on"); });
     });
 
-    setTimeout(function(){
+    navTimer = setTimeout(function(){
+      navTimer = null;
       window.location.assign(url.href);
     }, reduced ? 200 : 420);
 
@@ -103,10 +106,11 @@
   document.addEventListener("click", onClick);
 
   window.addEventListener("pagehide", function(){
+    if (navTimer){ clearTimeout(navTimer); navTimer = null; }
     if (resetTimer){ clearTimeout(resetTimer); resetTimer = null; }
   });
 
-  window.addEventListener("pageshow", function(e){
-    if (e.persisted) clearVeil();
+  window.addEventListener("pageshow", function(){
+    clearVeil();
   });
 })();

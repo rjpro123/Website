@@ -89,6 +89,8 @@
       window.addEventListener("pageshow", function(){
         quickSubmit.disabled = false;
         quickSubmit.textContent = "Send";
+        closeWin(false);
+        syncMode();
       });
     }
 

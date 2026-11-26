@@ -27,6 +27,10 @@
 
     var currentPercent = clamp(range.value || 50);
     var dragging = false;
+    var pendingTouch = false;
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var activePointerId = null;
     var pairIndex = 0;
     var prevPairIndex = -1;
     var pairTimer = null;
@@ -97,6 +101,8 @@
       if (target !== pairIndex){
         prevPairIndex = pairIndex;
         pairIndex = target;
+      } else {
+        prevPairIndex = -1;
       }
       syncPairs();
       if (userAction){
@@ -148,9 +154,17 @@
 
     if (window.PointerEvent){
       stage.addEventListener("pointerdown", function(e){
+        if (dragging || pendingTouch) return;
         if (e.button !== 0 && e.pointerType === "mouse") return;
         if (e.target && e.target.closest && e.target.closest("button,a")) return;
         if (e.target === range) e.preventDefault();
+        activePointerId = e.pointerId;
+        if (e.pointerType === "touch"){
+          pendingTouch = true;
+          touchStartX = e.clientX;
+          touchStartY = e.clientY;
+          return;
+        }
         dragging = true;
         stopPairCycle();
         stage.classList.add("isdragging");
@@ -159,20 +173,56 @@
       });
 
       stage.addEventListener("pointermove", function(e){
+        if (activePointerId !== null && e.pointerId !== activePointerId) return;
+        if (pendingTouch){
+          var dx = e.clientX - touchStartX;
+          var dy = e.clientY - touchStartY;
+          if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+          if (Math.abs(dy) > Math.abs(dx)){
+            pendingTouch = false;
+            activePointerId = null;
+            return;
+          }
+          pendingTouch = false;
+          dragging = true;
+          stopPairCycle();
+          stage.classList.add("isdragging");
+          try { stage.setPointerCapture(e.pointerId); } catch (err) {}
+          applyPercent(percentFromEvent(e));
+          return;
+        }
         if (!dragging) return;
         applyPercent(percentFromEvent(e));
       });
 
       function onPointerEnd(e){
+        if (e && e.pointerId !== undefined && activePointerId !== null && e.pointerId !== activePointerId) return;
+        if (pendingTouch){
+          pendingTouch = false;
+          activePointerId = null;
+          if (e && e.type === "pointerup"){
+            applyPercent(percentFromEvent(e));
+            startPairCycle();
+          }
+          return;
+        }
         if (!dragging) return;
+        var pid = activePointerId;
         dragging = false;
+        activePointerId = null;
         stage.classList.remove("isdragging");
-        try { stage.releasePointerCapture(e.pointerId); } catch (err) {}
+        if (pid !== null){
+          try { stage.releasePointerCapture(pid); } catch (err) {}
+        }
         startPairCycle();
       }
 
       stage.addEventListener("pointerup", onPointerEnd);
       stage.addEventListener("pointercancel", onPointerEnd);
+      stage.addEventListener("lostpointercapture", onPointerEnd);
+      window.addEventListener("blur", function(){
+        if (dragging || pendingTouch) onPointerEnd();
+      });
     }
 
     document.addEventListener("visibilitychange", function(){

@@ -36,14 +36,28 @@
   var countdownEl = document.getElementById("countdown");
   if (countdownEl){
     var seconds = parseInt(countdownEl.textContent, 10) || 12;
-    var timer = setInterval(function(){
-      seconds = Math.max(0, seconds - 1);
-      countdownEl.textContent = seconds;
-      if (seconds <= 0){
-        clearInterval(timer);
-        window.location.replace("gallery.html");
+    var timer = null;
+    var startCountdown = function(){
+      if (timer) clearInterval(timer);
+      timer = setInterval(function(){
+        seconds = Math.max(0, seconds - 1);
+        countdownEl.textContent = seconds;
+        if (seconds <= 0){
+          clearInterval(timer);
+          timer = null;
+          window.location.replace("gallery.html");
+        }
+      }, 1000);
+    };
+    startCountdown();
+    window.addEventListener("pagehide", function(){
+      if (timer){ clearInterval(timer); timer = null; }
+    });
+    window.addEventListener("pageshow", function(e){
+      if (e.persisted){
+        if (seconds <= 0) window.location.replace("gallery.html");
+        else startCountdown();
       }
-    }, 1000);
-    window.addEventListener("pagehide", function(){ clearInterval(timer); });
+    });
   }
 })();

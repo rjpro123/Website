@@ -24,7 +24,7 @@
     var active = syncServicesField();
     if (!subjectInput) return;
     var current = subjectInput.value.trim();
-    var canOverwrite = !current || current === lastAutoSubject || current.indexOf("Quote for ") === 0;
+    var canOverwrite = !current || current === lastAutoSubject;
     if (!canOverwrite) return;
     if (active.length){
       lastAutoSubject = "Quote for " + active.join(", ");
@@ -32,6 +32,26 @@
     } else if (current === lastAutoSubject){
       lastAutoSubject = "";
       subjectInput.value = "";
+    }
+  }
+
+  function restoreServiceChipsFromField(){
+    if (!chipWrap || !servicesInput) return;
+    var raw = servicesInput.value.trim();
+    if (!raw) return;
+    var chosen = raw.split(",").map(function(s){ return s.trim().toLowerCase(); }).filter(Boolean);
+    Array.prototype.forEach.call(chipWrap.querySelectorAll(".svcchip"), function(btn){
+      var label = (btn.getAttribute("dataservice") || "").toLowerCase();
+      var on = !!label && chosen.indexOf(label) !== -1;
+      btn.classList.toggle("isselected", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    var active = syncServicesField();
+    if (subjectInput && active.length){
+      var autoText = "Quote for " + active.join(", ");
+      if (subjectInput.value.trim() === autoText){
+        lastAutoSubject = autoText;
+      }
     }
   }
 
@@ -55,10 +75,12 @@
     { chip: "Turf", keys: ["turf", "aeration", "overseeding"] }
   ];
 
+  var hasServiceQuery = false;
   try {
     var params = new URLSearchParams(window.location.search);
     var svc = params.get("service");
     if (svc){
+      hasServiceQuery = true;
       if (subjectInput){
         lastAutoSubject = "Quote for " + svc;
         subjectInput.value = lastAutoSubject;
@@ -84,11 +106,23 @@
     }
   } catch (e) {}
 
+  if (!hasServiceQuery) restoreServiceChipsFromField();
+
   /* ---------------- Yard size, frequency & green waste single-select chips ---------------- */
+  var singleChipSyncers = [];
   function bindSingleChipGroup(wrapId, hiddenId){
     var wrap = document.getElementById(wrapId);
     var hidden = document.getElementById(hiddenId);
     if (!wrap || !hidden) return;
+    function syncGroup(){
+      var val = hidden.value.trim().toLowerCase();
+      Array.prototype.forEach.call(wrap.querySelectorAll(".svcchip"), function(b){
+        var bVal = (b.getAttribute("datavalue") || b.textContent.trim()).toLowerCase();
+        var on = !!val && bVal === val;
+        b.classList.toggle("isselected", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    }
     wrap.addEventListener("click", function(e){
       var btn = e.target && e.target.closest ? e.target.closest(".svcchip") : null;
       if (!btn) return;
@@ -105,10 +139,13 @@
         hidden.value = btn.getAttribute("datavalue") || btn.textContent.trim();
       }
     });
+    syncGroup();
+    singleChipSyncers.push(syncGroup);
   }
   bindSingleChipGroup("sizeChips", "mailYardSize");
   bindSingleChipGroup("freqChips", "mailFrequency");
   bindSingleChipGroup("wasteChips", "mailGreenWaste");
+  bindSingleChipGroup("timingChips", "mailTiming");
 
   /* ---------------- Interactive suburb pills ---------------- */
   var areasList = document.getElementById("areasList");
@@ -116,17 +153,20 @@
   var nameInput = document.getElementById("mailName");
   var msgInput = document.getElementById("mailMessage");
   var mailFormEl = document.getElementById("mailForm");
+  var syncSuburbPills = function(){};
 
   if (areasList && suburbInput){
-    function syncSuburbPills(){
+    syncSuburbPills = function(){
       var val = suburbInput.value.trim().toLowerCase();
       Array.prototype.forEach.call(areasList.querySelectorAll(".areapill"), function(p){
         var ps = (p.getAttribute("datasuburb") || p.textContent.trim()).toLowerCase();
         p.classList.toggle("isselected", !!val && ps === val);
       });
-    }
+    };
 
     suburbInput.addEventListener("input", syncSuburbPills);
+    suburbInput.addEventListener("change", syncSuburbPills);
+    syncSuburbPills();
 
     areasList.addEventListener("click", function(e){
       var pill = e.target && e.target.closest ? e.target.closest(".areapill") : null;
@@ -136,7 +176,8 @@
       syncSuburbPills();
 
       if (mailFormEl && mailFormEl.scrollIntoView){
-        mailFormEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        var reduceScroll = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        mailFormEl.scrollIntoView({ behavior: reduceScroll ? "auto" : "smooth", block: "start" });
       }
       setTimeout(function(){
         if (nameInput && !nameInput.value.trim()) nameInput.focus({ preventScroll: true });
@@ -272,7 +313,7 @@
         box.classList.add("isbad");
       }
 
-      if (f.type && f.type.indexOf("image") === 0){
+      if (isImageFile(f)){
         var url = URL.createObjectURL(f);
         objectUrls.push(url);
         var img = document.createElement("img");
@@ -330,7 +371,7 @@
 
   function compressImage(file){
     return new Promise(function(resolve){
-      if (!file.type || file.type.indexOf("image/") !== 0 || file.type === "image/gif" || file.size < 350 * 1024){
+      if (!isImageFile(file) || file.type === "image/gif" || /\.gif$/i.test(file.name || "") || file.size < 350 * 1024){
         resolve(file);
         return;
       }
@@ -357,6 +398,8 @@
           resolve(file);
           return;
         }
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, tw, th);
         ctx.drawImage(img, 0, 0, tw, th);
 
         canvas.toBlob(function(blob){
@@ -366,7 +409,7 @@
             resolve(file);
             return;
           }
-          var baseName = file.name.replace(/\.[^.]+$/, "");
+          var baseName = (file.name || "photo").replace(/\.[^.]+$/, "") || "photo";
           var newFile = new File([blob], baseName + ".jpg", {
             type: "image/jpeg",
             lastModified: file.lastModified || Date.now()
@@ -388,7 +431,7 @@
 
   function isImageFile(f){
     if (f.type && f.type.indexOf("image/") === 0) return true;
-    return /\.(jpe?g|png|webp|gif|heic|heif|bmp)$/i.test(f.name || "");
+    return /\.(jpe?g|png|webp|gif|heic|heif|bmp|avif)$/i.test(f.name || "");
   }
 
   function addFiles(incoming){
@@ -526,7 +569,10 @@
       if (problem){
         e.preventDefault();
         showError(problem);
-        if (dropZone || input) (dropZone || input).scrollIntoView({ behavior: "smooth", block: "center" });
+        if (dropZone || input){
+          var reduceErrScroll = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          (dropZone || input).scrollIntoView({ behavior: reduceErrScroll ? "auto" : "smooth", block: "center" });
+        }
         return;
       }
       if (submitBtn){
@@ -540,6 +586,9 @@
         submitBtn.disabled = false;
         submitBtn.textContent = "Send Message";
       }
+      restoreServiceChipsFromField();
+      singleChipSyncers.forEach(function(fn){ fn(); });
+      syncSuburbPills();
     });
   }
 })();

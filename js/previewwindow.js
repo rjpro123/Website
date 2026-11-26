@@ -115,8 +115,9 @@
       img.draggable = false;
       img.src = item.src;
       img.alt = item.alt;
-      if (i === 0 && typeof img.decode === "function"){
-        img.decode().catch(function(){});
+      if (i === 0){
+        if ("fetchPriority" in img) img.fetchPriority = "high";
+        if (typeof img.decode === "function") img.decode().catch(function(){});
       }
       slide.appendChild(img);
 
@@ -230,6 +231,8 @@
     if (target !== index){
       prevIndex = index;
       index = target;
+    } else {
+      prevIndex = -1;
     }
     syncUI();
     if (userAction){
@@ -386,6 +389,10 @@
     window.addEventListener("pointercancel", function(e){
       if (!dragging || (activePointerId !== null && e.pointerId !== activePointerId)) return;
       endDrag();
+    });
+
+    window.addEventListener("blur", function(){
+      if (dragging) endDrag();
     });
   } else {
     viewport.addEventListener("touchstart", function(e){
